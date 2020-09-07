@@ -1,0 +1,209 @@
+<template>
+  <div>
+<!--- Hero Banner ---> 
+    <div class="home">
+      <AppNavBar></AppNavBar>
+      <div class="banner">
+        <div class="banner-text">
+          <h1>Welcome to BioSTEAM</h1>
+          <p>BioSTEAM is a fast and flexible package for the design, simulation, and techno-economic analysis of biorefineries under uncertainty 1. BioSTEAM’s framework is built to streamline and automate early-stage technology evaluations and to enable rigorous sensitivity and uncertainty analyses.</p>
+          <app-button type='home-hero button'>Explore More</app-button>
+        </div>
+        <img class="banner-logo" src="../assets/home-hero-logo.png" alt="">
+      </div>
+    </div>
+
+<!--- Info Cards ---> 
+    <div class="info-cards">
+      <div class="card" v-for="card in cards" :key="card.title">
+        <home-card>
+          <template #title>
+            {{card.title}}
+          </template>
+          <template #content>
+            {{card.content}}
+          </template>        
+        </home-card>
+      </div>
+    </div>
+
+<!--- Simulation Feature Info ---> 
+    <div class="sim-feature">
+      <div>
+        <img class="circle-1" src="../assets/circle1.svg">
+        <div class="container-1">          
+          <img class="screenshot" src="../assets/screenshot1.png" >
+          <div class="info-container">
+            <h2>Basic Simulation</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis ea architecto nam voluptas consectetur accusantium eos amet fugiat, nihil laborum est voluptatibus! Hic reprehenderit dolorem voluptatum consequuntur culpa cum at!</p>
+            <div>
+              <app-button type="home-card">Start Now</app-button>
+            </div>         
+          </div>
+        </div>              
+      </div>  
+      <div>
+        <img class="circle-2" src="../assets/circle2.svg">
+        <div class="container-2">
+          <div class="info-container">
+            <h2>Advanced Simulation</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis ea architecto nam voluptas consectetur accusantium eos amet fugiat, nihil laborum est voluptatibus! Hic reprehenderit dolorem voluptatum consequuntur culpa cum at!</p>
+            <div>
+              <app-button type="home-card">Start Now</app-button>        
+            </div>
+          </div>
+          <img class="screenshot" src="../assets/screenshot2.png" >
+        </div>        
+      </div>
+    </div>
+
+<!--- Logos ---> 
+    <div class="logos">
+      <p>Affiliate logos will go here</p>
+    </div>
+  </div>
+</template>
+
+
+<script>
+import AppNavBar from '@/components/AppNavBar.vue';
+import AppButton from '@/components/AppButton.vue';
+import HomeCard from '@/components/HomeCard.vue';
+
+export default {
+  name: 'Home',
+  components: {
+    'AppNavBar': AppNavBar,
+    'app-button': AppButton,
+    'home-card': HomeCard,
+  },
+  data() {
+    return{
+      cards: [
+        {title: 'About BioSTEAM', link: 'null', content: 'orem ipsum d, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur '},
+        {title: 'Guest Group', link: 'null', content: 'orem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla '},
+        {title: 'CABBI Bio', link: 'null', content: 'orem ipsum dolor sit amet, conspariatur. Excepteur sint occaecat cupidum dolor sit amet, consectetur adipiscing atat non proident, sunt in culpa '},
+      ]
+    }
+  }
+}
+</script>
+
+<style scoped>
+
+  .home {
+    background: url('../assets/home-hero-banner.svg') no-repeat;
+    background-size: cover;
+  }
+
+  .banner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 75vh;
+  }
+
+  .banner-text {
+    order: 1;
+    max-width: 50%;
+    padding: 20px;
+  }
+
+    .banner-text h1 {
+      color: #403A48;
+      padding-bottom: 15px;
+    }
+
+    .banner-text p {
+      color: #707070;
+      font-size: 12pt;
+      padding-bottom: 15px;
+    }
+
+  .banner-logo {
+    order: 2;
+    max-height: 300px;
+  }
+
+  .info-cards{
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+
+    border: 1px gray dotted;
+  }
+
+  .card {
+    display: flex;
+    padding: 20px;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    max-width: 25%;
+  }
+
+  .sim-feature {
+    position: relative;
+  }
+
+  .circle-1 {
+    position: absolute;
+    height: 600px;
+    top: 13%;
+    left: -200px;
+    z-index: -1;
+  }
+
+  .circle-2 {
+    position: absolute;
+    height: 600px;
+    top: 75%;
+    right: -200px;
+    z-index: -1;
+  }
+
+  .container-1 {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 50px;
+    padding-top: 200px;
+    padding-bottom: 200px;
+
+    border: 1px gray dotted;
+  }
+
+  .container-2 {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 50px;
+    padding-top: 200px;
+    padding-bottom: 200px;
+
+    border: 1px gray dotted;
+  }
+
+  .screenshot { 
+    height: 300px;
+    border-radius: 20px;
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
+  }
+
+  .info-container {
+    display: flex;
+    flex-direction: column;
+    height: 200px;
+    justify-content: space-around;
+    max-width: 50%;
+    padding: 15px;
+
+    border: 1px gray dotted;
+  }
+
+  .logos {
+    display: flex;
+    justify-content: center;
+    padding: 75px;
+  }
+
+</style>>
