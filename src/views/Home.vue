@@ -29,7 +29,7 @@
 
 <!--- Simulation Feature Info ---> 
     <div class="sim-feature">
-      <div>
+      <div class="section-1">
         <img class="circle-1" src="../assets/circle1.svg">
         <div class="container-1">          
           <img class="screenshot" src="../assets/screenshot1.png" >
@@ -42,7 +42,7 @@
           </div>
         </div>              
       </div>  
-      <div>
+      <div class= "section-2">
         <img class="circle-2" src="../assets/circle2.svg">
         <div class="container-2">
           <div class="info-container">
@@ -92,15 +92,19 @@ export default {
 <style scoped>
 
   .home {
+    position: relative;
     background: url('../assets/home-hero-banner.svg') no-repeat;
     background-size: cover;
+    height: 75vh;
+    padding-bottom: 25%; 
   }
 
   .banner {
+    position: absolute;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 75vh;
+    height: 75%;  
   }
 
   .banner-text {
@@ -141,23 +145,27 @@ export default {
     max-width: 25%;
   }
 
-  .sim-feature {
+  .section-1 {
+    position: relative;
+  }
+
+  .section-2 {
     position: relative;
   }
 
   .circle-1 {
     position: absolute;
-    height: 600px;
-    top: 13%;
-    left: -200px;
+    height: 700px;
+    top: 0;
+    left: -300px;
     z-index: -1;
   }
 
   .circle-2 {
     position: absolute;
-    height: 600px;
-    top: 75%;
-    right: -200px;
+    height: 700px;
+    top: 0;
+    right: -300px;
     z-index: -1;
   }
 
@@ -205,5 +213,40 @@ export default {
     justify-content: center;
     padding: 75px;
   }
+
+  /* Styling for small screens */
+
+  @media screen and (max-width: 768px) {
+    .info-cards {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border: 1px gray dotted;
+    }
+
+    .card {
+      border: 1px gray dotted;
+      min-width: 60%;
+      padding: 20px;
+    }
+
+    .container-1 {
+      display: flex;
+      flex-direction: column;
+      align-items: center;     
+      
+    }
+
+    .container-2 {
+      display: flex;
+      flex-direction: column;
+      align-items: center;     
+    }
+
+    .screenshot {
+      order: 2;
+    }
+  }
+
 
 </style>>
