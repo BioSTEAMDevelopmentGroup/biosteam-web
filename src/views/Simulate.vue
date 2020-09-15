@@ -1,6 +1,5 @@
 <template>
   <div class="simulate">
-    <AppNavBar></AppNavBar>
     <div class="container">
       <p>this is the entrypoint sim tab</p>
       <button>this is a button</button>
@@ -9,12 +8,11 @@
 </template>
 
 <script>
-import AppNavBar from '@/components/AppNavBar.vue';
 
 export default {
   name: 'Simulate',
   components: {
-    'AppNavBar': AppNavBar
+
   }
 }
 </script>

@@ -1,18 +1,30 @@
 <template>
   <div id="app">
+    <app-nav-bar v-model="navToggle" :items="items"></app-nav-bar>
     <router-view/>
-    <AppFooter></AppFooter>
+    <app-footer></app-footer>
   </div>
 </template>
 
 <script>
-//import AppNavBar from '@/components/AppNavBar.vue';
+import AppNavBar from '@/components/AppNavBar.vue';
 import AppFooter from '@/components/AppFooter.vue';
 
 export default {
   components: {
-    //'AppNavBar': AppNavBar,
-    'AppFooter': AppFooter
+    AppNavBar,
+    AppFooter,
+  },
+
+  data () {
+    return{ 
+      items: [
+        {name: 'Home', link: '/'},
+        {name: 'Simulate', link: '/simulate'},
+        {name: 'Resources', link: '/resources'},
+      ],
+      navToggle: false,
+    }
   },
 }
 </script>

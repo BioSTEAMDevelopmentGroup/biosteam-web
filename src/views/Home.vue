@@ -2,7 +2,6 @@
   <div>
 <!--- Hero Banner ---> 
     <div class="home">
-      <AppNavBar></AppNavBar>
       <div class="banner">
         <div class="banner-text">
           <h1>Welcome to BioSTEAM</h1>
@@ -66,14 +65,12 @@
 
 
 <script>
-import AppNavBar from '@/components/AppNavBar.vue';
 import AppButton from '@/components/AppButton.vue';
 import HomeCard from '@/components/HomeCard.vue';
 
 export default {
   name: 'Home',
   components: {
-    'AppNavBar': AppNavBar,
     'app-button': AppButton,
     'home-card': HomeCard,
   },
@@ -97,20 +94,23 @@ export default {
     background-size: cover;
     height: 75vh;
     padding-bottom: 25%; 
+    top: -75px;
+    z-index: -1;
   }
 
   .banner {
     position: absolute;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    height: 75%;  
+    height: 90%;  
+    padding-left: 5%;
+    padding-right: 5%;
   }
 
   .banner-text {
     order: 1;
     max-width: 50%;
-    padding: 20px;
   }
 
     .banner-text h1 {
@@ -121,20 +121,18 @@ export default {
     .banner-text p {
       color: #707070;
       font-size: 12pt;
-      padding-bottom: 15px;
+      padding-bottom: 25px;
     }
 
   .banner-logo {
     order: 2;
-    max-height: 300px;
+    max-width: 47%;
   }
 
   .info-cards{
     display: flex;
     justify-content: center;
     padding: 20px;
-
-    border: 1px gray dotted;
   }
 
   .card {
@@ -176,8 +174,6 @@ export default {
     padding: 50px;
     padding-top: 200px;
     padding-bottom: 200px;
-
-    border: 1px gray dotted;
   }
 
   .container-2 {
@@ -187,12 +183,10 @@ export default {
     padding: 50px;
     padding-top: 200px;
     padding-bottom: 200px;
-
-    border: 1px gray dotted;
   }
 
   .screenshot { 
-    height: 300px;
+    height: 350px;
     border-radius: 20px;
     box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
   }
@@ -202,10 +196,8 @@ export default {
     flex-direction: column;
     height: 200px;
     justify-content: space-around;
-    max-width: 50%;
+    max-width: 55%;
     padding: 15px;
-
-    border: 1px gray dotted;
   }
 
   .logos {
@@ -217,15 +209,38 @@ export default {
   /* Styling for small screens */
 
   @media screen and (max-width: 768px) {
+    .home {
+      height: 100vh;
+    }
+    
+    .banner {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: initial;
+    padding-top: 150px;
+    padding-bottom: 10%;
+    }
+
+    .banner-text {
+    order: 1;
+    min-width: 85%;
+    padding-bottom: 50px;
+    }
+    
+    .banner-logo {
+    order: 2;
+    min-width: 70%;
+    }
+
     .info-cards {
       display: flex;
       flex-direction: column;
       align-items: center;
-      border: 1px gray dotted;
     }
 
     .card {
-      border: 1px gray dotted;
       min-width: 60%;
       padding: 20px;
     }
@@ -233,14 +248,23 @@ export default {
     .container-1 {
       display: flex;
       flex-direction: column;
-      align-items: center;     
-      
+      justify-content: space-around;   
     }
 
     .container-2 {
       display: flex;
       flex-direction: column;
-      align-items: center;     
+      justify-content: space-around;
+    }
+
+    .info-container {
+      min-width: 90%;
+      min-height: 30vh;
+      padding-bottom: 10%;
+    }
+
+    .screenshot {
+      height: 400px;
     }
 
     .screenshot {
