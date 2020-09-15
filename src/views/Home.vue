@@ -272,5 +272,36 @@ export default {
     }
   }
 
+@media screen and (max-width: 479px) {
+  .home {
+    height: 130vh;
+    padding-bottom: 30%;
+  }
+
+  .banner {
+    padding-bottom: 0;
+  }
+
+  .info-cards{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 50px;
+    padding-top: 0;
+  }
+
+  .card {
+    padding-top: 10px;    
+    min-width: 90%;
+  }
+
+  .screenshot{
+    height: 250px;
+  }
+
+  .info-container{
+    padding-bottom: 60px;
+  }
+}
 
 </style>>
