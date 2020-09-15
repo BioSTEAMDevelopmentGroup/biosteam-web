@@ -37,5 +37,6 @@ export default {
   font-family: 'Montserrat', sans-serif; 
   font-weight: 400;
   color: #2c3e50;
+  overflow: hidden;
 }
 </style>
