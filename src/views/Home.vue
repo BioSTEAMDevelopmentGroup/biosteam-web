@@ -2,11 +2,12 @@
   <div>
 <!--- Hero Banner ---> 
     <div class="home">
+      <div class="background"></div>
       <div class="banner">
         <div class="banner-text">
           <h1>Welcome to BioSTEAM</h1>
           <p>BioSTEAM is a fast and flexible package for the design, simulation, and techno-economic analysis of biorefineries under uncertainty 1. BioSTEAM’s framework is built to streamline and automate early-stage technology evaluations and to enable rigorous sensitivity and uncertainty analyses.</p>
-          <app-button type='home-hero button'>Explore More</app-button>
+          <app-button type='home-hero'>Explore More</app-button>
         </div>
         <img class="banner-logo" src="../assets/home-hero-logo.png" alt="">
       </div>
@@ -86,43 +87,50 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 
   .home {
-    position: relative;
-    background: url('../assets/home-hero-banner.svg') no-repeat;
-    background-size: cover;
     height: 75vh;
     padding-bottom: 25%; 
     top: -75px;
-    z-index: -1;
+  }
+
+  .background {
+    position: absolute;
+    background-image: url('../assets/home-hero-banner.svg');
+    background-size: cover;
+    height: 75vh;
+    min-width: 100vw;
+    padding-bottom: 25%; 
+    top: -75px;
+    z-index: -10;
   }
 
   .banner {
-    position: absolute;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 90%;  
-    padding-left: 5%;
-    padding-right: 5%;
+    height: 90%;
+    
+    padding: {
+      top: 5%;
+      left: 7%;
+      right: 7%;
+    }
   }
 
   .banner-text {
-    order: 1;
     max-width: 50%;
-  }
-
-    .banner-text h1 {
-      color: #403A48;
+    h1 {
+      color: $cabbi-dark;
       padding-bottom: 15px;
     }
-
-    .banner-text p {
+    p{
       color: #707070;
       font-size: 12pt;
-      padding-bottom: 25px;
+      padding-bottom: 25px;      
     }
+  }
 
   .banner-logo {
     order: 2;
@@ -138,7 +146,6 @@ export default {
   .card {
     display: flex;
     padding: 20px;
-    padding-top: 100px;
     padding-bottom: 100px;
     max-width: 25%;
   }
@@ -208,30 +215,35 @@ export default {
 
   /* Styling for small screens */
 
-  @media screen and (max-width: 768px) {
+@media screen and (max-width: 768px) {
     .home {
       height: 100vh;
     }
     
+    .background{
+      height: 100vh;
+      padding-bottom:50%;
+    }
+
     .banner {
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: initial;
-    padding-top: 150px;
-    padding-bottom: 10%;
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: initial;
+      padding-top: 150px;
+      padding-bottom: 10%;
     }
 
     .banner-text {
-    order: 1;
-    min-width: 85%;
-    padding-bottom: 50px;
+      order: 1;
+      min-width: 85%;
+      padding-bottom: 50px;
     }
     
     .banner-logo {
-    order: 2;
-    min-width: 70%;
+      order: 2;
+      min-width: 70%;
     }
 
     .info-cards {
@@ -270,12 +282,12 @@ export default {
     .screenshot {
       order: 2;
     }
-  }
+}
 
-@media screen and (max-width: 479px) {
-  .home {
-    height: 130vh;
-    padding-bottom: 30%;
+@media screen and (max-width: 500px) {
+  .background{
+    height: 100vh;
+    padding-bottom:70%;
   }
 
   .banner {
@@ -287,11 +299,11 @@ export default {
     flex-direction: column;
     align-items: center;
     padding-bottom: 50px;
-    padding-top: 0;
+    padding-top: 50px;
   }
 
   .card {
-    padding-top: 10px;    
+    padding-bottom: 25px;    
     min-width: 90%;
   }
 
