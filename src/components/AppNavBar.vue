@@ -46,7 +46,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 
     .color-nav {
         background-color: #B2E0E5;
@@ -102,10 +102,9 @@ export default {
         cursor: pointer;
         display: inline-block;
 
-    }
-
-    .nav-toggle:hover {
-        color: white;
+        &:hover{
+            color: white;   
+        }
     }
 
     .large ul {

@@ -17,10 +17,8 @@ import AppButton from '@/components/AppButton.vue';
 export default {
     name: 'HomeCard',
     components: {
-        'app-button': AppButton,
-    }
-
-    
+        AppButton,
+    }    
 }
 </script>
 

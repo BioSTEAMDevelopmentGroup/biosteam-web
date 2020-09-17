@@ -9,7 +9,7 @@
           <p>BioSTEAM is a fast and flexible package for the design, simulation, and techno-economic analysis of biorefineries under uncertainty 1. BioSTEAM’s framework is built to streamline and automate early-stage technology evaluations and to enable rigorous sensitivity and uncertainty analyses.</p>
           <app-button type='home-hero'>Explore More</app-button>
         </div>
-        <img class="banner-logo" src="../assets/home-hero-logo.png" alt="">
+        <img class="banner-logo" src="../assets/home/home-hero-logo.png" alt="">
       </div>
     </div>
 
@@ -30,9 +30,9 @@
 <!--- Simulation Feature Info ---> 
     <div class="sim-feature">
       <div class="section-1">
-        <img class="circle-1" src="../assets/circle1.svg">
+        <img class="circle-1" src="../assets/home/circle1.svg">
         <div class="container-1">          
-          <img class="screenshot" src="../assets/screenshot1.png" >
+          <img class="screenshot" src="../assets/home/screenshot1.png" >
           <div class="info-container">
             <h2>Basic Simulation</h2>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis ea architecto nam voluptas consectetur accusantium eos amet fugiat, nihil laborum est voluptatibus! Hic reprehenderit dolorem voluptatum consequuntur culpa cum at!</p>
@@ -43,7 +43,7 @@
         </div>              
       </div>  
       <div class= "section-2">
-        <img class="circle-2" src="../assets/circle2.svg">
+        <img class="circle-2" src="../assets/home/circle2.svg">
         <div class="container-2">
           <div class="info-container">
             <h2>Advanced Simulation</h2>
@@ -52,7 +52,7 @@
               <app-button type="home-card">Start Now</app-button>        
             </div>
           </div>
-          <img class="screenshot" src="../assets/screenshot2.png" >
+          <img class="screenshot" src="../assets/home/screenshot2.png" >
         </div>        
       </div>
     </div>
@@ -97,10 +97,10 @@ export default {
 
   .background {
     position: absolute;
-    background-image: url('../assets/home-hero-banner.svg');
+    background-image: url('../assets/home/home-hero-banner.svg');
     background-size: cover;
     height: 75vh;
-    min-width: 100vw;
+    width: 100%;
     padding-bottom: 25%; 
     top: -75px;
     z-index: -10;
