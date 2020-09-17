@@ -215,7 +215,7 @@ export default {
 
   /* Styling for small screens */
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: $sm) {
     .home {
       height: 100vh;
     }
@@ -284,7 +284,7 @@ export default {
     }
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: $xs) {
   .background{
     height: 100vh;
     padding-bottom:70%;

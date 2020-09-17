@@ -164,6 +164,7 @@ img.banner-image{
   }
   
   .card{
+    width: 100%;
     padding-bottom: 40px;
   }
 }
