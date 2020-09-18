@@ -1,7 +1,7 @@
 <template>
     <nav :class="{'color-nav': $route.path !== '/' || this.toggled === true}">
         <div class="large">
-            <img class="logo" src="../assets/biosteam-logo.svg">
+            <router-link to="/"><img class="logo" src="../assets/biosteam-logo.svg"></router-link>
             <ul>
                 <li v-for="item in items" :key="item.name">
                     <router-link class="router-link" :to="item.link" exact>{{item.name}}</router-link>

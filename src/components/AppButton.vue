@@ -44,4 +44,11 @@ export default {
         color: $cabbi-dark;
         font-size: 12pt;
     }
+
+    .simulate-nav-button {
+        background-color: $cabbi-grey;
+        color: #707070;
+        font-size: 12pt;
+        padding: 10px 30px;
+    }
 </style>
