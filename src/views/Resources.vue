@@ -57,7 +57,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center; 
-  height: 60vh;
+  height: 75vh;
 }
 
 .banner-image{
@@ -128,8 +128,8 @@ img.banner-image{
   align-items: stretch;
   background-color: $cabbi-light-blue;
   padding: {
-    top: 50px;
-    bottom: 50px;
+    top: 20vh;
+    bottom: 20vh;
     left: 30px;
     right: 30px;
   }
