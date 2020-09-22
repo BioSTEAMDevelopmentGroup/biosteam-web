@@ -1,5 +1,5 @@
 <template>
-    <button :class="type">
+    <button @click="$emit('click')" :class="type">
         <slot></slot> 
     </button>
 </template>
@@ -9,7 +9,7 @@ export default {
     name: 'AppButton',
     props: {
         type: String,
-    }
+    },
 }
 </script>
 
@@ -20,6 +20,7 @@ export default {
         padding: 10px 50px;
         border-radius: 20px;
         border: none;
+        outline: none;
 
         &:hover{
             cursor: pointer;

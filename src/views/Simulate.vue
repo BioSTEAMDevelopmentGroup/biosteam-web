@@ -1,7 +1,7 @@
 <template>
   <div class="simulate">
-    <div class="button-bar">
-      <simulate-button-bar></simulate-button-bar>
+    <div class="dropdown-bar">
+      <simulate-dropdown-bar></simulate-dropdown-bar>
     </div>
     <div class="simulate-box">
       <simulate-box></simulate-box>
@@ -9,20 +9,30 @@
     <div class="simulate-info">
       <simulate-info></simulate-info>
     </div> 
+    <div class="component-test">
+      <app-dropdown selected="Component test area"></app-dropdown>
+    </div>
   </div>
 </template>
 
 <script>
-import SimulateButtonBar from "@/components/SimulateButtonBar.vue";
+import SimulateDropdownBar from "@/components/SimulateDropdownBar.vue";
 import SimulateBox from "@/components/SimulateBox.vue";
 import SimulateInfo from "@/components/SimulateInfo.vue";
+import AppDropdown from "@/components/AppDropdown.vue";
 
 export default {
   name: 'Simulate',
   components: {
-    SimulateButtonBar,
+    SimulateDropdownBar,
     SimulateBox,
     SimulateInfo,
+    AppDropdown,
+  },
+  data() {
+    return {
+      
+    }
   }
 }
 </script>
@@ -34,7 +44,7 @@ export default {
     background-size: cover;
   }
 
-  .button-bar {
+  .dropdown-bar {
     display: flex;
     justify-content: center;
     padding-bottom: 10px;
@@ -46,5 +56,12 @@ export default {
 
   .simulate-info {
     padding: 20px;
+  }
+
+  .component-test {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 </style>
