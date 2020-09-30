@@ -52,4 +52,10 @@ export default {
         font-size: 12pt;
         padding: 10px 30px;
     }
+    .run-single {
+        background-color: $cabbi-dark-green-blue;
+        color: white;
+        font-size: 12pt;
+        padding: 10px 30px;
+    }
 </style>

@@ -5,11 +5,15 @@
                 <h4><slot name="sticky-title">Set system parameters</slot></h4>
             </div>
             <div :class="type || 'grey'" class="parameters">
-                <p>content here</p>
+                <slot name="sidebar">sidebar content here</slot>
             </div>
         </div>
         <div class="box-2">
-
+            <div class="main-content">
+                <slot name="main-content">
+                    main content here
+                </slot>
+            </div>            
         </div>
     </div>
 </template>
@@ -26,7 +30,7 @@ export default {
 <style lang="scss" scoped>
     .container {
         display: flex;
-        height: 75vh;
+        height: 85vh;
         background-color: white;
         border-radius: 5px;
         box-shadow: $shadow;
@@ -71,10 +75,19 @@ export default {
     }
 
     .parameters {
-        padding: 15px;
+        padding: 20px;
+        height: 100%;
+        overflow-y: scroll;
     }
-
+    ::-webkit-scrollbar {
+        width: 3px;
+    }
     .box-2 {
         flex: 2;
     }
+
+    .main-content {
+        height: 100%;
+    }
+
 </style>

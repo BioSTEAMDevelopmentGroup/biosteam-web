@@ -39,19 +39,6 @@ export default {
             ]
         }
     },
-    created: {
-        getCurrentSelected() {
-            if(this.$route.name === '/simulate-single') {
-                this.selectedSimulate = 'Single point simulation'
-            }
-            if(this.$route.name === '/simulate-uncertainty') {
-                this.selectedSimulate = 'Simulation with uncertainty'
-            }
-            else {
-                this.selectedSimulate = 'Select simulation mode'
-            }
-        }
-    }
 }
 </script>
 
