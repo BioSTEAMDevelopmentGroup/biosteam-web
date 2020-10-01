@@ -17,6 +17,7 @@ export default {
         let series = chart.series.push(new am4plugins_forceDirected.ForceDirectedSeries());       
         series.data = [{
             "name": "First",
+            "color": "#FCB813",
             "children": [{
                 "name": "A1", "value": 100
             }, {
@@ -26,6 +27,7 @@ export default {
             }]
             }, {
             "name": "Second",
+            "color": "#FEDD50",
             "children": [{
                 "name": "B1", "value": 135
             }, {
@@ -35,6 +37,7 @@ export default {
             }]
             }, {
             "name": "Third",
+            "color": "#3BA459",
             "children": [{
                 "name": "C1", "value": 335
             }, {
@@ -46,6 +49,7 @@ export default {
             }]
             }, {
             "name": "Fourth",
+            "color": "#25A996",
             "children": [{
                 "name": "D1", "value": 415
             }, {
@@ -59,6 +63,7 @@ export default {
             }]
             }, {
             "name": "Fifth",
+            "color": "#E1DEDA",
             "children": [{
                 "name": "E1", "value": 687
             }, {
@@ -66,9 +71,17 @@ export default {
             }]
             }]
 
+        series.colors.list = [
+            am4core.color("#707070"),
+            am4core.color("#FEDD50"),
+            am4core.color("#3BA459"),
+            am4core.color("#25A996")
+        ];
+
         // Set up data fields
         series.dataFields.value = "value";
         series.dataFields.name = "name";
+        series.dataFields.color = "color";
         series.dataFields.children = "children";
 
         // Add labels
