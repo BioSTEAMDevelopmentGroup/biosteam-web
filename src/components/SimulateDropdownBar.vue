@@ -2,7 +2,7 @@
     <div class="container">
         <app-dropdown 
             :options="simulateOptions" 
-            :selected="this.$route.path"
+            :selected="this.$route.name"
             icon="caret-down" 
             class="app-dropdown">
         </app-dropdown>

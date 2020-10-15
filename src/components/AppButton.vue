@@ -58,4 +58,10 @@ export default {
         font-size: 12pt;
         padding: 10px 30px;
     }
+    .run-uncertainty {
+        background-color: $cabbi-orange;
+        color: white;
+        font-size: 12pt;
+        padding: 10px 30px;
+    }
 </style>

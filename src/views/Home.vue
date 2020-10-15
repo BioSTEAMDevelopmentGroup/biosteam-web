@@ -34,8 +34,8 @@
         <div class="container-1">          
           <img class="screenshot" src="../assets/home/screenshot1.png" >
           <div class="info-container">
-            <h2>Basic Simulation</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis ea architecto nam voluptas consectetur accusantium eos amet fugiat, nihil laborum est voluptatibus! Hic reprehenderit dolorem voluptatum consequuntur culpa cum at!</p>
+            <h2>Single Point Simulation</h2>
+            <p>Given user-input (or default) values for each parameter in a single scenario describing feedstock composition, biorefinery design and operation, and financial assumptions, a Techno-Economic Analysis (TEA) and a Life Cycle Impact Assessment (LCIA) estimate respectively the economic and environmental sustainability for that scenario.</p>
             <div>
               <app-button type="home-card">Start Now</app-button>
             </div>         
@@ -46,8 +46,8 @@
         <img class="circle-2" src="../assets/home/circle2.svg">
         <div class="container-2">
           <div class="info-container">
-            <h2>Advanced Simulation</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis ea architecto nam voluptas consectetur accusantium eos amet fugiat, nihil laborum est voluptatibus! Hic reprehenderit dolorem voluptatum consequuntur culpa cum at!</p>
+            <h2>Simulation with Uncertainty</h2>
+            <p>Given user-input (or default) distributions of parameters describing feedstock composition, biorefinery design and operation, and financial assumptions, across the breadth of scenarios so generated, Techno-Economic Analyses (TEAs) and Life Cycle Impact Assessments (LCIAs) estimate respectively the economic and environmental sustainability with results represented as 95% confidence intervals.</p>
             <div>
               <app-button type="home-card">Start Now</app-button>        
             </div>
@@ -79,8 +79,8 @@ export default {
     return{
       cards: [
         {title: 'About BioSTEAM', link: 'null', content: 'orem ipsum d, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur '},
-        {title: 'CABBI Bio', link: 'null', content: 'orem ipsum dolor sit amet, conspariatur. Excepteur sint occaecat cupidum dolor sit amet, consectetur adipiscing atat non proident, sunt in culpa '},
-        {title: 'Guest Group', link: 'null', content: 'orem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla '},
+        {title: 'CABBI Bio', link: 'null', content: 'The Center for Advanced Bioenergy and Bioproducts Innovation (CABBI) at the University of Illinois at Urbana-Champaign is a U.S. Department of Energy Bioenergy Research Center. CABBI aims to increase the value of energy crops and convert biomass into chemicals which are both ecologically and economically sustainable.'},
+        {title: 'Bioenergy Research Centers', link: 'null', content: 'The Bioenergy Research Center (BRC) program is supported by DOE with a mission to break down the barriers to actualizing a domestic bioenergy industry. BRCs are led by DOE national laboratories or top universities to take distinctive approaches toward the common goal of accelerating the pathway to improving and scaling up advanced biofuel and bioproduct production processes.'},
       ]
     }
   }

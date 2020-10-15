@@ -21,12 +21,12 @@ Vue.use(VueRouter)
   },
   {
     path: '/simulate-single',
-    name: 'SimulateSingle',
+    name: 'Single Point Simulation',
     component: SimulateSingle
   },
   {
     path: '/simulate-uncertainty',
-    name: 'SimulateUncertainty',
+    name: 'Simulation with Uncertainty',
     component: SimulateUncertainty
   },
   {

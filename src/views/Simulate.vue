@@ -29,7 +29,8 @@
       <simulate-info></simulate-info>
     </div> 
     <div class="component-test">
-      test components here 
+      <div class="component-container">
+      </div>       
     </div>
   </div>
 </template>
@@ -92,5 +93,9 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+  .component-container{
+    border: 1px dotted grey;
+    width: 300px;
   }
 </style>

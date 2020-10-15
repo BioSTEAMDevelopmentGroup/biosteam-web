@@ -16,7 +16,7 @@
             </v-popover>
         </div>
         <div class="box-2">
-            <p>Value</p>
+            <input :value="value" @input="$emit('input', $event.target.value)" type="number" placeholder="Enter Value">
         </div>
     </div>
 </template>
@@ -24,7 +24,10 @@
 <script>
 export default {
     name: "SingleParameter",
-
+    props: {
+        value: Number,
+        defaultChecked: Boolean,
+    }
 }
 </script>
 
@@ -51,6 +54,13 @@ export default {
         justify-content: center;
         padding: 10px;
         background-color: #259b8d;      
+    }
+    input {
+        background-color: #259b8d; 
+        outline: none;
+        border: none;
+        text-align: center;
+        font-family: $text;
     }
     .tooltip {
         background-color: $cabbi-grey;
