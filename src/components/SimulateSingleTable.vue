@@ -33,23 +33,6 @@ export default {
     props: {
         parameters: Array,
     },
-    data() {
-        return {
-            // items: [
-            //     {metric: 'metric 1', value: '1.234', unit: 'x/y'},
-            //     {metric: 'metric 2', value: '1.234', unit: 'x/y'},
-            //     {metric: 'metric 3', value: '1.234', unit: 'x/y'},
-            //     {metric: 'metric 4', value: '1.234', unit: 'x/y'},
-            //     {metric: 'metric 5', value: '1.234', unit: 'x/y'},
-            //     {metric: 'metric 6', value: '1.234', unit: 'x/y'},
-            //     {metric: 'metric 7', value: '1.234', unit: 'x/y'},
-            //     {metric: 'metric 8', value: '1.234', unit: 'x/y'},
-            //     {metric: 'metric 9', value: '1.234', unit: 'x/y'},
-            //     {metric: 'metric 10', value: '1.234', unit: 'x/y'},
-            // ],         
-        }
-    },
-
 }
 </script>
 

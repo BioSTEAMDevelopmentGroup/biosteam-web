@@ -1,7 +1,7 @@
 <template>
   <div class="uncertain-parameter">
       <div class="check-box" @click="handleCheck()">
-        <font-awesome-icon icon="square" :class="{ checked: isChecked, unchecked: (isChecked == false) }"/>
+        <font-awesome-icon icon="square" :class="{ checked: checked, unchecked: (checked == false) }"/>
       </div>
       <div class="parameter-box">
           <div class="title-box">
@@ -22,13 +22,13 @@
               </div>
               <div class="value-box">
                 <font-awesome-icon icon="calculator"/>
-                <form class="distribution-values">
+                <div class="distribution-values">
                     <p>(</p>
-                    <input :value="value[0]"  @input="updateArray(value)" type="number" placeholder="0">
-                    <input :value="value[1]"  @input="updateArray(value)" type="number" placeholder="0">
-                    <input :value="value[2]"  @input="updateArray(value)" type="number" placeholder="0">
+                    <input name="value1" v-model.number="value.value1" type="number" placeholder="0">,
+                    <input name="value2" v-model.number="value.value2" type="number" placeholder="0">,
+                    <input name="value3" v-model.number="value.value3" type="number" placeholder="0">
                     <p>)</p>
-                </form> 
+                </div> 
               </div>
           </div>
       </div>
@@ -38,10 +38,13 @@
 <script>
 export default {
     name: 'UncertainParameter',
+
     props: {
-        value: Array, 
+        checked: Boolean,
+        value: Object,
         selectedDistribution: String, 
     },
+
     data() {
         return{
             distributions: [
@@ -49,14 +52,19 @@ export default {
                 {name: 'Triangular'}, 
                 {name: 'Uniform'},
             ],
-            isOpen: false, 
-            isChecked: false, 
-            distributionValues: [0, 0, 0],
+            isOpen: false,  
         }
     },
+
+    watch: {
+        value() {
+            this.$emit('input', this.value);
+        }
+    },
+
     methods: {
         handleCheck() { 
-            this.isChecked = !this.isChecked
+            this.$emit('checked', !this.checked);
         },
 
         selectDistribution(distribution) {
@@ -67,12 +75,6 @@ export default {
         handleOpen() { 
             this.isOpen = !this.isOpen
         },
-
-        updateArray(value) {
-            if( name == 'value1'){
-               console.log(value) 
-            }          
-        }
     },
 }
 </script>
@@ -81,7 +83,7 @@ export default {
     .uncertain-parameter {
         display: flex;
         align-items: center;
-        justify-content: space-between;
+        justify-content: space-around;
     }
     .check-box {
         cursor: pointer;
@@ -118,9 +120,10 @@ export default {
     }
     .distribution-dropdown {
         position: relative;
-        width: 65%;
+        width: 50%;
         background-color: #FCCA31;
         border: 2px $cabbi-orange solid;
+        font-size: 10pt;
     }
     .distribution-box {
         cursor: pointer;
@@ -149,14 +152,12 @@ export default {
         }
     }
     .value-box {
-        width: 35%;
+        width: 50%;
         display: flex;
         align-items: center;
-        justify-content: space-between;
         background-color: #FCCA31;
         border: 2px $cabbi-orange solid;      
         padding: {
-            right: 10px;
             left: 10px;
             top: 5px;
             bottom: 5px;
@@ -164,13 +165,17 @@ export default {
     }
     .distribution-values {
         display: flex;
+        justify-content: space-between;
         width: 100px;
+        padding-left: 10px;
     }
     input {
-        width: 25px;
+        width: 28px;
+        border-radius: 2px;
         text-align: center;
         background-color: rgba(255, 255, 255, 0.6);
         border: none;
+        font-size: 10pt;
     }
     /* Chrome, Safari, Edge, Opera */
     input::-webkit-outer-spin-button,
