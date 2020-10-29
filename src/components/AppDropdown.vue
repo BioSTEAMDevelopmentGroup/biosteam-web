@@ -66,9 +66,8 @@ export default {
         border-radius: 10px;
         top: 100%;
         width: 340px; 
-        max-height: 150px;
+        max-height: 250px;
         overflow-x: hidden;
-        overflow-y: scroll;
     }
     .option {
         text-align: center;

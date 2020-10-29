@@ -3,7 +3,7 @@
         <h3>Box plot component</h3>
         <app-dropdown 
             :options="options" 
-            selected="Indicator"
+            :selected="selected"
             @select-option="selectIndicatorOption"
             icon="caret-down" 
             class="indicator-dropdown">
@@ -30,6 +30,7 @@ export default {
     },
     data() {
         return{
+            selected: 'Indicator',
             plotData: [{
                 y: [0.6, 0.7, 0.3, 0.6, 0.5, 0.7, 0.9, 0.5, 0.8, 0.7, 0.2],
                 type:"box",
@@ -55,7 +56,12 @@ export default {
                 plot_bgcolor: '#E1DEDA',
             }
         }
-    }
+    },
+    methods: {
+        selectIndicatorOption(value) {
+            this.selected = value.name
+        }
+    },
 }
 </script>
 
@@ -65,13 +71,14 @@ export default {
         display: flex;
         flex-direction: column;
     }
+
     .plot {
         padding: {
             top: 20px;
             bottom: 25px;
         }    
-        //height: 400px;
     }
+    
     h3 {
         text-align: center;
         padding-bottom: 20px;
