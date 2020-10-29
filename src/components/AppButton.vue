@@ -17,7 +17,7 @@ export default {
     button {
         font-family: 'Montserrat', sans-serif; 
         box-shadow: $shadow; 
-        padding: 10px 50px;
+        padding: 10px 30px;
         border-radius: 20px;
         border: none;
         outline: none;
@@ -63,5 +63,11 @@ export default {
         color: white;
         font-size: 12pt;
         padding: 10px 30px;
+    }
+    .plot-button {
+        background-color: $cabbi-grey;
+        color: $cabbi-dark;
+        padding: 10px 30px;
+        font-size: 12pt;
     }
 </style>

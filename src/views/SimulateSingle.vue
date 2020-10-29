@@ -1,7 +1,13 @@
 <template>
   <div class="simulate-single">
     <div class="dropdown-bar">
-      <simulate-dropdown-bar></simulate-dropdown-bar>
+      <simulate-dropdown-bar 
+        :simulate="selectedSimulate"
+        :biorefinery="selectedBiorefinery"
+        @select-simulate="(newSimulate) => {selectedSimulate = newSimulate}"
+        @select-biorefinery="(newBiorefinery) => {selectedBiorefinery = newBiorefinery}"
+        >
+      </simulate-dropdown-bar>
     </div>
 <!---simulate area ---> 
     <div class="simulate-box">
@@ -68,6 +74,8 @@ export default {
   },
   data() {
     return {
+      selectedSimulate: 'Single point simulation',
+      selectedBiorefinery: 'Select a biorefinery',
       parameters: [
         {name: 'Lipid content', value: null, defaultValue: 1, computedValue: null, unit: 'x/y', info: 'Some description about the paramter'},
         {name: 'Plant size', value: null, defaultValue: 1, computedValue: null,  unit: 'x/y', info: 'Some description about the paramter'},

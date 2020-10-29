@@ -30,7 +30,7 @@ export default {
 <style lang="scss" scoped>
     .container {
         display: flex;
-        height: 85vh;
+        height: 92vh;
         background-color: white;
         border-radius: 5px;
         box-shadow: $shadow;

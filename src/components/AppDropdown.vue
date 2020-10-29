@@ -4,7 +4,8 @@
             <font-awesome-icon 
                 :icon="icon"
                 style="color: #707070;"/>
-            <p>{{selected}}</p>             
+            <p>{{selected}}</p>  
+            <span></span>           
         </app-button>
         <div v-if="open" class="options">
             <div v-for="option in options" :key="option.name" @click="selectOption(option)" class="option">
@@ -34,9 +35,10 @@ export default {
     },
     methods: {
         selectOption(option) {
-            this.selected = option.name
+            //this.selected = option.name
+            this.$emit('select-option', option)
             this.open = !this.open
-            this.$router.push({path: option.link})
+            //this.$router.push({path: option.link})
         }
     }
 }
@@ -52,11 +54,6 @@ export default {
         justify-content: space-between;
         align-items: center;
         width: 340px;
-        p {
-            padding: {
-                right: 0%;
-            }
-        }
     }
     .options {
         position: absolute;
@@ -69,6 +66,9 @@ export default {
         border-radius: 10px;
         top: 100%;
         width: 340px; 
+        max-height: 150px;
+        overflow-x: hidden;
+        overflow-y: scroll;
     }
     .option {
         text-align: center;

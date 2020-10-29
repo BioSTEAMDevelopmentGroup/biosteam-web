@@ -1,7 +1,13 @@
 <template>
   <div class="simulate">
     <div class="dropdown-bar">
-      <simulate-dropdown-bar></simulate-dropdown-bar>
+      <simulate-dropdown-bar 
+        :simulate="selectedSimulate"
+        :biorefinery="selectedBiorefinery"
+        @select-simulate="(newSimulate) => {selectedSimulate = newSimulate}"
+        @select-biorefinery="(newBiorefinery) => {selectedBiorefinery = newBiorefinery}"
+        >
+      </simulate-dropdown-bar>
     </div>
     <div class="simulate-box">
       <simulate-box>
@@ -49,7 +55,8 @@ export default {
   },
   data() {
     return {
-      
+      selectedSimulate: 'Select simulation mode',
+      selectedBiorefinery: 'Select a biorefinery',     
     }
   }
 }

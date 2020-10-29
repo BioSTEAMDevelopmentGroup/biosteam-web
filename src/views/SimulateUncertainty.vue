@@ -1,7 +1,13 @@
 <template>
   <div class="simulate-single">
     <div class="dropdown-bar">
-      <simulate-dropdown-bar></simulate-dropdown-bar>
+      <simulate-dropdown-bar 
+        :simulate="selectedSimulate"
+        :biorefinery="selectedBiorefinery"
+        @select-simulate="(newSimulate) => {selectedSimulate = newSimulate}"
+        @select-biorefinery="(newBiorefinery) => {selectedBiorefinery = newBiorefinery}"
+        >
+      </simulate-dropdown-bar>
     </div>
     <div class="simulate-box">
       <simulate-box type="uncertainty">
@@ -36,7 +42,7 @@
           </div>
           <div class="graphs">
             <div class="box-plot-container">
-              <box-plot></box-plot>
+              <box-plot :options="parameters"></box-plot>
             </div>
             <div class="line-graph-container">
               <line-graph></line-graph>
@@ -77,24 +83,25 @@ export default {
   },
   data() {
     return {
-      selectedBiorefinery: 'cornstover',
+      selectedSimulate: 'Simulation with uncertainty',
+      selectedBiorefinery: 'Select a biorefinery',
       parameters: [
-        {name: 'Lipid content', checked: false, distribution: 'Distribution', values: {value1: 0, value2: 0, value3: 0}, info: 'Some description about the paramter'},
-        {name: 'Plant size', checked: false, distribution: 'Distribution', values: {value1: 0, value2: 0, value3: 0}, info: 'Some description about the paramter'},
-        {name: 'Operating days', checked: false, distribution: 'Distribution', values: {value1: 0, value2: 0, value3: 0}, info: 'Some description about the paramter'},
-        {name: 'Ethanol price', checked: false, distribution: 'Distribution', values: {value1: 0, value2: 0, value3: 0}, info: 'Some description about the paramter'},
-        {name: 'Lipidcane price', checked: false, distribution: 'Distribution', values: {value1: 0, value2: 0, value3: 0}, info: 'Some description about the paramter'},
-        {name: 'Electricity price', checked: false, distribution: 'Distribution', values: {value1: 0, value2: 0, value3: 0}, info: 'Some description about the paramter'},
-        {name: 'IRR', checked: false, distribution: 'Distribution', values: {value1: 0, value2: 0, value3: 0}, info: 'Some description about the paramter'},
-        {name: 'LCA param1', checked: false, distribution: 'Distribution', values: {value1: 0, value2: 0, value3: 0}, info: 'Some description about the paramter'},
-        {name: 'LCA param2', checked: false, distribution: 'Distribution', values: {value1: 0, value2: 0, value3: 0}, info: 'Some description about the paramter'},
-        {name: 'Filler 1', checked: false, distribution: 'Distribution', values: {value1: 0, value2: 0, value3: 0}, info: 'Some description about the paramter'},
-        {name: 'Filler 2', checked: false, distribution: 'Distribution', values: {value1: 0, value2: 0, value3: 0}, info: 'Some description about the paramter'},
-        {name: 'Filler 3', checked: false, distribution: 'Distribution', values: {value1: 0, value2: 0, value3: 0}, info: 'Some description about the paramter'},
-        {name: 'Filler 4', checked: false, distribution: 'Distribution', values: {value1: 0, value2: 0, value3: 0}, info: 'Some description about the paramter'},
-        {name: 'Filler 5', checked: false, distribution: 'Distribution', values: {value1: 0, value2: 0, value3: 0}, info: 'Some description about the paramter'},
-        {name: 'Filler 6', checked: false, distribution: 'Distribution', values: {value1: 0, value2: 0, value3: 0}, info: 'Some description about the paramter'},
-        {name: 'Filler 7', checked: false, distribution: 'Distribution', values: {value1: 0, value2: 0, value3: 0}, info: 'Some description about the paramter'},
+        {name: 'Lipid content', checked: false, distribution: 'Distribution', values: {value1: null, value2: null, value3: null}, info: 'Some description about the paramter'},
+        {name: 'Plant size', checked: false, distribution: 'Distribution', values: {value1: null, value2: null, value3: null}, info: 'Some description about the paramter'},
+        {name: 'Operating days', checked: false, distribution: 'Distribution', values: {value1: null, value2: null, value3: null}, info: 'Some description about the paramter'},
+        {name: 'Ethanol price', checked: false, distribution: 'Distribution', values: {value1: null, value2: null, value3: null}, info: 'Some description about the paramter'},
+        {name: 'Lipidcane price', checked: false, distribution: 'Distribution', values: {value1: null, value2: null, value3: null}, info: 'Some description about the paramter'},
+        {name: 'Electricity price', checked: false, distribution: 'Distribution', values: {value1: null, value2: null, value3: null}, info: 'Some description about the paramter'},
+        {name: 'IRR', checked: false, distribution: 'Distribution', values: {value1: null, value2: null, value3: null}, info: 'Some description about the paramter'},
+        {name: 'LCA param1', checked: false, distribution: 'Distribution', values: {value1: null, value2: null, value3: null}, info: 'Some description about the paramter'},
+        {name: 'LCA param2', checked: false, distribution: 'Distribution', values: {value1: null, value2: null, value3: null}, info: 'Some description about the paramter'},
+        {name: 'Filler 1', checked: false, distribution: 'Distribution', values: {value1: null, value2: null, value3: null}, info: 'Some description about the paramter'},
+        {name: 'Filler 2', checked: false, distribution: 'Distribution', values: {value1: null, value2: null, value3: null}, info: 'Some description about the paramter'},
+        {name: 'Filler 3', checked: false, distribution: 'Distribution', values: {value1: null, value2: null, value3: null}, info: 'Some description about the paramter'},
+        {name: 'Filler 4', checked: false, distribution: 'Distribution', values: {value1: null, value2: null, value3: null}, info: 'Some description about the paramter'},
+        {name: 'Filler 5', checked: false, distribution: 'Distribution', values: {value1: null, value2: null, value3: null}, info: 'Some description about the paramter'},
+        {name: 'Filler 6', checked: false, distribution: 'Distribution', values: {value1: null, value2: null, value3: null}, info: 'Some description about the paramter'},
+        {name: 'Filler 7', checked: false, distribution: 'Distribution', values: {value1: null, value2: null, value3: null}, info: 'Some description about the paramter'},
       ],
     }
   },
@@ -109,6 +116,14 @@ export default {
       return list
     }
   },
+  methods: {
+    selectSimulate(value) {
+      console.log(value)
+    },
+    selectBiorefinery(value) {
+      console.log(value)
+    },
+  }
 }
 </script>
 
@@ -160,7 +175,6 @@ export default {
     height: 300px;
     justify-content: center;
     align-items: center;
-    border: 1px grey dotted;
   }
 
   .graphs{
@@ -172,14 +186,12 @@ export default {
 
   .box-plot-container {
     width: 100%;
-    height: 300px;
-    border: 1px grey dotted;
+    padding: 20px;
   }
 
   .line-graph-container {
     width: 100%;
-    height: 300px;
-    border: 1px grey dotted;
+    padding: 20px;
   }
 
   .simulate-info {

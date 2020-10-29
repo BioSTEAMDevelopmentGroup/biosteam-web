@@ -2,13 +2,15 @@
     <div class="container">
         <app-dropdown 
             :options="simulateOptions" 
-            :selected="this.$route.name"
+            :selected="simulate"
+            @select-option="selectSimulateOption"
             icon="caret-down" 
             class="app-dropdown">
         </app-dropdown>
         <app-dropdown 
             :options="biorefineryOptions" 
-            :selected="selectedBiorefinery"
+            :selected="biorefinery"
+            @select-option="selectBiorefineryOption"
             icon="search" 
             class="app-dropdown">
         </app-dropdown>
@@ -22,6 +24,10 @@ export default {
     name: 'SimulateDropdownBar',
     components: {
         AppDropdown,
+    },
+    props: {
+        simulate: String,
+        biorefinery: String,
     },
     data() {
         return{
@@ -39,6 +45,15 @@ export default {
             ]
         }
     },
+    methods: {
+        selectSimulateOption(value) {
+            this.$router.push({path: value.link})
+            this.$emit('select-simulate', value.name)
+        },
+        selectBiorefineryOption(value) {
+            this.$emit('select-biorefinery', value.name)
+        }
+    }
 }
 </script>
 
