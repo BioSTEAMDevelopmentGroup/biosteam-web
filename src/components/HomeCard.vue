@@ -7,7 +7,7 @@
             <p><slot name="content">This is the card content</slot></p>
         </div>
         <div class="button">
-            <app-button type="home-card">Learn More</app-button>
+            <app-button @click="toLink" type="home-card">Learn More</app-button>
         </div>
     </div>
 </template>
@@ -18,6 +18,12 @@ export default {
     name: 'HomeCard',
     components: {
         AppButton,
+    },
+    props: ['link'],
+    methods: {
+        toLink() {
+            window.open(this.link)
+        }
     }    
 }
 </script>

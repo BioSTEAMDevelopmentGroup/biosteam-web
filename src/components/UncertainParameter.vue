@@ -11,7 +11,7 @@
               <div class="distribution-dropdown">
                 <div class="distribution-box" @click="handleOpen()">
                     <font-awesome-icon icon="chart-area"/>
-                    <p>{{selectedDistribution}}</p> 
+                    <p>{{distribution}}</p> 
                     <font-awesome-icon icon="caret-down"/>
                 </div> 
                 <div v-if="isOpen" class="distribution-options">
@@ -42,7 +42,7 @@ export default {
     props: {
         checked: Boolean,
         value: Object,
-        selectedDistribution: String, 
+        distribution: String, 
     },
 
     data() {
@@ -68,7 +68,7 @@ export default {
         },
 
         selectDistribution(distribution) {
-            this.selectedDistribution = distribution.name
+            this.$emit('select-distribution', distribution.name)
             this.isOpen = !this.isOpen
         },
 

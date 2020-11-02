@@ -16,7 +16,7 @@
 <!--- Info Cards ---> 
     <div class="info-cards">
       <div class="card" v-for="card in cards" :key="card.title">
-        <home-card>
+        <home-card :link="card.link">
           <template #title>
             {{card.title}}
           </template>
@@ -37,7 +37,7 @@
             <h2>Single Point Simulation</h2>
             <p>Given user-input (or default) values for each parameter in a single scenario describing feedstock composition, biorefinery design and operation, and financial assumptions, a Techno-Economic Analysis (TEA) and a Life Cycle Impact Assessment (LCIA) estimate respectively the economic and environmental sustainability for that scenario.</p>
             <div>
-              <app-button type="home-card">Start Now</app-button>
+              <app-button @click="toRoute('/simulate-single')" type="home-card">Start Now</app-button>
             </div>         
           </div>
         </div>              
@@ -49,7 +49,7 @@
             <h2>Simulation with Uncertainty</h2>
             <p>Given user-input (or default) distributions of parameters describing feedstock composition, biorefinery design and operation, and financial assumptions, across the breadth of scenarios so generated, Techno-Economic Analyses (TEAs) and Life Cycle Impact Assessments (LCIAs) estimate respectively the economic and environmental sustainability with results represented as 95% confidence intervals.</p>
             <div>
-              <app-button type="home-card">Start Now</app-button>        
+              <app-button @click="toRoute('/simulate-uncertainty')" type="home-card">Start Now</app-button>        
             </div>
           </div>
           <img class="screenshot" src="../assets/home/screenshot2.png" >
@@ -78,10 +78,15 @@ export default {
   data() {
     return{
       cards: [
-        {title: 'About BioSTEAM', link: 'null', content: 'orem ipsum d, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur '},
-        {title: 'CABBI Bio', link: 'null', content: 'The Center for Advanced Bioenergy and Bioproducts Innovation (CABBI) at the University of Illinois at Urbana-Champaign is a U.S. Department of Energy Bioenergy Research Center. CABBI aims to increase the value of energy crops and convert biomass into chemicals which are both ecologically and economically sustainable.'},
-        {title: 'Bioenergy Research Centers', link: 'null', content: 'The Bioenergy Research Center (BRC) program is supported by DOE with a mission to break down the barriers to actualizing a domestic bioenergy industry. BRCs are led by DOE national laboratories or top universities to take distinctive approaches toward the common goal of accelerating the pathway to improving and scaling up advanced biofuel and bioproduct production processes.'},
+        {title: 'About BioSTEAM', link: 'https://biosteam.readthedocs.io/en/latest/', content: 'orem ipsum d, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur '},
+        {title: 'CABBI Bio', link: 'https://cabbi.bio/', content: 'The Center for Advanced Bioenergy and Bioproducts Innovation (CABBI) at the University of Illinois at Urbana-Champaign is a U.S. Department of Energy Bioenergy Research Center. CABBI aims to increase the value of energy crops and convert biomass into chemicals which are both ecologically and economically sustainable.'},
+        {title: 'Bioenergy Research Centers', link: 'https://genomicscience.energy.gov/centers/', content: 'The Bioenergy Research Center (BRC) program is supported by DOE with a mission to break down the barriers to actualizing a domestic bioenergy industry. BRCs are led by DOE national laboratories or top universities to take distinctive approaches toward the common goal of accelerating the pathway to improving and scaling up advanced biofuel and bioproduct production processes.'},
       ]
+    }
+  },
+  methods: {
+    toRoute(link) {
+      this.$router.push({path: link})
     }
   }
 }

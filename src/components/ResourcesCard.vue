@@ -14,7 +14,7 @@
                 <p><slot name="text">This is the card content</slot></p>
             </div>
             <div class="button">
-                <app-button type="home-card"><slot name="button">Learn More</slot></app-button>
+                <app-button @click="toLink" type="home-card"><slot name="button">Learn More</slot></app-button>
             </div>            
         </div>
     </div>
@@ -27,6 +27,12 @@ export default {
     name: 'ResourcesCard',
     components: {
         AppButton,
+    },
+    props: ['link'],
+    methods: {
+        toLink() {
+            window.open(this.link)
+        }
     }
 }
 </script>
@@ -84,7 +90,7 @@ export default {
     p{
         color: #707070;
         padding-bottom: 15px;
-        font-size: 10pt;
+        font-size: 12pt;
     }
 }
 </style>

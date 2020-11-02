@@ -5,7 +5,7 @@
       <div class="banner-card">
         <h1>Get the most out of BioSTEAM</h1>
         <p>With the fully featured Python package</p>
-        <app-button type="resources-hero">Explore the docs</app-button>
+        <app-button @click="toLink" type="resources-hero">Explore the docs</app-button>
       </div>
     </div>
     <div class="install">
@@ -16,7 +16,7 @@
     </div>
     <div class="cards">
       <div class="card" v-for="card in cards" :key="card.title">
-        <resources-card>
+        <resources-card :link="card.link">
           <img slot="logo" :src="require('../assets/resources/'+ card.logo)">
           <template slot="title">{{card.title}}</template>
           <template slot="text">{{card.text}}</template>
@@ -40,11 +40,16 @@ export default {
   data() {
     return{
       cards: [
-        {title: 'In Publication', logo: 'logo-ACS.png', button: 'See Article', text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea '},
-        {title: 'Guest Research Group', logo: 'logo-guest-group.png', button: 'Visit Site', text: 'The Guest Research Group at the University of Illinois at Urbana-Champaign specializes in the development of sustainable infrastructure. We are in the Sustainability Theme of CABBI and we leverage the BioSTEAM platform for techno-economic analysis (TEA) and life cycle assessment (LCA) to chart innovation pathways for sustainable biofuels and bioproducts.'},
-        {title: 'CABBI Bio', logo: 'logo-CABBI.png', button: 'Visit Site', text: 'The Center for Advanced Bioenergy and Bioproducts Innovation (CABBI) is a U.S. Department of Energy-funded Bioenergy Research Center led by the University of Illinois at Urbana-Champaign. CABBI integrates recent advances in agronomics, genomics, biosystems design, and computational biology to increase the value of energy crops, using a “plants as factories” approach to grow fuels and chemicals in plant stems and an automated foundry to convert biomass into valuable chemicals that are ecologically and economically sustainable.'},
-        {title: 'On GitHub', logo: 'logo-github.svg', button: 'Go to GitHub', text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea '},
+        {title: 'In Publication', logo: 'logo-ACS.png', button: 'See Article', link: 'https://pubs.acs.org/doi/10.1021/acssuschemeng.9b07040', text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea '},
+        {title: 'Guest Research Group', logo: 'logo-guest-group.png', button: 'Visit Site', link: 'http://engineeringforsustainability.com/', text: 'The Guest Research Group at the University of Illinois at Urbana-Champaign specializes in the development of sustainable infrastructure. We are in the Sustainability Theme of CABBI and we leverage the BioSTEAM platform for techno-economic analysis (TEA) and life cycle assessment (LCA) to chart innovation pathways for sustainable biofuels and bioproducts.'},
+        {title: 'CABBI Bio', logo: 'logo-CABBI.png', button: 'Visit Site', link: 'https://cabbi.bio/research/sustainability-theme/', text: 'The Center for Advanced Bioenergy and Bioproducts Innovation (CABBI) is a U.S. Department of Energy-funded Bioenergy Research Center led by the University of Illinois at Urbana-Champaign. CABBI integrates recent advances in agronomics, genomics, biosystems design, and computational biology to increase the value of energy crops, using a “plants as factories” approach to grow fuels and chemicals in plant stems and an automated foundry to convert biomass into valuable chemicals that are ecologically and economically sustainable.'},
+        {title: 'On GitHub', logo: 'logo-github.svg', button: 'Go to GitHub', link: 'https://github.com/BioSTEAMDevelopmentGroup', text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea '},
       ]
+    }
+  },
+  methods: {
+    toLink() {
+      window.open('https://biosteam.readthedocs.io/en/latest/')
     }
   }
 }

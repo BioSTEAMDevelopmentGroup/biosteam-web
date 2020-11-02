@@ -32,10 +32,7 @@
         <template #main-content>
           <div class="content-container">
             <div class="biorefinery-info-container">
-              <lipidcane-diagram class="diagram"></lipidcane-diagram>
-              <div class="flowchart">
-                <p class="flowchart-content">Biorefinery flowchart goes here!</p>
-              </div>
+              <biorefinery-diagram :biorefinery="selectedBiorefinery"></biorefinery-diagram>
             </div>             
             <div class="table-container">
               <simulate-single-table :parameters="parameters"></simulate-single-table>
@@ -58,7 +55,8 @@ import SimulateBox from "@/components/SimulateBox.vue";
 import SingleParameter from "@/components/SingleParameter.vue";
 import SimulateInfo from "@/components/SimulateInfo.vue";
 import AppButton from "@/components/AppButton.vue";
-import LipidcaneDiagram from "@/components/LipidcaneDiagram.vue";
+import BiorefineryDiagram from "@/components/BiorefineryDiagram.vue";
+//import LipidcaneDiagram from "@/components/LipidcaneDiagram.vue";
 import SimulateSingleTable from "@/components/SimulateSingleTable.vue";
 
 export default {
@@ -69,7 +67,8 @@ export default {
     SimulateInfo,
     SingleParameter,
     AppButton,
-    LipidcaneDiagram,
+    BiorefineryDiagram,
+    //LipidcaneDiagram,
     SimulateSingleTable,
   },
   data() {
@@ -163,6 +162,10 @@ export default {
   }
   .biorefinery-info-container {
     display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    min-height: 250px;
   }
   .diagram {
     border: 1px $cabbi-grey dotted;

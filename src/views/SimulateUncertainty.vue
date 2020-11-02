@@ -17,9 +17,10 @@
               <uncertain-parameter 
                 :value="parameter.values" 
                 :checked="parameter.checked" 
+                :distribution="parameter.distribution"
                 @checked="(newChecked) => {parameter.checked = newChecked}" 
                 @input="(newValues) => {parameter.values = newValues}" 
-                :selectedDistribution='parameter.distribution'>
+                @select-distribution="(newDistribution) => {parameter.distribution = newDistribution}">
                 <template #name>{{parameter.name}}</template>
               </uncertain-parameter>
             </div>           
@@ -45,7 +46,7 @@
               <box-plot :options="parameters"></box-plot>
             </div>
             <div class="line-graph-container">
-              <line-graph></line-graph>
+              <line-graph :options="parameters"></line-graph>
             </div>            
           </div>
         </template>
@@ -137,6 +138,7 @@ export default {
     display: flex;
     justify-content: center;
     padding-bottom: 10px;
+    z-index: 5;
   }
 
   .simulate-box {

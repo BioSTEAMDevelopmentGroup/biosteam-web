@@ -4,6 +4,7 @@
             :options="simulateOptions" 
             :selected="simulate"
             @select-option="selectSimulateOption"
+            type="options-bar"
             icon="caret-down" 
             class="app-dropdown">
         </app-dropdown>
@@ -11,6 +12,7 @@
             :options="biorefineryOptions" 
             :selected="biorefinery"
             @select-option="selectBiorefineryOption"
+            type="options-bar"
             icon="search" 
             class="app-dropdown">
         </app-dropdown>
@@ -59,6 +61,7 @@ export default {
 
 <style scoped lang="scss">
     .container {
+        z-index: 1000;
         display: flex;
         justify-content: space-around;
         width: 100%;

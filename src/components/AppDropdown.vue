@@ -7,9 +7,11 @@
             <p>{{selected}}</p>  
             <span></span>           
         </app-button>
-        <div v-if="open" class="options">
-            <div v-for="option in options" :key="option.name" @click="selectOption(option)" class="option">
-                <p>{{option.name}}</p>
+        <div v-if="open" class="options-wrapper">
+            <div :class="type">
+                <div v-for="option in options" :key="option.name" @click="selectOption(option)" class="option">
+                    <p>{{option.name}}</p>
+                </div>
             </div>
         </div>
     </div>  
@@ -27,6 +29,7 @@ export default {
         icon: String,
         options: Array,
         selected: String,
+        type: String,
     },
     data() {
         return{
@@ -55,20 +58,49 @@ export default {
         align-items: center;
         width: 340px;
     }
-    .options {
+    .options-wrapper {
         position: absolute;
+        top: 100%;
+        width: 340px; 
+        max-height: 200px;
+        border-radius: 10px;
+        box-shadow: $shadow;
+        overflow-x: hidden;
+        //overflow-y: scroll;
+    }
+    .options-bar {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         background-color: $cabbi-grey;
-        box-shadow: $shadow;
         border-radius: 10px;
-        top: 100%;
-        width: 340px; 
-        max-height: 250px;
-        overflow-x: hidden;
+        height: 100%;
     }
+    .options-graph {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: #F2F1EF;
+        height: 100%;
+
+    }
+    // ::-webkit-scrollbar {
+    //     width: 3px;
+    // }
+    // body {
+    //     scrollbar-width: thin;
+    //     scrollbar-color: grey $cabbi-grey;
+    // }
+    // ::-webkit-scrollbar-track {
+    //     background: grey;
+    // }
+    // ::-webkit-scrollbar-thumb {
+    //     background-color: $cabbi-grey ;
+    //     border-radius: 6px;
+    //     border: 3px solid $cabbi-grey;
+    // }
     .option {
         text-align: center;
         padding: 10px;

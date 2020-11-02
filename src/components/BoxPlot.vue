@@ -5,6 +5,7 @@
             :options="options" 
             :selected="selected"
             @select-option="selectIndicatorOption"
+            type="options-graph"
             icon="caret-down" 
             class="indicator-dropdown">
         </app-dropdown>
@@ -46,7 +47,7 @@ export default {
                     title: "Selected Metric",
                 },
                 margin: {
-                    l: 40,
+                    l: 65,
                     r: 30,
                     b: 25,
                     t: 15,
@@ -70,15 +71,18 @@ export default {
     .box-plot {
         display: flex;
         flex-direction: column;
+        align-items: center;
     }
 
     .plot {
         padding: {
             top: 20px;
             bottom: 25px;
-        }    
+        }
+        height: 50vh;  
+        width: 100%;  
     }
-    
+
     h3 {
         text-align: center;
         padding-bottom: 20px;
