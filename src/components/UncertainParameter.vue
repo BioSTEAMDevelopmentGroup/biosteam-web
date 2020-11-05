@@ -38,13 +38,11 @@
 <script>
 export default {
     name: 'UncertainParameter',
-
     props: {
         checked: Boolean,
         value: Object,
         distribution: String, 
     },
-
     data() {
         return{
             distributions: [
@@ -55,13 +53,11 @@ export default {
             isOpen: false,  
         }
     },
-
     watch: {
         value() {
             this.$emit('input', this.value);
         }
     },
-
     methods: {
         handleCheck() { 
             this.$emit('checked', !this.checked);

@@ -25,6 +25,9 @@
               </uncertain-parameter>
             </div>           
           </div>
+          <div class="set-sample-container">
+            <set-number-samples v-model.number="sampleNumber"></set-number-samples>
+          </div>          
           <div class="run">
             <app-button class="run-button" type="run-uncertainty">Run simulation</app-button>
           </div> 
@@ -34,6 +37,7 @@
             <div class="checked-parameters-container">
               <div style="padding-bottom: 5px;">
                 <h3>Selected Parameters</h3>
+                <p style="padding-top: 10px;">These parameters will varied in your <b>{{sampleNumber}}</b> selected simulations</p>
               </div>             
               <checked-parameters :checked="checkedParameters"></checked-parameters>
             </div>            
@@ -63,6 +67,7 @@ import SimulateDropdownBar from "@/components/SimulateDropdownBar.vue";
 import SimulateBox from "@/components/SimulateBox.vue";
 import SimulateInfo from "@/components/SimulateInfo.vue";
 import UncertainParameter from "@/components/UncertainParameter.vue";
+import SetNumberSamples from "@/components/SetNumberSamples.vue";
 import AppButton from "@/components/AppButton.vue";
 import CheckedParameters from "@/components/CheckedParameters.vue";
 import BiorefineryDiagram from "@/components/BiorefineryDiagram.vue";
@@ -76,6 +81,7 @@ export default {
     SimulateBox,
     SimulateInfo,
     UncertainParameter,
+    SetNumberSamples,
     AppButton,
     CheckedParameters,
     BiorefineryDiagram,
@@ -86,6 +92,7 @@ export default {
     return {
       selectedSimulate: 'Simulation with uncertainty',
       selectedBiorefinery: 'Select a biorefinery',
+      sampleNumber: 0,
       parameters: [
         {name: 'Lipid content', checked: false, distribution: 'Distribution', values: {value1: null, value2: null, value3: null}, info: 'Some description about the paramter'},
         {name: 'Plant size', checked: false, distribution: 'Distribution', values: {value1: null, value2: null, value3: null}, info: 'Some description about the paramter'},
@@ -151,6 +158,10 @@ export default {
 
   .parameter {
     padding-bottom: 15px;
+  }
+
+  .set-sample-container {
+    padding-bottom: 30px;
   }
 
   .run {

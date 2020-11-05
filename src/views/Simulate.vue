@@ -36,6 +36,7 @@
     </div> 
     <div class="component-test">
       <div class="component-container">
+        <set-number-samples></set-number-samples>
       </div>       
     </div>
   </div>
@@ -45,6 +46,7 @@
 import SimulateDropdownBar from "@/components/SimulateDropdownBar.vue";
 import SimulateBox from "@/components/SimulateBox.vue";
 import SimulateInfo from "@/components/SimulateInfo.vue";
+import SetNumberSamples from "@/components/SetNumberSamples.vue";
 
 export default {
   name: 'Simulate',
@@ -52,6 +54,7 @@ export default {
     SimulateDropdownBar,
     SimulateBox,
     SimulateInfo,
+    SetNumberSamples,
   },
   data() {
     return {
