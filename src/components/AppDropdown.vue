@@ -27,7 +27,7 @@ export default {
     },
     props: {
         icon: String,
-        options: Array,
+        options: [Object, Array],
         selected: String,
         type: String,
     },

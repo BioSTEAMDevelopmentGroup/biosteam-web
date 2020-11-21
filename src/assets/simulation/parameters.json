@@ -1,0 +1,342 @@
+{
+    "cornstoverParameters": [
+        {
+            "name": "Cornstover price", 
+            "checked": false, 
+            "distribution": "Distribution", 
+            "values": {
+                "value1": null, 
+                "value2": null, 
+                "value3": null
+            }, 
+            "info": "Some description about the paramter"
+        },
+
+        {
+            "name": "Enzyme price", 
+            "checked": false, 
+            "distribution": "Distribution", 
+            "values": {
+                "value1": null, 
+                "value2": null, 
+                "value3": null
+            }, 
+            "info": "Some description about the paramter"
+        },
+
+        {
+            "name": "Electricity price", 
+            "checked": false, 
+            "distribution": "Distribution", 
+            "values": {
+                "value1": null, 
+                "value2": null, 
+                "value3": null
+            }, 
+            "info": "Some description about the paramter"
+        },
+
+        {
+            "name": "Income tax", 
+            "checked": false, 
+            "distribution": "Distribution", 
+            "values": {
+                "value1": null, 
+                "value2": null, 
+                "value3": null
+            }, 
+            "info": "Some description about the paramter"
+        },
+
+        {
+            "name": "Plant size", 
+            "checked": false, 
+            "distribution": "Distribution", 
+            "values": {
+                "value1": null, 
+                "value2": null, 
+                "value3": null
+            }, 
+            "info": "Some description about the paramter"
+        },
+
+        {
+            "name": "PT glucose-to-glucose", 
+            "checked": false, 
+            "distribution": "Distribution", 
+            "values": {
+                "value1": null, 
+                "value2": null, 
+                "value3": null
+            }, 
+            "info": "Some description about the paramter"
+        },
+
+        {
+            "name": "PT xylan-to-xylose", 
+            "checked": false, 
+            "distribution": "Distribution", 
+            "values": {
+                "value1": null, 
+                "value2": null, 
+                "value3": null
+            }, 
+            "info": "Some description about the paramter"
+        },
+
+        {
+            "name": "Xylan-to-furfural conversion", 
+            "checked": false, 
+            "distribution": "Distribution", 
+            "values": {
+                "value1": null, 
+                "value2": null, 
+                "value3": null
+            }, 
+            "info": "Some description about the paramter"
+        },
+
+        {
+            "name": "EH cellulose-to-glucose", 
+            "checked": false, 
+            "distribution": "Distribution", 
+            "values": {
+                "value1": null, 
+                "value2": null, 
+                "value3": null
+            }, 
+            "info": "Some description about the paramter"
+        },
+
+        {
+            "name": "EH time", 
+            "checked": false, 
+            "distribution": "Distribution", 
+            "values": {
+                "value1": null, 
+                "value2": null, 
+                "value3": null
+            }, 
+            "info": "Some description about the paramter"
+        },
+
+        {
+            "name": "FERM glucose-to-ethanol", 
+            "checked": false, 
+            "distribution": "Distribution", 
+            "values": {
+                "value1": null, 
+                "value2": null, 
+                "value3": null
+            }, 
+            "info": "Some description about the paramter"
+        },
+
+        {
+            "name": "FERM time", 
+            "checked": false, 
+            "distribution": "Distribution", 
+            "values": {
+                "value1": null, 
+                "value2": null, 
+                "value3": null
+            }, 
+            "info": "Some description about the paramter"
+        },
+
+        {
+            "name": "Boiler efficiency", 
+            "checked": false, 
+            "distribution": "Distribution", 
+            "values": {
+                "value1": null, 
+                "value2": null, 
+                "value3": null
+            }, 
+            "info": "Some description about the paramter"
+        },
+
+        {
+            "name": "Turbogenerator efficiency", 
+            "checked": false, 
+            "distribution": "Distribution", 
+            "values": {
+                "value1": null, 
+                "value2": null, 
+                "value3": null
+            }, 
+            "info": "Some description about the paramter"
+        }
+    ],
+
+    "lipidcaneParameters": [
+        {
+            "name": "Lipidcane1", 
+            "checked": false, 
+            "distribution": "Distribution", 
+            "values": {
+                "value1": null, 
+                "value2": null, 
+                "value3": null
+            }, 
+            "info": "Some description about the paramter"
+        },
+
+        {
+            "name": "Lipidcane2", 
+            "checked": false, 
+            "distribution": "Distribution", 
+            "values": {
+                "value1": null, 
+                "value2": null, 
+                "value3": null
+            }, 
+            "info": "Some description about the paramter"
+        },
+
+        {
+            "name": "Lipidcane3", 
+            "checked": false, 
+            "distribution": "Distribution", 
+            "values": {
+                "value1": null, 
+                "value2": null, 
+                "value3": null
+            }, 
+            "info": "Some description about the paramter"
+        },
+
+        {
+            "name": "Lipidcane4", 
+            "checked": false, 
+            "distribution": "Distribution", 
+            "values": {
+                "value1": null, 
+                "value2": null, 
+                "value3": null
+            }, 
+            "info": "Some description about the paramter"
+        },
+
+        {
+            "name": "Lipidcane5", 
+            "checked": false, 
+            "distribution": "Distribution", 
+            "values": {
+                "value1": null, 
+                "value2": null, 
+                "value3": null
+            }, 
+            "info": "Some description about the paramter"
+        },
+
+        {
+            "name": "Lipidcane6", 
+            "checked": false, 
+            "distribution": "Distribution", 
+            "values": {
+                "value1": null, 
+                "value2": null, 
+                "value3": null
+            }, 
+            "info": "Some description about the paramter"
+        },
+
+        {
+            "name": "Lipidcane7", 
+            "checked": false, 
+            "distribution": "Distribution", 
+            "values": {
+                "value1": null, 
+                "value2": null, 
+                "value3": null
+            }, 
+            "info": "Some description about the paramter"
+        },
+
+        {
+            "name": "Lipidcane8", 
+            "checked": false, 
+            "distribution": "Distribution", 
+            "values": {
+                "value1": null, 
+                "value2": null, 
+                "value3": null
+            }, 
+            "info": "Some description about the paramter"
+        },
+
+        {
+            "name": "Lipidcane9", 
+            "checked": false, 
+            "distribution": "Distribution", 
+            "values": {
+                "value1": null, 
+                "value2": null, 
+                "value3": null
+            }, 
+            "info": "Some description about the paramter"
+        },
+
+        {
+            "name": "Lipidcane10", 
+            "checked": false, 
+            "distribution": "Distribution", 
+            "values": {
+                "value1": null, 
+                "value2": null, 
+                "value3": null
+            }, 
+            "info": "Some description about the paramter"
+        },
+
+        {
+            "name": "Lipidcane11", 
+            "checked": false, 
+            "distribution": "Distribution", 
+            "values": {
+                "value1": null, 
+                "value2": null, 
+                "value3": null
+            }, 
+            "info": "Some description about the paramter"
+        },
+
+        {
+            "name": "Lipidcane12", 
+            "checked": false, 
+            "distribution": "Distribution", 
+            "values": {
+                "value1": null, 
+                "value2": null, 
+                "value3": null
+            }, 
+            "info": "Some description about the paramter"
+        },
+
+        {
+            "name": "Lipidcane13", 
+            "checked": false, 
+            "distribution": "Distribution", 
+            "values": {
+                "value1": null, 
+                "value2": null, 
+                "value3": null
+            }, 
+            "info": "Some description about the paramter"
+        },
+
+        {
+            "name": "Turbogenerator efficiency", 
+            "checked": false, 
+            "distribution": "Distribution", 
+            "values": {
+                "value1": null, 
+                "value2": null, 
+                "value3": null
+            }, 
+            "info": "Some description about the paramter"
+        }
+      ]
+
+}

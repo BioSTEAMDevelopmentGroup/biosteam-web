@@ -13,17 +13,39 @@
       <simulate-box type="uncertainty">
         <template #sidebar>
           <div class="parameter-container">
-            <div class="parameter" v-for="parameter in parameters" :key="parameter.name">
-              <uncertain-parameter 
-                :value="parameter.values" 
-                :checked="parameter.checked" 
-                :distribution="parameter.distribution"
-                @checked="(newChecked) => {parameter.checked = newChecked}" 
-                @input="(newValues) => {parameter.values = newValues}" 
-                @select-distribution="(newDistribution) => {parameter.distribution = newDistribution}">
-                <template #name>{{parameter.name}}</template>
-              </uncertain-parameter>
-            </div>           
+            <div v-if="selectedBiorefinery == 'Select a biorefinery'" style="display: flex; align-items: center;">
+              <font-awesome-icon
+                :icon="['far', 'hand-pointer']"
+                size="2x"
+                style="padding: 15px;"/>
+              <p>Select a biorefinery to view parameters</p> 
+            </div> 
+            <div v-if="selectedBiorefinery == 'Cornstover'">
+              <div class="parameter" v-for="parameter in parameters.cornstoverParameters" :key="parameter.name">
+                <uncertain-parameter 
+                  :value="parameter.values" 
+                  :checked="parameter.checked" 
+                  :distribution="parameter.distribution"
+                  @checked="(newChecked) => {parameter.checked = newChecked}" 
+                  @input="(newValues) => {parameter.values = newValues}" 
+                  @select-distribution="(newDistribution) => {parameter.distribution = newDistribution}">
+                  <template #name>{{parameter.name}}</template>
+                </uncertain-parameter>
+              </div>  
+            </div> 
+            <div v-if="selectedBiorefinery == 'Lipidcane'">
+              <div class="parameter" v-for="parameter in parameters.lipidcaneParameters" :key="parameter.name">
+                <uncertain-parameter 
+                  :value="parameter.values" 
+                  :checked="parameter.checked" 
+                  :distribution="parameter.distribution"
+                  @checked="(newChecked) => {parameter.checked = newChecked}" 
+                  @input="(newValues) => {parameter.values = newValues}" 
+                  @select-distribution="(newDistribution) => {parameter.distribution = newDistribution}">
+                  <template #name>{{parameter.name}}</template>
+                </uncertain-parameter>
+              </div>  
+            </div>        
           </div>
           <div class="set-sample-container">
             <set-number-samples v-model.number="sampleNumber"></set-number-samples>
@@ -37,7 +59,7 @@
             <div class="checked-parameters-container">
               <div style="padding-bottom: 5px;">
                 <h3>Selected Parameters</h3>
-                <p style="padding-top: 10px;">These parameters will varied in your <b>{{sampleNumber}}</b> selected simulations</p>
+                <p style="padding-top: 10px;">These parameters will be varied in your <b>{{sampleNumber}}</b> selected simulations</p>
               </div>             
               <checked-parameters :checked="checkedParameters"></checked-parameters>
             </div>            
@@ -47,10 +69,12 @@
           </div>
           <div class="graphs">
             <div class="box-plot-container">
-              <box-plot :options="parameters"></box-plot>
+              <box-plot-info style="flex: 1;"></box-plot-info>
+              <box-plot :options="spearman.cornstoverSpearmanOptions" style="flex: 2;"></box-plot>
             </div>
-            <div class="line-graph-container">
-              <line-graph :options="parameters"></line-graph>
+            <div class="spearman-graph-container">
+              <spearman-info></spearman-info>
+              <spearmans-graph :options="spearman.cornstoverSpearmanOptions"></spearmans-graph>
             </div>            
           </div>
         </template>
@@ -63,6 +87,9 @@
 </template>
 
 <script>
+import parameters from "@/assets/simulation/parameters.json";
+import spearman from "@/assets/simulation/spearman.json";
+
 import SimulateDropdownBar from "@/components/SimulateDropdownBar.vue";
 import SimulateBox from "@/components/SimulateBox.vue";
 import SimulateInfo from "@/components/SimulateInfo.vue";
@@ -72,7 +99,9 @@ import AppButton from "@/components/AppButton.vue";
 import CheckedParameters from "@/components/CheckedParameters.vue";
 import BiorefineryDiagram from "@/components/BiorefineryDiagram.vue";
 import BoxPlot from "@/components/BoxPlot.vue";
-import LineGraph from "@/components/LineGraph.vue";
+import BoxPlotInfo from "@/components/BoxPlotInfo.vue";
+import SpearmansGraph from "@/components/SpearmansGraph.vue";
+import SpearmanInfo from "@/components/SpearmanInfo.vue";
 
 export default {
   name: 'SimulateUncertainty',
@@ -86,39 +115,53 @@ export default {
     CheckedParameters,
     BiorefineryDiagram,
     BoxPlot,
-    LineGraph,
+    BoxPlotInfo,
+    SpearmansGraph,
+    SpearmanInfo
   },
   data() {
     return {
       selectedSimulate: 'Simulation with uncertainty',
       selectedBiorefinery: 'Select a biorefinery',
       sampleNumber: 0,
-      parameters: [
-        {name: 'Lipid content', checked: false, distribution: 'Distribution', values: {value1: null, value2: null, value3: null}, info: 'Some description about the paramter'},
-        {name: 'Plant size', checked: false, distribution: 'Distribution', values: {value1: null, value2: null, value3: null}, info: 'Some description about the paramter'},
-        {name: 'Operating days', checked: false, distribution: 'Distribution', values: {value1: null, value2: null, value3: null}, info: 'Some description about the paramter'},
-        {name: 'Ethanol price', checked: false, distribution: 'Distribution', values: {value1: null, value2: null, value3: null}, info: 'Some description about the paramter'},
-        {name: 'Lipidcane price', checked: false, distribution: 'Distribution', values: {value1: null, value2: null, value3: null}, info: 'Some description about the paramter'},
-        {name: 'Electricity price', checked: false, distribution: 'Distribution', values: {value1: null, value2: null, value3: null}, info: 'Some description about the paramter'},
-        {name: 'IRR', checked: false, distribution: 'Distribution', values: {value1: null, value2: null, value3: null}, info: 'Some description about the paramter'},
-        {name: 'LCA param1', checked: false, distribution: 'Distribution', values: {value1: null, value2: null, value3: null}, info: 'Some description about the paramter'},
-        {name: 'LCA param2', checked: false, distribution: 'Distribution', values: {value1: null, value2: null, value3: null}, info: 'Some description about the paramter'},
-        {name: 'Filler 1', checked: false, distribution: 'Distribution', values: {value1: null, value2: null, value3: null}, info: 'Some description about the paramter'},
-        {name: 'Filler 2', checked: false, distribution: 'Distribution', values: {value1: null, value2: null, value3: null}, info: 'Some description about the paramter'},
-        {name: 'Filler 3', checked: false, distribution: 'Distribution', values: {value1: null, value2: null, value3: null}, info: 'Some description about the paramter'},
-        {name: 'Filler 4', checked: false, distribution: 'Distribution', values: {value1: null, value2: null, value3: null}, info: 'Some description about the paramter'},
-        {name: 'Filler 5', checked: false, distribution: 'Distribution', values: {value1: null, value2: null, value3: null}, info: 'Some description about the paramter'},
-        {name: 'Filler 6', checked: false, distribution: 'Distribution', values: {value1: null, value2: null, value3: null}, info: 'Some description about the paramter'},
-        {name: 'Filler 7', checked: false, distribution: 'Distribution', values: {value1: null, value2: null, value3: null}, info: 'Some description about the paramter'},
-      ],
+      parameters: parameters,
+      spearman: spearman,
+      // parameters: [
+      //   {name: 'Lipid content', checked: false, distribution: 'Distribution', values: {value1: null, value2: null, value3: null}, info: 'Some description about the paramter'},
+      //   {name: 'Plant size', checked: false, distribution: 'Distribution', values: {value1: null, value2: null, value3: null}, info: 'Some description about the paramter'},
+      //   {name: 'Operating days', checked: false, distribution: 'Distribution', values: {value1: null, value2: null, value3: null}, info: 'Some description about the paramter'},
+      //   {name: 'Ethanol price', checked: false, distribution: 'Distribution', values: {value1: null, value2: null, value3: null}, info: 'Some description about the paramter'},
+      //   {name: 'Lipidcane price', checked: false, distribution: 'Distribution', values: {value1: null, value2: null, value3: null}, info: 'Some description about the paramter'},
+      //   {name: 'Electricity price', checked: false, distribution: 'Distribution', values: {value1: null, value2: null, value3: null}, info: 'Some description about the paramter'},
+      //   {name: 'IRR', checked: false, distribution: 'Distribution', values: {value1: null, value2: null, value3: null}, info: 'Some description about the paramter'},
+      //   {name: 'LCA param1', checked: false, distribution: 'Distribution', values: {value1: null, value2: null, value3: null}, info: 'Some description about the paramter'},
+      //   {name: 'LCA param2', checked: false, distribution: 'Distribution', values: {value1: null, value2: null, value3: null}, info: 'Some description about the paramter'},
+      //   {name: 'Filler 1', checked: false, distribution: 'Distribution', values: {value1: null, value2: null, value3: null}, info: 'Some description about the paramter'},
+      //   {name: 'Filler 2', checked: false, distribution: 'Distribution', values: {value1: null, value2: null, value3: null}, info: 'Some description about the paramter'},
+      //   {name: 'Filler 3', checked: false, distribution: 'Distribution', values: {value1: null, value2: null, value3: null}, info: 'Some description about the paramter'},
+      //   {name: 'Filler 4', checked: false, distribution: 'Distribution', values: {value1: null, value2: null, value3: null}, info: 'Some description about the paramter'},
+      //   {name: 'Filler 5', checked: false, distribution: 'Distribution', values: {value1: null, value2: null, value3: null}, info: 'Some description about the paramter'},
+      //   {name: 'Filler 6', checked: false, distribution: 'Distribution', values: {value1: null, value2: null, value3: null}, info: 'Some description about the paramter'},
+      //   {name: 'Filler 7', checked: false, distribution: 'Distribution', values: {value1: null, value2: null, value3: null}, info: 'Some description about the paramter'},
+      // ],
     }
   },
   computed: {
     checkedParameters: function() {
       let list = []
-      for(let i=0; i<this.parameters.length; i++) {
-        if(this.parameters[i].checked == true) {
-          list.push(this.parameters[i].name)
+      if(this.selectedBiorefinery == 'Cornstover') {
+        for(let i=0; i<this.parameters.cornstoverParameters.length; i++) {
+          if(this.parameters.cornstoverParameters[i].checked == true) {
+            list.push(this.parameters.cornstoverParameters[i].name)
+          }
+        }
+      }
+
+      if(this.selectedBiorefinery == 'Lipidcane') {
+        for(let i=0; i<this.parameters.lipidcaneParameters.length; i++) {
+          if(this.parameters.lipidcaneParameters[i].checked == true) {
+            list.push(this.parameters.lipidcaneParameters[i].name)
+          }
         }
       }
       return list
@@ -188,22 +231,29 @@ export default {
     height: 300px;
     justify-content: center;
     align-items: center;
+    padding-bottom: 30px;
   }
 
-  .graphs{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 15px;
-  }
+  // .graphs{
+  //   display: flex;
+  //   flex-direction: column;
+  //   // justify-content: center;
+  //   // align-items: center;
+  //   padding: 15px;
+  //   // width: 65vw;
+  // }
 
   .box-plot-container {
-    width: 100%;
+    display: flex;
+    justify-content: center;
+    //width: 100%;
     padding: 20px;
   }
 
-  .line-graph-container {
-    width: 100%;
+  .spearman-graph-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
     padding: 20px;
   }
 

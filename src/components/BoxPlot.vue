@@ -1,6 +1,5 @@
 <template>
     <div class="box-plot">
-        <h3>Box plot component</h3>
         <app-dropdown 
             :options="options" 
             :selected="selected"
@@ -17,6 +16,8 @@
 
 <script>
 import { Plotly } from 'vue-plotly';
+import boxplot from "@/assets/simulation/boxplot.json";
+
 import AppButton from "@/components/AppButton.vue";
 import AppDropdown from "@/components/AppDropdown.vue";
 // box-plot help --> https://plotly.com/javascript/box-plots/
@@ -31,23 +32,25 @@ export default {
     },
     data() {
         return{
+            boxplot: boxplot,
             selected: 'Indicator',
-            plotData: [{
-                y: [0.6, 0.7, 0.3, 0.6, 0.5, 0.7, 0.9, 0.5, 0.8, 0.7, 0.2],
+            plot: {
+                y: [],
                 type:"box",
-                name: "MFSP",
+                name: "MESP",
                 marker: {color: '#1D7F3D'},
-            }],
+            },
             layout: {
+                hovermode: "closest",
+                hoverlabel: { bgcolor: "#FFF" },
                 yaxis: {
                     zeroline: true,
                     gridcolor: 'white',
                     zerolinecolor: 'rgb(255, 255, 255)',
                     zerolinewidth: 2,
-                    title: "Selected Metric",
                 },
                 margin: {
-                    l: 65,
+                    l: 45,
                     r: 30,
                     b: 25,
                     t: 15,
@@ -56,6 +59,25 @@ export default {
                 paper_bgcolor: '#E1DEDA',
                 plot_bgcolor: '#E1DEDA',
             }
+        }
+    },
+computed: {
+        plotData: function() {
+            let data = this.plot
+
+            for(let i=0; i<this.options.length; i++) {
+                if(this.options[i].name == this.selected) {
+                    let key = this.options[i].key
+                    data.y = boxplot[key]
+                    data.name = this.selected
+                    return [data]
+                }
+                else {
+                    data.x = boxplot.zeros
+                }
+            }
+
+            return [data]
         }
     },
     methods: {
@@ -72,6 +94,7 @@ export default {
         display: flex;
         flex-direction: column;
         align-items: center;
+        width: 400px;
     }
 
     .plot {
@@ -79,8 +102,9 @@ export default {
             top: 20px;
             bottom: 25px;
         }
-        height: 50vh;  
-        width: 100%;  
+        //height: 50vh;  
+        height: 350px;
+        width: 400px;  
     }
 
     h3 {
