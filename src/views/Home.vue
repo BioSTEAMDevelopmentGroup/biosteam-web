@@ -1,79 +1,72 @@
 <template>
   <div>
 <!--- Hero Banner ---> 
-    <div class="home">
-      <div class="background"></div>
-      <div class="banner">
-        <div class="banner-text">
-          <h1>Welcome to BioSTEAM</h1>
-          <p>BioSTEAM is a fast and flexible package for the design, simulation, and techno-economic analysis of biorefineries under uncertainty 1. BioSTEAM’s framework is built to streamline and automate early-stage technology evaluations and to enable rigorous sensitivity and uncertainty analyses.</p>
-          <app-button type='home-hero'>Explore More</app-button>
-        </div>
-        <img class="banner-logo" src="../assets/home/home-hero-logo.png" alt="">
-      </div>
+    <div class="z-10 flex justify-center items-center bg-gradient-to-t from-cyellow to-clightblue" style="height: 80vh;">
+      <molecule-home-hero></molecule-home-hero>
     </div>
 
 <!--- Info Cards ---> 
-    <div class="info-cards">
-      <div class="card" v-for="card in cards" :key="card.title">
-        <home-card :link="card.link">
-          <template #title>
-            {{card.title}}
-          </template>
-          <template #content>
-            {{card.content}}
-          </template>        
-        </home-card>
+    <div class="h-80 flex justify-center items-center">
+      <atom-home-card-banner class="h-full w-full"></atom-home-card-banner>
+    </div>
+    <div class="h-screen">
+      <div class="flex justify-center h-screen px-10 pb-20">
+        <div v-for="card in cards" :key="card.title" class="p-3 w-1/3 h-full flex items-center">
+          <molecule-home-card :link="card.link" class="h-4/5">
+            <template #title>
+              {{card.title}}
+            </template>
+            <template #content>
+              {{card.content}}
+            </template>             
+          </molecule-home-card>
+        </div>
       </div>
     </div>
 
-<!--- Simulation Feature Info ---> 
-    <div class="sim-feature">
-      <div class="section-1">
-        <img class="circle-1" src="../assets/home/circle1.svg">
-        <div class="container-1">          
-          <img class="screenshot" src="../assets/home/screenshot1.png" >
-          <div class="info-container">
-            <h2>Single Point Simulation</h2>
-            <p>Given user-input (or default) values for each parameter in a single scenario describing feedstock composition, biorefinery design and operation, and financial assumptions, a Techno-Economic Analysis (TEA) and a Life Cycle Impact Assessment (LCIA) estimate respectively the economic and environmental sustainability for that scenario.</p>
-            <div>
-              <app-button @click="toRoute('/simulate-single')" type="home-card">Start Now</app-button>
-            </div>         
-          </div>
-        </div>              
-      </div>  
-      <div class= "section-2">
-        <img class="circle-2" src="../assets/home/circle2.svg">
-        <div class="container-2">
-          <div class="info-container">
-            <h2>Simulation with Uncertainty</h2>
-            <p>Given user-input (or default) distributions of parameters describing feedstock composition, biorefinery design and operation, and financial assumptions, across the breadth of scenarios so generated, Techno-Economic Analyses (TEAs) and Life Cycle Impact Assessments (LCIAs) estimate respectively the economic and environmental sustainability with results represented as 95% confidence intervals.</p>
-            <div>
-              <app-button @click="toRoute('/simulate-uncertainty')" type="home-card">Start Now</app-button>        
-            </div>
-          </div>
-          <img class="screenshot" src="../assets/home/screenshot2.png" >
-        </div>        
-      </div>
+<!-- Home info -->
+    <div class="relative z-10 bg-cblue flex flex-col justify-center items-center w-screen shadow-lg shadow-inner">
+      <div class="absolute z-20 top-0 left-3/5 w-20 h-10" :style="{'background-image': `url(${require('@/assets/home/info-pulldown.svg')})`}"></div>
+      <molecule-home-info class="relative z-10 h-1/2 w-full pt-12 px-8" link="/simulate-single" direction="left" img="home/screenshot1.png">
+          <template #title>Single-point simulation</template>
+          <template #description>Given user-input (or default) values for each parameter in a single scenario describing feedstock composition, biorefinery design and operation, and financial assumptions, a Techno-Economic Analysis (TEA) and a Life Cycle Impact Assessment (LCIA) estimate respectively the economic and environmental sustainability for that scenario.</template>
+      </molecule-home-info>
+      <molecule-home-info class="relative z-10 h-1/2 w-full p-10" link="/simulate-uncertainty" direction="right" img="home/screenshot2.png">
+          <template #title>Simulation with uncertainty</template>
+          <template #description>Given user-input (or default) distributions of parameters describing feedstock composition, biorefinery design and operation, and financial assumptions, across the breadth of scenarios so generated, Techno-Economic Analyses (TEAs) and Life Cycle Impact Assessments (LCIAs) estimate respectively the economic and environmental sustainability with results represented as 95% confidence intervals.</template>  
+      </molecule-home-info>
     </div>
 
+<!-- Read the docs -->
+    <div class="bg-gradient-to-t from-cgrey flex justify-center items-center" style="height: 70vh;">
+      <molecule-to-docs class="h-1/2 w-1/2"></molecule-to-docs>
+    </div>
+    
 <!--- Logos ---> 
-    <div class="logos">
-      <p>Affiliate logos will go here</p>
+    <div class="flex justify-around items-center h-40 bg-cdarkgreenblue">
+      <p class="text-white text-xl">CABBI logo</p>
+      <p class="text-white text-xl">DOE logo</p>
+      <p class="text-white text-xl">Guest Group logo</p>
     </div>
   </div>
 </template>
 
 
 <script>
-import AppButton from '@/components/AppButton.vue';
-import HomeCard from '@/components/HomeCard.vue';
+import MoleculeHomeCard from '@/components/molecules/MoleculeHomeCard.vue';
+import MoleculeHomeHero from '@/components/molecules/MoleculeHomeHero.vue';
+import MoleculeHomeInfo from '@/components/molecules/MoleculeHomeInfo.vue';
+import AtomHomeCardBanner from '@/components/atoms/AtomHomeCardBanner.vue';
+import MoleculeToDocs from '@/components/molecules/MoleculeToDocs.vue';
 
 export default {
   name: 'Home',
   components: {
-    'app-button': AppButton,
-    'home-card': HomeCard,
+    MoleculeHomeCard,
+    MoleculeHomeHero,
+    MoleculeHomeInfo,
+    AtomHomeCardBanner,
+    MoleculeToDocs,
   },
   data() {
     return{
@@ -94,231 +87,231 @@ export default {
 
 <style scoped lang="scss">
 
-  .home {
-    height: 75vh;
-    padding-bottom: 25%; 
-    top: -75px;
-  }
+  // .home {
+  //   height: 75vh;
+  //   padding-bottom: 25%; 
+  //   top: -75px;
+  // }
 
-  .background {
-    position: absolute;
-    background-image: url('../assets/home/home-hero-banner.svg');
-    background-size: cover;
-    height: 75vh;
-    width: 100%;
-    padding-bottom: 25%; 
-    top: -75px;
-    z-index: -10;
-  }
+  // .background {
+  //   position: absolute;
+  //   background-image: url('../assets/home/home-hero-banner.svg');
+  //   background-size: cover;
+  //   height: 75vh;
+  //   width: 100%;
+  //   padding-bottom: 25%; 
+  //   top: -75px;
+  //   z-index: -10;
+  // }
 
-  .banner {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 90%;
+  // .banner {
+  //   display: flex;
+  //   justify-content: space-between;
+  //   align-items: center;
+  //   height: 90%;
     
-    padding: {
-      top: 5%;
-      left: 7%;
-      right: 7%;
-    }
-  }
+  //   padding: {
+  //     top: 5%;
+  //     left: 7%;
+  //     right: 7%;
+  //   }
+  // }
 
-  .banner-text {
-    max-width: 50%;
-    h1 {
-      color: $cabbi-dark;
-      padding-bottom: 15px;
-    }
-    p{
-      color: #707070;
-      font-size: 12pt;
-      padding-bottom: 25px;      
-    }
-  }
+  // .banner-text {
+  //   max-width: 50%;
+  //   h1 {
+  //     color: $cabbi-dark;
+  //     padding-bottom: 15px;
+  //   }
+  //   p{
+  //     color: #707070;
+  //     font-size: 12pt;
+  //     padding-bottom: 25px;      
+  //   }
+  // }
 
-  .banner-logo {
-    order: 2;
-    max-width: 47%;
-  }
+  // .banner-logo {
+  //   order: 2;
+  //   max-width: 47%;
+  // }
 
-  .info-cards{
-    display: flex;
-    justify-content: center;
-    padding: 20px;
-  }
+  // .info-cards{
+  //   display: flex;
+  //   justify-content: center;
+  //   padding: 20px;
+  // }
 
-  .card {
-    display: flex;
-    padding: 20px;
-    padding-bottom: 100px;
-    max-width: 25%;
-  }
+  // .card {
+  //   display: flex;
+  //   padding: 20px;
+  //   padding-bottom: 100px;
+  //   max-width: 25%;
+  // }
 
-  .section-1 {
-    position: relative;
-  }
+  // .section-1 {
+  //   position: relative;
+  // }
 
-  .section-2 {
-    position: relative;
-  }
+  // .section-2 {
+  //   position: relative;
+  // }
 
-  .circle-1 {
-    position: absolute;
-    height: 700px;
-    top: 0;
-    left: -300px;
-    z-index: -1;
-  }
+  // .circle-1 {
+  //   position: absolute;
+  //   height: 700px;
+  //   top: 0;
+  //   left: -300px;
+  //   z-index: -1;
+  // }
 
-  .circle-2 {
-    position: absolute;
-    height: 700px;
-    top: 0;
-    right: -300px;
-    z-index: -1;
-  }
+  // .circle-2 {
+  //   position: absolute;
+  //   height: 700px;
+  //   top: 0;
+  //   right: -300px;
+  //   z-index: -1;
+  // }
 
-  .container-1 {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    padding: 50px;
-    padding-top: 200px;
-    padding-bottom: 200px;
-  }
+  // .container-1 {
+  //   display: flex;
+  //   align-items: center;
+  //   justify-content: space-around;
+  //   padding: 50px;
+  //   padding-top: 200px;
+  //   padding-bottom: 200px;
+  // }
 
-  .container-2 {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    padding: 50px;
-    padding-top: 200px;
-    padding-bottom: 200px;
-  }
+  // .container-2 {
+  //   display: flex;
+  //   align-items: center;
+  //   justify-content: space-around;
+  //   padding: 50px;
+  //   padding-top: 200px;
+  //   padding-bottom: 200px;
+  // }
 
-  .screenshot { 
-    height: 350px;
-    border-radius: 20px;
-    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
-  }
+  // .screenshot { 
+  //   height: 350px;
+  //   border-radius: 20px;
+  //   box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
+  // }
 
-  .info-container {
-    display: flex;
-    flex-direction: column;
-    height: 200px;
-    justify-content: space-around;
-    max-width: 55%;
-    padding: 15px;
-  }
+//   .info-container {
+//     display: flex;
+//     flex-direction: column;
+//     height: 200px;
+//     justify-content: space-around;
+//     max-width: 55%;
+//     padding: 15px;
+//   }
 
-  .logos {
-    display: flex;
-    justify-content: center;
-    padding: 75px;
-  }
+//   .logos {
+//     display: flex;
+//     justify-content: center;
+//     padding: 75px;
+//   }
 
-  /* Styling for small screens */
+//   /* Styling for small screens */
 
-@media screen and (max-width: $sm) {
-    .home {
-      height: 100vh;
-    }
+// @media screen and (max-width: $sm) {
+//     .home {
+//       height: 100vh;
+//     }
     
-    .background{
-      height: 100vh;
-      padding-bottom:50%;
-    }
+//     .background{
+//       height: 100vh;
+//       padding-bottom:50%;
+//     }
 
-    .banner {
-      position: absolute;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: initial;
-      padding-top: 150px;
-      padding-bottom: 10%;
-    }
+//     .banner {
+//       position: absolute;
+//       display: flex;
+//       flex-direction: column;
+//       align-items: center;
+//       justify-content: initial;
+//       padding-top: 150px;
+//       padding-bottom: 10%;
+//     }
 
-    .banner-text {
-      order: 1;
-      min-width: 85%;
-      padding-bottom: 50px;
-    }
+//     .banner-text {
+//       order: 1;
+//       min-width: 85%;
+//       padding-bottom: 50px;
+//     }
     
-    .banner-logo {
-      order: 2;
-      min-width: 70%;
-    }
+//     .banner-logo {
+//       order: 2;
+//       min-width: 70%;
+//     }
 
-    .info-cards {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
+//     .info-cards {
+//       display: flex;
+//       flex-direction: column;
+//       align-items: center;
+//     }
 
-    .card {
-      min-width: 60%;
-      padding: 20px;
-    }
+//     .card {
+//       min-width: 60%;
+//       padding: 20px;
+//     }
 
-    .container-1 {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-around;   
-    }
+//     .container-1 {
+//       display: flex;
+//       flex-direction: column;
+//       justify-content: space-around;   
+//     }
 
-    .container-2 {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-around;
-    }
+//     .container-2 {
+//       display: flex;
+//       flex-direction: column;
+//       justify-content: space-around;
+//     }
 
-    .info-container {
-      min-width: 90%;
-      min-height: 30vh;
-      padding-bottom: 10%;
-    }
+//     .info-container {
+//       min-width: 90%;
+//       min-height: 30vh;
+//       padding-bottom: 10%;
+//     }
 
-    .screenshot {
-      height: 400px;
-    }
+//     .screenshot {
+//       height: 400px;
+//     }
 
-    .screenshot {
-      order: 2;
-    }
-}
+//     .screenshot {
+//       order: 2;
+//     }
+// }
 
-@media screen and (max-width: $xs) {
-  .background{
-    height: 100vh;
-    padding-bottom:70%;
-  }
+// @media screen and (max-width: $xs) {
+//   .background{
+//     height: 100vh;
+//     padding-bottom:70%;
+//   }
 
-  .banner {
-    padding-bottom: 0;
-  }
+//   .banner {
+//     padding-bottom: 0;
+//   }
 
-  .info-cards{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-bottom: 50px;
-    padding-top: 50px;
-  }
+//   .info-cards{
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+//     padding-bottom: 50px;
+//     padding-top: 50px;
+//   }
 
-  .card {
-    padding-bottom: 25px;    
-    min-width: 90%;
-  }
+//   .card {
+//     padding-bottom: 25px;    
+//     min-width: 90%;
+//   }
 
-  .screenshot{
-    height: 250px;
-  }
+//   .screenshot{
+//     height: 250px;
+//   }
 
-  .info-container{
-    padding-bottom: 60px;
-  }
-}
+//   .info-container{
+//     padding-bottom: 60px;
+//   }
+// }
 
 </style>>

@@ -5,6 +5,7 @@ import Simulate from '../views/Simulate.vue'
 import SimulateSingle from '../views/SimulateSingle.vue'
 import SimulateUncertainty from '../views/SimulateUncertainty.vue'
 import Resources from '../views/Resources.vue'
+import Docs from '../views/Docs.vue'
 
 Vue.use(VueRouter)
 
@@ -33,6 +34,11 @@ Vue.use(VueRouter)
     path: '/resources',
     name: 'Resources',
     component: Resources
+  },
+  {
+    path: '/docs',
+    name: 'Docs',
+    component: Docs
   },
 ]
 

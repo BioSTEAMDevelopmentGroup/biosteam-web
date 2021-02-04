@@ -16,7 +16,6 @@
 
 <script>
 import { Plotly } from 'vue-plotly';
-import boxplot from "@/assets/simulation/boxplot.json";
 
 import AppButton from "@/components/AppButton.vue";
 import AppDropdown from "@/components/AppDropdown.vue";
@@ -24,7 +23,7 @@ import AppDropdown from "@/components/AppDropdown.vue";
 
 export default {
     name: "BoxPlot",
-    props: ['options'],
+    props: ['options', 'boxplot'],
     components: {
         Plotly,
         AppButton,
@@ -32,12 +31,11 @@ export default {
     },
     data() {
         return{
-            boxplot: boxplot,
             selected: 'Indicator',
             plot: {
-                y: [],
+                y: null,
                 type:"box",
-                name: "MESP",
+                name: "",
                 marker: {color: '#1D7F3D'},
             },
             layout: {
@@ -61,22 +59,21 @@ export default {
             }
         }
     },
-computed: {
+    computed: {
         plotData: function() {
             let data = this.plot
 
             for(let i=0; i<this.options.length; i++) {
-                if(this.options[i].name == this.selected) {
-                    let key = this.options[i].key
-                    data.y = boxplot[key]
+                if(this.options[i].name == this.selected && this.boxplot !== null) {
+                    let metric = this.options[i].name
+                    data.y = this.boxplot[metric]
                     data.name = this.selected
                     return [data]
                 }
                 else {
-                    data.x = boxplot.zeros
+                    data.y = [0, 0, 0, 0, 0, 0, 0, 0, 0]
                 }
             }
-
             return [data]
         }
     },

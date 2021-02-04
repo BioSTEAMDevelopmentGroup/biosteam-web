@@ -22,13 +22,24 @@
               </div>
               <div class="value-box">
                 <font-awesome-icon icon="calculator"/>
-                <div class="distribution-values">
+                <div v-if="this.distribution == 'Triangular'" class="distribution-values">
                     <p>(</p>
                     <input name="value1" v-model.number="value.value1" type="number" placeholder="0">,
                     <input name="value2" v-model.number="value.value2" type="number" placeholder="0">,
                     <input name="value3" v-model.number="value.value3" type="number" placeholder="0">
                     <p>)</p>
                 </div> 
+                <div v-if="this.distribution == 'Uniform'" class="distribution-values">
+                    <p>(</p>
+                    <input name="value1" v-model.number="value.value1" type="number" placeholder="0">,
+                    <input name="value2" v-model.number="value.value2" type="number" placeholder="0">
+                    <p>)</p>
+                </div>
+                <div v-if="this.distribution == 'Distribution' || this.distribution == '---'" class="distribution-values">
+                    <p>(</p>
+                    <p>---</p>
+                    <p>)</p>
+                </div>
               </div>
           </div>
       </div>

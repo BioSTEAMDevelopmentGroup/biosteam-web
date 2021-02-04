@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
+import './styles/index.css';
 import VTooltip from 'v-tooltip'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
@@ -13,7 +14,8 @@ import {
   faDownload, 
   faChartArea,
   faCalculator,
-  faSquare } from '@fortawesome/free-solid-svg-icons'
+  faSquare 
+} from '@fortawesome/free-solid-svg-icons'
 import { faClone, faHandPointer } from '@fortawesome/free-regular-svg-icons'
 
 library.add(
@@ -27,7 +29,8 @@ library.add(
   faDownload,
   faChartArea,
   faCalculator,
-  faSquare)
+  faSquare
+)
 
 Vue.use(VTooltip)
 

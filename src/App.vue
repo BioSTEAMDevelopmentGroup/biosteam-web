@@ -1,27 +1,28 @@
 <template>
-  <div id="app">
-    <app-nav-bar v-model="navToggle" :items="items"></app-nav-bar>
+  <div class="font-sans overflow-hidden" id="app">
+    <molecule-nav-bar :items="items"></molecule-nav-bar>
     <router-view/>
     <app-footer></app-footer>
   </div>
 </template>
 
 <script>
-import AppNavBar from '@/components/AppNavBar.vue';
+import MoleculeNavBar from '@/components/molecules/MoleculeNavBar.vue';
 import AppFooter from '@/components/AppFooter.vue';
 
 export default {
   components: {
-    AppNavBar,
     AppFooter,
+    MoleculeNavBar,
   },
 
   data () {
     return{ 
       items: [
         {name: 'Home', link: '/'},
+        {name: 'About', link: '/resources'},
+        {name: 'Docs', link: '/docs'},
         {name: 'Simulate', link: '/simulate'},
-        {name: 'Resources', link: '/resources'},
       ],
       navToggle: false,
     }
@@ -31,12 +32,12 @@ export default {
 
 
 <style lang="scss">
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap');
 
-#app {
-  font-family: 'Montserrat', sans-serif; 
-  font-weight: 400;
-  color: $cabbi-dark;
-  overflow: hidden;
-}
+// #app {
+//   font-family: 'Montserrat', sans-serif; 
+//   font-weight: 400;
+//   color: $cabbi-dark;
+//   overflow: hidden;
+// }
 </style>

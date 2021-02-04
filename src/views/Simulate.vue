@@ -36,7 +36,7 @@
     </div> 
     <div class="component-test">
       <div class="component-container">
-        <set-number-samples></set-number-samples>
+        <fetch-job></fetch-job>
       </div>       
     </div>
   </div>
@@ -46,7 +46,7 @@
 import SimulateDropdownBar from "@/components/SimulateDropdownBar.vue";
 import SimulateBox from "@/components/SimulateBox.vue";
 import SimulateInfo from "@/components/SimulateInfo.vue";
-import SetNumberSamples from "@/components/SetNumberSamples.vue";
+import FetchJob from "@/components/FetchJob.vue";
 
 export default {
   name: 'Simulate',
@@ -54,7 +54,7 @@ export default {
     SimulateDropdownBar,
     SimulateBox,
     SimulateInfo,
-    SetNumberSamples,
+    FetchJob
   },
   data() {
     return {
@@ -105,7 +105,7 @@ export default {
     align-items: center;
   }
   .component-container{
-    border: 1px dotted grey;
+    //border: 1px dotted grey;
     width: 300px;
   }
 </style>

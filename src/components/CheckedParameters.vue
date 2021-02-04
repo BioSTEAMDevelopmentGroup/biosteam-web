@@ -2,7 +2,7 @@
     <div class="checked-parameters">
         <div class="checked-tag" v-for="item in checked" :key="item">
             <div class="checked">
-                <p>{{item}}</p>
+                <p>{{item.name}}</p>
             </div>            
         </div>
     </div>

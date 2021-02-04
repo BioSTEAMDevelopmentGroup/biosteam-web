@@ -1,5 +1,6 @@
 <template>
   <div class="simulate-single">
+<!--- Dropdown Bar --->
     <div class="dropdown-bar">
       <simulate-dropdown-bar 
         :simulate="selectedSimulate"
@@ -11,6 +12,7 @@
     </div>
     <div class="simulate-box">
       <simulate-box type="uncertainty">
+<!--- Sidebar content ---> 
         <template #sidebar>
           <div class="parameter-container">
             <div v-if="selectedBiorefinery == 'Select a biorefinery'" style="display: flex; align-items: center;">
@@ -51,17 +53,30 @@
             <set-number-samples v-model.number="sampleNumber"></set-number-samples>
           </div>          
           <div class="run">
-            <app-button class="run-button" type="run-uncertainty">Run simulation</app-button>
+            <app-button v-if="loading == false" class="run-button" type="run-uncertainty" @click="runSimulation()">Run simulation</app-button>
+            <app-button v-if="loading == true" class="run-button" type="run-uncertainty" @click="runSimulation()">Simulation running...</app-button>
           </div> 
         </template>
+<!--- Main content --->
         <template #main-content>
           <div class="main-content-container-1" style="padding: 20px;">
+            <!-- <test-container>
+              <h1>AWS serverless biosteam test!</h1>
+              <button @click="runSimulation()">run biosteam job</button>
+              <p>jobId: {{jobId}}</p>
+              <p>jobTimestamp: {{jobTimestamp}}</p>
+              <button @click="runGetResults()">get biosteam results</button>
+              <p>gateway response: {{gatewayStatus}}</p>
+              <p><b>results:</b> {{biosteamResults}}</p>
+              <p><b>spearman results:</b> {{biosteamSpearmanResults}}</p>
+            </test-container> -->
             <div class="checked-parameters-container">
               <div style="padding-bottom: 5px;">
                 <h3>Selected Parameters</h3>
                 <p style="padding-top: 10px;">These parameters will be varied in your <b>{{sampleNumber}}</b> selected simulations</p>
               </div>             
-              <checked-parameters :checked="checkedParameters"></checked-parameters>
+              <checked-parameters :checked="checkedParameters" style="padding-bottom: 10px;"></checked-parameters>
+              <app-button :class="{ btnloading: gatewayStatus == 'no data' }" type="run-uncertainty" @click="runGetResults()" style="width: 50%;">Get job {{jobId}} results</app-button>              
             </div>            
           </div>
           <div class="biorefinery-diagram-container">
@@ -70,16 +85,17 @@
           <div class="graphs">
             <div class="box-plot-container">
               <box-plot-info style="flex: 1;"></box-plot-info>
-              <box-plot :options="spearman.cornstoverSpearmanOptions" style="flex: 2;"></box-plot>
+              <box-plot :boxplot="biosteamResults" :options="spearman.cornstoverSpearmanOptions" style="flex: 2;"></box-plot>
             </div>
             <div class="spearman-graph-container">
               <spearman-info></spearman-info>
-              <spearmans-graph :options="spearman.cornstoverSpearmanOptions"></spearmans-graph>
+              <spearmans-graph :spearman="biosteamSpearmanResults" :options="spearman.cornstoverSpearmanOptions"></spearmans-graph>
             </div>            
           </div>
         </template>
       </simulate-box>
     </div>   
+<!--- Info section --->
     <div class="simulate-info">
       <simulate-info></simulate-info>
     </div> 
@@ -87,9 +103,11 @@
 </template>
 
 <script>
+//data imports
 import parameters from "@/assets/simulation/parameters.json";
 import spearman from "@/assets/simulation/spearman.json";
 
+//component imports 
 import SimulateDropdownBar from "@/components/SimulateDropdownBar.vue";
 import SimulateBox from "@/components/SimulateBox.vue";
 import SimulateInfo from "@/components/SimulateInfo.vue";
@@ -102,6 +120,9 @@ import BoxPlot from "@/components/BoxPlot.vue";
 import BoxPlotInfo from "@/components/BoxPlotInfo.vue";
 import SpearmansGraph from "@/components/SpearmansGraph.vue";
 import SpearmanInfo from "@/components/SpearmanInfo.vue";
+
+//library imports 
+import axios from 'axios';
 
 export default {
   name: 'SimulateUncertainty',
@@ -126,24 +147,17 @@ export default {
       sampleNumber: 0,
       parameters: parameters,
       spearman: spearman,
-      // parameters: [
-      //   {name: 'Lipid content', checked: false, distribution: 'Distribution', values: {value1: null, value2: null, value3: null}, info: 'Some description about the paramter'},
-      //   {name: 'Plant size', checked: false, distribution: 'Distribution', values: {value1: null, value2: null, value3: null}, info: 'Some description about the paramter'},
-      //   {name: 'Operating days', checked: false, distribution: 'Distribution', values: {value1: null, value2: null, value3: null}, info: 'Some description about the paramter'},
-      //   {name: 'Ethanol price', checked: false, distribution: 'Distribution', values: {value1: null, value2: null, value3: null}, info: 'Some description about the paramter'},
-      //   {name: 'Lipidcane price', checked: false, distribution: 'Distribution', values: {value1: null, value2: null, value3: null}, info: 'Some description about the paramter'},
-      //   {name: 'Electricity price', checked: false, distribution: 'Distribution', values: {value1: null, value2: null, value3: null}, info: 'Some description about the paramter'},
-      //   {name: 'IRR', checked: false, distribution: 'Distribution', values: {value1: null, value2: null, value3: null}, info: 'Some description about the paramter'},
-      //   {name: 'LCA param1', checked: false, distribution: 'Distribution', values: {value1: null, value2: null, value3: null}, info: 'Some description about the paramter'},
-      //   {name: 'LCA param2', checked: false, distribution: 'Distribution', values: {value1: null, value2: null, value3: null}, info: 'Some description about the paramter'},
-      //   {name: 'Filler 1', checked: false, distribution: 'Distribution', values: {value1: null, value2: null, value3: null}, info: 'Some description about the paramter'},
-      //   {name: 'Filler 2', checked: false, distribution: 'Distribution', values: {value1: null, value2: null, value3: null}, info: 'Some description about the paramter'},
-      //   {name: 'Filler 3', checked: false, distribution: 'Distribution', values: {value1: null, value2: null, value3: null}, info: 'Some description about the paramter'},
-      //   {name: 'Filler 4', checked: false, distribution: 'Distribution', values: {value1: null, value2: null, value3: null}, info: 'Some description about the paramter'},
-      //   {name: 'Filler 5', checked: false, distribution: 'Distribution', values: {value1: null, value2: null, value3: null}, info: 'Some description about the paramter'},
-      //   {name: 'Filler 6', checked: false, distribution: 'Distribution', values: {value1: null, value2: null, value3: null}, info: 'Some description about the paramter'},
-      //   {name: 'Filler 7', checked: false, distribution: 'Distribution', values: {value1: null, value2: null, value3: null}, info: 'Some description about the paramter'},
-      // ],
+      biosteamResults: null,
+      biosteamSpearmanResults: null,
+      loading: false,
+      biosteamDbResults: null,
+      jobId: null,
+      jobTimestamp: null,
+      gatewayStatus: null,
+      configHeaders: {
+        "content-type": "application/json",
+        "Accept": "application/json, access-control-allow-origin",
+      },
     }
   },
   computed: {
@@ -152,7 +166,7 @@ export default {
       if(this.selectedBiorefinery == 'Cornstover') {
         for(let i=0; i<this.parameters.cornstoverParameters.length; i++) {
           if(this.parameters.cornstoverParameters[i].checked == true) {
-            list.push(this.parameters.cornstoverParameters[i].name)
+            list.push(this.parameters.cornstoverParameters[i])
           }
         }
       }
@@ -160,21 +174,102 @@ export default {
       if(this.selectedBiorefinery == 'Lipidcane') {
         for(let i=0; i<this.parameters.lipidcaneParameters.length; i++) {
           if(this.parameters.lipidcaneParameters[i].checked == true) {
-            list.push(this.parameters.lipidcaneParameters[i].name)
+            list.push(this.parameters.lipidcaneParameters[i])
           }
         }
       }
-      return list
-    }
+      return list;
+    },
   },
   methods: {
     selectSimulate(value) {
       console.log(value)
     },
+
     selectBiorefinery(value) {
       console.log(value)
     },
-  }
+
+    getBiosteamData() {
+      axios({
+        url: "https://lh94msd306.execute-api.us-east-1.amazonaws.com/default/biosteamGetter",
+        method: "post",
+        data: this.jobId,
+        headers: this.configHeaders
+      })
+      .then(response => {
+        let gatewayResponse = JSON.parse(response.data.body);
+        this.gatewayStatus = gatewayResponse.item;
+        if(this.gatewayStatus !== 'no data') {
+          this.biosteamResults = JSON.parse(gatewayResponse.item.results.S);
+          this.biosteamSpearmanResults = JSON.parse(gatewayResponse.item.spearmanResults.S);          
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+    },
+
+    runSimulation() {
+      //set loading visuals 
+      this.loading = true;
+      //set axios configs 
+      let payload = {
+        params: this.checkedParameters,
+        samples: this.sampleNumber,
+      };
+      //call biosteamHelper lambda with payload
+      axios({
+        url: "https://lh94msd306.execute-api.us-east-1.amazonaws.com/default/biosteamHelper",
+        method: "post",
+        data: payload,
+        headers: this.configHeaders
+      })
+      //accept and parse incoming jobId and jobTimestamp
+      .then(response => {
+        let biosteamHelperResults = JSON.parse(response.data.body);
+        this.jobId = biosteamHelperResults.jobId;
+        this.jobTimestamp = biosteamHelperResults.jobTimestamp;
+      }).catch((error) => {
+        console.log(error);
+      }).finally(() => {
+        this.loading =  false
+      });
+    },
+
+//-----------------------------TEST FUNCTIONS---------------------------------//
+    runGetResults() {
+      //set axios configs 
+      let payload = {
+        jobId: this.jobId,
+      };
+      const configHeaders = {
+        "content-type": "application/json",
+        "Accept": "application/json, access-control-allow-origin",
+      };
+
+      //call lambda with payload
+      axios({
+        url: "https://lh94msd306.execute-api.us-east-1.amazonaws.com/default/biosteamGetter",
+        method: "post",
+        data: payload,
+        headers: configHeaders
+      })
+
+      //accept and parse incoming data 
+      .then(response=>{
+        let csUncertaintyResults = JSON.parse(response.data.body);
+        let gateway = JSON.parse(response.data.body);
+        this.gatewayStatus = gateway.item;
+        this.biosteamDbResults = csUncertaintyResults;
+        this.biosteamResults = JSON.parse(csUncertaintyResults.item.results.S);
+        this.biosteamSpearmanResults = JSON.parse(csUncertaintyResults.item.spearmanResults.S);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+    },
+  }  
 }
 </script>
 
@@ -215,6 +310,10 @@ export default {
 
   .run-button {
     width: 85%;
+  }
+
+  .btnloading {
+    background-color: darkred;
   }
 
   .checked-parameters-container {
