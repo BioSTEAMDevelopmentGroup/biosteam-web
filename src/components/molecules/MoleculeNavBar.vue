@@ -1,9 +1,9 @@
 <template>
     <nav class="bg-clightblue h-20 flex justify-between items-center px-10">
-        <router-link to="/"><img class="h-10" src="@/assets/biosteam-logo.svg"></router-link>
+        <router-link to="/home"><img class="h-10" src="@/assets/biosteam-logo.svg"></router-link>
         <ul class="flex">
             <li class="px-6 py-1 rounded-full border-2 border-transparent" :class="{ simulate : item.name=='Simulate' }" v-for="item in items" :key="item.name">
-                <router-link class="text-cfontgrey text-xl" :to="item.link" exact>{{item.name}}</router-link>
+                <router-link class="text-cfontgrey text-xl" :to="item.link">{{item.name}}</router-link>
             </li>
         </ul>
     </nav>

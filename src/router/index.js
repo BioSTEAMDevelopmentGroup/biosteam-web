@@ -11,7 +11,7 @@ Vue.use(VueRouter)
 
   const routes = [
   {
-    path: '/',
+    path: '/home',
     name: 'Home',
     component: Home
   },
@@ -21,12 +21,12 @@ Vue.use(VueRouter)
     component: Simulate
   },
   {
-    path: '/simulate-single',
+    path: '/simulate/simulate-single',
     name: 'Single Point Simulation',
     component: SimulateSingle
   },
   {
-    path: '/simulate-uncertainty',
+    path: '/simulate/simulate-uncertainty',
     name: 'Simulation with Uncertainty',
     component: SimulateUncertainty
   },

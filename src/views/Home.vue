@@ -1,14 +1,16 @@
 <template>
   <div>
 <!--- Hero Banner ---> 
-    <div class="z-10 flex justify-center items-center bg-gradient-to-t from-cyellow to-clightblue" style="height: 80vh;">
-      <molecule-home-hero></molecule-home-hero>
+    <div class="w-full flex justify-center items-center bg-gradient-to-t from-cyellow to-clightblue" style="height: 80vh;">
+      <molecule-home-hero class="w-4/5"></molecule-home-hero>
     </div>
 
-<!--- Info Cards ---> 
+<!--- Info header ---> 
     <div class="h-80 flex justify-center items-center">
       <atom-home-card-banner class="h-full w-full"></atom-home-card-banner>
     </div>
+
+<!-- Info cards -->
     <div class="h-screen">
       <div class="flex justify-center h-screen px-10 pb-20">
         <div v-for="card in cards" :key="card.title" class="p-3 w-1/3 h-full flex items-center">
@@ -25,21 +27,22 @@
     </div>
 
 <!-- Home info -->
-    <div class="relative z-10 bg-cblue flex flex-col justify-center items-center w-screen shadow-lg shadow-inner">
+    <div class="relative z-10 bg-cblue flex flex-col justify-center items-center w-screen shadow-xl shadow-inner">
       <div class="absolute z-20 top-0 left-3/5 w-20 h-10" :style="{'background-image': `url(${require('@/assets/home/info-pulldown.svg')})`}"></div>
-      <molecule-home-info class="relative z-10 h-1/2 w-full pt-12 px-8" link="/simulate-single" direction="left" img="home/screenshot1.png">
+      <molecule-home-info class="relative z-10 h-1/2 w-full pt-12 px-8" link="/simulate/simulate-single" direction="left" img="home/screenshot1.png">
           <template #title>Single-point simulation</template>
           <template #description>Given user-input (or default) values for each parameter in a single scenario describing feedstock composition, biorefinery design and operation, and financial assumptions, a Techno-Economic Analysis (TEA) and a Life Cycle Impact Assessment (LCIA) estimate respectively the economic and environmental sustainability for that scenario.</template>
       </molecule-home-info>
-      <molecule-home-info class="relative z-10 h-1/2 w-full p-10" link="/simulate-uncertainty" direction="right" img="home/screenshot2.png">
+      <molecule-home-info class="relative z-10 h-1/2 w-full p-10" link="/simulate/simulate-uncertainty" direction="right" img="home/screenshot2.png">
           <template #title>Simulation with uncertainty</template>
           <template #description>Given user-input (or default) distributions of parameters describing feedstock composition, biorefinery design and operation, and financial assumptions, across the breadth of scenarios so generated, Techno-Economic Analyses (TEAs) and Life Cycle Impact Assessments (LCIAs) estimate respectively the economic and environmental sustainability with results represented as 95% confidence intervals.</template>  
       </molecule-home-info>
     </div>
 
 <!-- Read the docs -->
-    <div class="bg-gradient-to-t from-cgrey flex justify-center items-center" style="height: 70vh;">
-      <molecule-to-docs class="h-1/2 w-1/2"></molecule-to-docs>
+    <div class="relative z-10 bg-gradient-to-tr from-gray-300 flex justify-center items-center" style="height: 80vh;">
+      <div class="absolute z-20 h-2/3 w-full bg-cover" :style="{'background-image': `url(${require('@/assets/home/docs-band.svg')})`}"></div>
+      <molecule-to-docs class="z-30 h-1/2 w-1/2"></molecule-to-docs>
     </div>
     
 <!--- Logos ---> 

@@ -37,8 +37,8 @@ export default {
             selectedBiorefinery: 'Select a biorefinery',
             simulateOptions: [
                 {name: 'Select simulation mode', link: '/simulate'},
-                {name: 'Single point simulation', link: '/simulate-single'},
-                {name: 'Simulation with uncertainty', link: '/simulate-uncertainty'},
+                {name: 'Single point simulation', link: '/simulate/simulate-single'},
+                {name: 'Simulation with uncertainty', link: '/simulate/simulate-uncertainty'},
             ],
             biorefineryOptions: [
                 {name: 'Select a biorefinery'},

@@ -2,24 +2,24 @@
   <div class="font-sans overflow-hidden" id="app">
     <molecule-nav-bar :items="items"></molecule-nav-bar>
     <router-view/>
-    <app-footer></app-footer>
+    <atom-footer class="h-20 flex justify-center items-center bg-clightblue"></atom-footer>
   </div>
 </template>
 
 <script>
 import MoleculeNavBar from '@/components/molecules/MoleculeNavBar.vue';
-import AppFooter from '@/components/AppFooter.vue';
+import AtomFooter from '@/components/atoms/AtomFooter.vue';
 
 export default {
   components: {
-    AppFooter,
     MoleculeNavBar,
+    AtomFooter,
   },
 
   data () {
     return{ 
       items: [
-        {name: 'Home', link: '/'},
+        {name: 'Home', link: '/home'},
         {name: 'About', link: '/resources'},
         {name: 'Docs', link: '/docs'},
         {name: 'Simulate', link: '/simulate'},

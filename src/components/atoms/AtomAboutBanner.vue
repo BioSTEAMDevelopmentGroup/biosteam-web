@@ -1,11 +1,12 @@
 <template>
-  
+    <div>
+        the about banner
+    </div>
 </template>
 
 <script>
 export default {
-    name: 'AtomScreenshot',
-    props: ['img']
+    name: 'AtomAboutBanner'
 }
 </script>
 

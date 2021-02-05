@@ -3,7 +3,7 @@
         <img class="h-96 w-96 rounded-lg shadow-md" :src="require('@/assets/' + img + '')" alt="simulation mode screenshot">
         <div class="w-2/3 h-80 px-5">
             <h1 class="text-cdarkgreenblue text-6xl pb-5"><slot name="title">Title of card</slot></h1>
-            <p class="text-cdark pb-5"><slot name="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam sapiente quae eveniet eum neque reprehenderit perspiciatis commodi aspernatur aliquam iusto.</slot></p>
+            <p class="text-cdark text-lg pb-5"><slot name="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam sapiente quae eveniet eum neque reprehenderit perspiciatis commodi aspernatur aliquam iusto.</slot></p>
             <atom-button @click="toRoute(link)" class="w-1/3 bg-cyellow text-cdark shadow-md hover:shadow-lg">Start Now</atom-button>            
         </div>
     </div>  
