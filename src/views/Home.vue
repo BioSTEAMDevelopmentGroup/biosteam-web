@@ -7,14 +7,14 @@
 
 <!--- Info header ---> 
     <div class="h-80 flex justify-center items-center">
-      <atom-home-card-banner class="h-full w-full"></atom-home-card-banner>
+      <atom-home-card-banner class="h-full w-full flex justify-center items-center"></atom-home-card-banner>
     </div>
 
 <!-- Info cards -->
     <div class="h-screen">
-      <div class="flex justify-center h-screen px-10 pb-20">
+      <div class="flex h-screen px-10 pb-10">
         <div v-for="card in cards" :key="card.title" class="p-3 w-1/3 h-full flex items-center">
-          <molecule-home-card :link="card.link" class="h-4/5">
+          <molecule-home-card :link="card.link" class="h-5/6">
             <template #title>
               {{card.title}}
             </template>
@@ -44,13 +44,9 @@
       <div class="absolute z-20 h-2/3 w-full bg-cover" :style="{'background-image': `url(${require('@/assets/home/docs-band.svg')})`}"></div>
       <molecule-to-docs class="z-30 h-1/2 w-1/2"></molecule-to-docs>
     </div>
-    
-<!--- Logos ---> 
-    <div class="flex justify-around items-center h-40 bg-cdarkgreenblue">
-      <p class="text-white text-xl">CABBI logo</p>
-      <p class="text-white text-xl">DOE logo</p>
-      <p class="text-white text-xl">Guest Group logo</p>
-    </div>
+
+<!-- Footer -->
+    <atom-footer class="h-40 flex justify-center items-center bg-clightblue"></atom-footer>
   </div>
 </template>
 
@@ -61,6 +57,7 @@ import MoleculeHomeHero from '@/components/molecules/MoleculeHomeHero.vue';
 import MoleculeHomeInfo from '@/components/molecules/MoleculeHomeInfo.vue';
 import AtomHomeCardBanner from '@/components/atoms/AtomHomeCardBanner.vue';
 import MoleculeToDocs from '@/components/molecules/MoleculeToDocs.vue';
+import AtomFooter from '@/components/atoms/AtomFooter.vue';
 
 export default {
   name: 'Home',
@@ -70,6 +67,7 @@ export default {
     MoleculeHomeInfo,
     AtomHomeCardBanner,
     MoleculeToDocs,
+    AtomFooter,
   },
   data() {
     return{

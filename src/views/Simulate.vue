@@ -1,5 +1,29 @@
 <template>
-  <div class="simulate">
+  <div>
+    <atom-simulate-layout simulation="default">
+      <!-- Sidebar content -->
+      <template #sidebarContent>
+
+      </template>
+
+      <!-- Simulation nav -->
+      <template #simulationNav>
+        <molecule-dropdown-nav class="w-full h-10 bg-gray-300"
+          @select-simulate="(newSimulate)=>{selectedSimulate = newSimulate}" 
+          @select-biorefinery="(newBiorefinery)=>{selectedBiorefinery = newBiorefinery}"
+          :selectedSimulate="selectedSimulate" 
+          :selectedBiorefinery="selectedBiorefinery">
+        </molecule-dropdown-nav>        
+      </template>
+
+      <!-- Main content view -->
+      <template #mainContent>
+
+      </template>
+    </atom-simulate-layout>
+  </div>
+
+  <!-- <div class="simulate">
     <div class="dropdown-bar">
       <simulate-dropdown-bar 
         :simulate="selectedSimulate"
@@ -39,22 +63,26 @@
         <fetch-job></fetch-job>
       </div>       
     </div>
-  </div>
+  </div> -->
 </template>
 
 <script>
-import SimulateDropdownBar from "@/components/SimulateDropdownBar.vue";
-import SimulateBox from "@/components/SimulateBox.vue";
-import SimulateInfo from "@/components/SimulateInfo.vue";
-import FetchJob from "@/components/FetchJob.vue";
+import AtomSimulateLayout from '@/components/atoms/AtomSimulateLayout.vue';
+import MoleculeDropdownNav from '@/components/molecules/MoleculeDropdownNav.vue';
+// import SimulateDropdownBar from "@/components/SimulateDropdownBar.vue";
+// import SimulateBox from "@/components/SimulateBox.vue";
+// import SimulateInfo from "@/components/SimulateInfo.vue";
+// import FetchJob from "@/components/FetchJob.vue";
 
 export default {
   name: 'Simulate',
   components: {
-    SimulateDropdownBar,
-    SimulateBox,
-    SimulateInfo,
-    FetchJob
+    AtomSimulateLayout,
+    MoleculeDropdownNav,
+    // SimulateDropdownBar,
+    // SimulateBox,
+    // SimulateInfo,
+    // FetchJob
   },
   data() {
     return {

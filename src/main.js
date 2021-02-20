@@ -30,13 +30,13 @@ library.add(
   faChartArea,
   faCalculator,
   faSquare
-)
+);
 
-Vue.use(VTooltip)
+Vue.use(VTooltip);
 
-Vue.component('font-awesome-icon', FontAwesomeIcon)
+Vue.component('font-awesome-icon', FontAwesomeIcon);
 
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
 
 new Vue({
   router,

@@ -1,7 +1,31 @@
 <template>
-  <div class="simulate-single">
+  <div>
+    <atom-simulate-layout simulation="uncertainty">
+      <!-- Sidebar content -->
+      <template #sidebarContent>
+        <atom-button @click="console.log('hello')" class="w-full bg-corange bg-opacity-70 hover:bg-opacity-100 text-white text-lg">Run simulation</atom-button>
+      </template>
+
+      <!-- Simulation nav -->
+      <template #simulationNav>
+        <molecule-dropdown-nav class="w-full h-10 bg-gray-300"
+          @select-simulate="(newSimulate)=>{selectedSimulate = newSimulate}" 
+          @select-biorefinery="(newBiorefinery)=>{selectedBiorefinery = newBiorefinery}"
+          :selectedSimulate="selectedSimulate" 
+          :selectedBiorefinery="selectedBiorefinery">
+        </molecule-dropdown-nav>        
+      </template>
+
+      <!-- Main content view -->
+      <template #mainContent>
+        <atom-biorefinery-diagram :biorefinery="selectedBiorefinery" simulation="uncertainty"></atom-biorefinery-diagram>
+      </template>
+    </atom-simulate-layout>
+  </div>
+
+  <!-- <div class="simulate-single"> -->
 <!--- Dropdown Bar --->
-    <div class="dropdown-bar">
+    <!-- <div class="dropdown-bar">
       <simulate-dropdown-bar 
         :simulate="selectedSimulate"
         :biorefinery="selectedBiorefinery"
@@ -11,9 +35,9 @@
       </simulate-dropdown-bar>
     </div>
     <div class="simulate-box">
-      <simulate-box type="uncertainty">
+      <simulate-box type="uncertainty"> -->
 <!--- Sidebar content ---> 
-        <template #sidebar>
+        <!-- <template #sidebar>
           <div class="parameter-container">
             <div v-if="selectedBiorefinery == 'Select a biorefinery'" style="display: flex; align-items: center;">
               <font-awesome-icon
@@ -56,10 +80,10 @@
             <app-button v-if="loading == false" class="run-button" type="run-uncertainty" @click="runSimulation()">Run simulation</app-button>
             <app-button v-if="loading == true" class="run-button" type="run-uncertainty" @click="runSimulation()">Simulation running...</app-button>
           </div> 
-        </template>
+        </template> -->
 <!--- Main content --->
-        <template #main-content>
-          <div class="main-content-container-1" style="padding: 20px;">
+        <!-- <template #main-content>
+          <div class="main-content-container-1" style="padding: 20px;"> -->
             <!-- <test-container>
               <h1>AWS serverless biosteam test!</h1>
               <button @click="runSimulation()">run biosteam job</button>
@@ -70,7 +94,7 @@
               <p><b>results:</b> {{biosteamResults}}</p>
               <p><b>spearman results:</b> {{biosteamSpearmanResults}}</p>
             </test-container> -->
-            <div class="checked-parameters-container">
+            <!-- <div class="checked-parameters-container">
               <div style="padding-bottom: 5px;">
                 <h3>Selected Parameters</h3>
                 <p style="padding-top: 10px;">These parameters will be varied in your <b>{{sampleNumber}}</b> selected simulations</p>
@@ -80,7 +104,7 @@
             </div>            
           </div>
           <div class="biorefinery-diagram-container">
-            <biorefinery-diagram :biorefinery="selectedBiorefinery"></biorefinery-diagram>
+            <atom-biorefinery-diagram :biorefinery="selectedBiorefinery"></atom-biorefinery-diagram>
           </div>
           <div class="graphs">
             <div class="box-plot-container">
@@ -94,12 +118,12 @@
           </div>
         </template>
       </simulate-box>
-    </div>   
+    </div>    -->
 <!--- Info section --->
-    <div class="simulate-info">
+    <!-- <div class="simulate-info">
       <simulate-info></simulate-info>
     </div> 
-  </div>
+  </div> -->
 </template>
 
 <script>
@@ -107,19 +131,21 @@
 import parameters from "@/assets/simulation/parameters.json";
 import spearman from "@/assets/simulation/spearman.json";
 
-//component imports 
-import SimulateDropdownBar from "@/components/SimulateDropdownBar.vue";
-import SimulateBox from "@/components/SimulateBox.vue";
-import SimulateInfo from "@/components/SimulateInfo.vue";
-import UncertainParameter from "@/components/UncertainParameter.vue";
-import SetNumberSamples from "@/components/SetNumberSamples.vue";
-import AppButton from "@/components/AppButton.vue";
-import CheckedParameters from "@/components/CheckedParameters.vue";
-import BiorefineryDiagram from "@/components/BiorefineryDiagram.vue";
-import BoxPlot from "@/components/BoxPlot.vue";
-import BoxPlotInfo from "@/components/BoxPlotInfo.vue";
-import SpearmansGraph from "@/components/SpearmansGraph.vue";
-import SpearmanInfo from "@/components/SpearmanInfo.vue";
+//component imports
+import AtomSimulateLayout from '@/components/atoms/AtomSimulateLayout.vue';
+import AtomBiorefineryDiagram from "@/components/atoms/AtomBiorefineryDiagram.vue";
+import AtomButton from '@/components/atoms/AtomButton.vue';
+import MoleculeDropdownNav from '@/components/molecules/MoleculeDropdownNav.vue';
+
+// import UncertainParameter from "@/components/UncertainParameter.vue";
+// import SetNumberSamples from "@/components/SetNumberSamples.vue";
+// import AppButton from "@/components/AppButton.vue";
+// import CheckedParameters from "@/components/CheckedParameters.vue";
+
+// import BoxPlot from "@/components/BoxPlot.vue";
+// import BoxPlotInfo from "@/components/BoxPlotInfo.vue";
+// import SpearmansGraph from "@/components/SpearmansGraph.vue";
+// import SpearmanInfo from "@/components/SpearmanInfo.vue";
 
 //library imports 
 import axios from 'axios';
@@ -127,18 +153,20 @@ import axios from 'axios';
 export default {
   name: 'SimulateUncertainty',
   components: {
-    SimulateDropdownBar,
-    SimulateBox,
-    SimulateInfo,
-    UncertainParameter,
-    SetNumberSamples,
-    AppButton,
-    CheckedParameters,
-    BiorefineryDiagram,
-    BoxPlot,
-    BoxPlotInfo,
-    SpearmansGraph,
-    SpearmanInfo
+    AtomSimulateLayout,
+    AtomButton,
+    AtomBiorefineryDiagram,
+    MoleculeDropdownNav,
+
+    // UncertainParameter,
+    // SetNumberSamples,
+    // AppButton,
+    // CheckedParameters,
+    
+    // BoxPlot,
+    // BoxPlotInfo,
+    // SpearmansGraph,
+    // SpearmanInfo
   },
   data() {
     return {

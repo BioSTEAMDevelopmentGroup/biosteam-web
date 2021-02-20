@@ -1,0 +1,45 @@
+{
+   "docs": [
+        {
+            "name": "Types of simulation", 
+            "subcategories": [
+                "Single point", 
+                "With uncertainty"
+            ]
+        },
+
+        {
+            "name": "Biorefinery options", 
+            "subcategories": [
+                "Selecting a biorefinery", 
+                "Biorefinery resources"
+            ]
+        },
+
+        {
+            "name": "Single point simulation", 
+            "subcategories": [
+                "Selecting a biorefinery", 
+                "Default values", 
+                "Parameters limits",
+                "Evaluated metrics",
+                "Downloading results",
+                "Additional resources"
+            ]
+        },
+
+        {
+            "name": "Simulation with uncertaity", 
+            "subcategories": [
+                "Selecting a biorefinery", 
+                "Distribution types", 
+                "Sample limits",
+                "Parameters limits",
+                "Evaluated metrics",
+                "Downloading results",
+                "Retrieving old job results",
+                "Additional resources"
+            ]
+        }
+    ]
+}

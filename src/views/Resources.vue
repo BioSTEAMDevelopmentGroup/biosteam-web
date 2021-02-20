@@ -1,13 +1,21 @@
 <template>
   <div>
+<!-- Top Banner -->
     <div class="relative z-10 bg-cdarkgreenblue flex justify-center items-center" style="height: 60vh;">
       <atom-about-banner></atom-about-banner>
       <div class="absolute z-20 -bottom-3 inset-x-0 text-center">
         <code class="bg-white px-8 py-4 rounded-full shadow-md text-xl">pip install biosteam</code>
       </div>
     </div>
+
+<!-- Info cards -->
     <div class="bg-gray-200 flex justify-center items-center" style="height: 160vh;">
       <organism-about-cards :cards="cards" class="w-5/6"></organism-about-cards> 
+    </div>
+
+<!-- App footer -->
+    <div>
+      <atom-footer class="h-40 flex justify-center items-center bg-clightblue"></atom-footer>
     </div>
   </div>
   <!-- <div class="resources">
@@ -43,12 +51,14 @@
 // import ResourcesCard from '@/components/ResourcesCard.vue';
 import AtomAboutBanner from "@/components/atoms/AtomAboutBanner.vue";
 import OrganismAboutCards from "@/components/organisms/OrganismAboutCards.vue";
+import AtomFooter from "@/components/atoms/AtomFooter.vue";
 
 export default {
   name: 'Resources',
   components: {
     AtomAboutBanner,
     OrganismAboutCards,
+    AtomFooter,
   },
   data() {
     return{

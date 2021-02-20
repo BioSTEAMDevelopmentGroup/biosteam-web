@@ -1,5 +1,31 @@
 <template>
-  <div class="simulate-single">
+  <div>
+    <atom-simulate-layout simulation="single-point">
+      <!-- Sidebar content -->
+      <template #sidebarContent>
+        <organism-single-parameter-form v-model="parameters" :parameters="parameters"></organism-single-parameter-form>
+        <atom-form-error :errors="['parameter errors here']"></atom-form-error>
+        <atom-button @click="formCheck(parameters)" class="w-full bg-cdarkgreenblue bg-opacity-70 hover:bg-opacity-100 text-white text-lg">Run simulation</atom-button>
+      </template>
+
+      <!-- Simulation nav -->
+      <template #simulationNav>
+        <molecule-dropdown-nav class="w-full h-10 bg-gray-300"
+          @select-simulate="(newSimulate)=>{selectedSimulate = newSimulate}" 
+          @select-biorefinery="(newBiorefinery)=>{selectedBiorefinery = newBiorefinery}"
+          :selectedSimulate="selectedSimulate" 
+          :selectedBiorefinery="selectedBiorefinery">
+        </molecule-dropdown-nav>        
+      </template>
+
+      <!-- Main content view -->
+      <template #mainContent>
+        <atom-biorefinery-diagram :biorefinery="selectedBiorefinery" simulation="single-point"></atom-biorefinery-diagram>
+        <atom-simulate-single-table :metrics="metrics"></atom-simulate-single-table>
+      </template>
+    </atom-simulate-layout>    
+  </div>
+  <!-- <div class="simulate-single">
     <div class="dropdown-bar">
       <simulate-dropdown-bar 
         :simulate="selectedSimulate"
@@ -8,9 +34,9 @@
         @select-biorefinery="(newBiorefinery) => {selectedBiorefinery = newBiorefinery}"
         >
       </simulate-dropdown-bar>
-    </div>
+    </div> -->
 <!---simulate area ---> 
-    <div class="simulate-box">
+    <!-- <div class="simulate-box">
       <simulate-box type="single">
         <template #sidebar>
           <div class="default-check">
@@ -40,76 +66,94 @@
           </div>         
         </template>
       </simulate-box>
-    </div> 
+    </div>  -->
 
 <!---simulate info ---> 
-    <div class="simulate-info">
+    <!-- <div class="simulate-info">
       <simulate-info></simulate-info>
     </div> 
-  </div>
+  </div> -->
 </template>
 
 <script>
-import SimulateDropdownBar from "@/components/SimulateDropdownBar.vue";
-import SimulateBox from "@/components/SimulateBox.vue";
-import SingleParameter from "@/components/SingleParameter.vue";
-import SimulateInfo from "@/components/SimulateInfo.vue";
-import AppButton from "@/components/AppButton.vue";
-import BiorefineryDiagram from "@/components/BiorefineryDiagram.vue";
-//import LipidcaneDiagram from "@/components/LipidcaneDiagram.vue";
-import SimulateSingleTable from "@/components/SimulateSingleTable.vue";
+//data imports 
+import singleTable from '@/assets/simulation/singleTable.json';
+import singleParameters from '@/assets/simulation/singleParameters.json';
+
+//component imports 
+import AtomSimulateLayout from '@/components/atoms/AtomSimulateLayout.vue';
+import AtomButton from '@/components/atoms/AtomButton.vue';
+import AtomSimulateSingleTable from '@/components/atoms/AtomSimulateSingleTable.vue';
+import AtomFormError from '@/components/atoms/AtomFormError.vue';
+import MoleculeDropdownNav from '@/components/molecules/MoleculeDropdownNav.vue';
+import OrganismSingleParameterForm from '@/components/organisms/OrganismSingleParameterForm.vue';
+
+// import SimulateDropdownBar from "@/components/SimulateDropdownBar.vue";
+// import SimulateBox from "@/components/SimulateBox.vue";
+// import SingleParameter from "@/components/SingleParameter.vue";
+// import SimulateInfo from "@/components/SimulateInfo.vue";
+// import AppButton from "@/components/AppButton.vue";
+import AtomBiorefineryDiagram from "@/components/atoms/AtomBiorefineryDiagram.vue";
+// //import LipidcaneDiagram from "@/components/LipidcaneDiagram.vue";
+// import SimulateSingleTable from "@/components/SimulateSingleTable.vue";
 
 export default {
   name: 'SimulateSingle',
   components: {
-    SimulateDropdownBar,
-    SimulateBox,
-    SimulateInfo,
-    SingleParameter,
-    AppButton,
-    BiorefineryDiagram,
-    //LipidcaneDiagram,
-    SimulateSingleTable,
+    AtomSimulateLayout,
+    AtomButton,
+    AtomSimulateSingleTable,
+    AtomFormError,
+    MoleculeDropdownNav,
+    OrganismSingleParameterForm,
+    // SimulateDropdownBar,
+    // SimulateBox,
+    // SimulateInfo,
+    // SingleParameter,
+    // AppButton,
+    AtomBiorefineryDiagram,
+    // //LipidcaneDiagram,
+    // SimulateSingleTable,
   },
   data() {
     return {
       selectedSimulate: 'Single point simulation',
-      selectedBiorefinery: 'Select a biorefinery',
-      parameters: [
-        {name: 'Lipid content', value: null, defaultValue: 1, computedValue: null, unit: 'x/y', info: 'Some description about the paramter'},
-        {name: 'Plant size', value: null, defaultValue: 1, computedValue: null,  unit: 'x/y', info: 'Some description about the paramter'},
-        {name: 'Operating days', value: null, defaultValue: 1, computedValue: null,  unit: 'x/y', info: 'Some description about the paramter'},
-        {name: 'Ethanol price', value: null, defaultValue: 1, computedValue: null,  unit: 'x/y', info: 'Some description about the paramter'},
-        {name: 'Lipidcane price', value: null, defaultValue: 1, computedValue: null,  unit: 'x/y', info: 'Some description about the paramter'},
-        {name: 'Electricity price', value: null, defaultValue: 1, computedValue: null,  unit: 'x/y', info: 'Some description about the paramter'},
-        {name: 'IRR', value: null, defaultValue: 1, computedValue: null,  unit: 'x/y', info: 'Some description about the paramter'},
-        {name: 'LCA param1', value: null, defaultValue: 1, computedValue: null,  unit: 'x/y', info: 'Some description about the paramter'},
-        {name: 'LCA param2', value: null, defaultValue: 1, computedValue: null,  unit: 'x/y', info: 'Some description about the paramter'},
-        {name: 'Filler 1', value: null, defaultValue: 1, computedValue: null,  unit: 'x/y', info: 'Some description about the paramter'},
-        {name: 'Filler 2', value: null, defaultValue: 1, computedValue: null,  unit: 'x/y', info: 'Some description about the paramter'},
-        {name: 'Filler 3', value: null, defaultValue: 1, computedValue: null,  unit: 'x/y', info: 'Some description about the paramter'},
-        {name: 'Filler 4', value: null, defaultValue: 1, computedValue: null,  unit: 'x/y', info: 'Some description about the paramter'},
-        {name: 'Filler 5', value: null, defaultValue: 1, computedValue: null,  unit: 'x/y', info: 'Some description about the paramter'},
-        {name: 'Filler 6', value: null, defaultValue: 1, computedValue: null,  unit: 'x/y', info: 'Some description about the paramter'},
-        {name: 'Filler 7', value: null, defaultValue: 1, computedValue: null,  unit: 'x/y', info: 'Some description about the paramter'},
-      ],
-      defaultChecked: '',
+      selectedBiorefinery: 'Select a biorefinery',     
+      metrics: singleTable.cornstoverMetrics,
+      parameters: singleParameters.cornstover,
+      errors: [],
     }
   },
+  // computed: {
+  //   errorList() {
+  //     return this.errors;
+  //   }
+  // },
   methods: {
-    setDefaultValue() {
-      if(this.defaultChecked == true) {
-        for(let i=0; i<this.parameters.length; i++) {
-          this.parameters[i].value = this.parameters[i].defaultValue
+    formCheck(parameters) {
+      for(let i=0; i<parameters.length; i++) {
+        if(parameters[i].value < parameters[i].lowLimit || parameters[i].value > parameters[i].highLimit) {
+          this.errors.push('error')
         }
       }
-    },
-
-    runSimulation() { 
-      for(let i=0; i<this.parameters.length; i++) {
-        this.parameters[i].computedValue = this.parameters[i].value + (Math.random()*100)
+      if(this.errors == 0) {
+        return console.log('success!')        
       }
+      return this.errors
     }
+    // setDefaultValue() {
+    //   if(this.defaultChecked == true) {
+    //     for(let i=0; i<this.parameters.length; i++) {
+    //       this.parameters[i].value = this.parameters[i].defaultValue
+    //     }
+    //   }
+    // },
+
+    // runSimulation() { 
+    //   for(let i=0; i<this.parameters.length; i++) {
+    //     this.parameters[i].computedValue = this.parameters[i].value + (Math.random()*100)
+    //   }
+    // }
   },
 }
 </script>
