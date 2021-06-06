@@ -153,5 +153,160 @@
             "highLimit": 10,
             "info": "Some description about the paramter"
         }
+    ],
+    "lipidcane": [
+        {
+            "name": "Lipidcane 1", 
+            "units": "$/gal",
+            "checked": false, 
+            "value": null,
+            "defaultValue": 5,
+            "lowLimit": 1,
+            "highLimit": 10,
+            "info": "Some description about the paramter"
+        },
+
+        {
+            "name": "Lipidcane 2", 
+            "units": "$/kg",
+            "checked": false, 
+            "value": null,
+            "defaultValue": 5,
+            "lowLimit": 1,
+            "highLimit": 10,
+            "info": "Some description about the paramter"
+        },
+
+        {
+            "name": "Lipidcane 3", 
+            "units": "$/kg",
+            "checked": false, 
+            "value": null,
+            "defaultValue": 5,
+            "lowLimit": 1,
+            "highLimit": 10,
+            "info": "Some description about the paramter"
+        },
+
+        {
+            "name": "Income tax", 
+            "units": "$/kg",
+            "checked": false, 
+            "value": null,
+            "defaultValue": 5,
+            "lowLimit": 1,
+            "highLimit": 10,
+            "info": "Some description about the paramter"
+        },
+
+        {
+            "name": "Plant size", 
+            "units": "$/kg",
+            "checked": false, 
+            "value": null,
+            "defaultValue": 5,
+            "lowLimit": 1,
+            "highLimit": 10,
+            "info": "Some description about the paramter"
+        },
+
+        {
+            "name": "Lipidcane 4", 
+            "units": "$/kg",
+            "checked": false, 
+            "value": null,
+            "defaultValue": 5,
+            "lowLimit": 1,
+            "highLimit": 10,
+            "info": "Some description about the paramter"
+        },
+
+        {
+            "name": "Lipidcane 5", 
+            "units": "$/kg",
+            "checked": false, 
+            "value": null,
+            "defaultValue": 5,
+            "lowLimit": 1,
+            "highLimit": 10,
+            "info": "Some description about the paramter"
+        },
+
+        {
+            "name": "Xylan-to-furfural conversion", 
+            "units": "$/kg",
+            "checked": false, 
+            "value": null,
+            "defaultValue": 5,
+            "lowLimit": 1,
+            "highLimit": 10,
+            "info": "Some description about the paramter"
+        },
+
+        {
+            "name": "EH cellulose-to-glucose", 
+            "units": "$/kg",
+            "checked": false, 
+            "value": null,
+            "defaultValue": 5,
+            "lowLimit": 1,
+            "highLimit": 10,
+            "info": "Some description about the paramter"
+        },
+
+        {
+            "name": "EH time", 
+            "units": "$/kg",
+            "checked": false, 
+            "value": null,
+            "defaultValue": 5,
+            "lowLimit": 1,
+            "highLimit": 10,
+            "info": "Some description about the paramter"
+        },
+
+        {
+            "name": "FERM glucose-to-ethanol", 
+            "units": "$/kg",
+            "checked": false, 
+            "value": null,
+            "defaultValue": 5,
+            "lowLimit": 1,
+            "highLimit": 10,
+            "info": "Some description about the paramter"
+        },
+
+        {
+            "name": "FERM time", 
+            "units": "$/kg",
+            "checked": false, 
+            "value": null,
+            "defaultValue": 5,
+            "lowLimit": 1,
+            "highLimit": 10,
+            "info": "Some description about the paramter"
+        },
+
+        {
+            "name": "Boiler efficiency", 
+            "units": "$/kg",
+            "checked": false, 
+            "value": null,
+            "defaultValue": 5,
+            "lowLimit": 1,
+            "highLimit": 10,
+            "info": "Some description about the paramter"
+        },
+
+        {
+            "name": "Turbogenerator efficiency", 
+            "units": "$/kg",
+            "checked": false, 
+            "value": null,
+            "defaultValue": 5,
+            "lowLimit": 1,
+            "highLimit": 10,
+            "info": "Some description about the paramter"
+        }
     ]
 }

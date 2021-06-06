@@ -3,9 +3,19 @@
     <atom-simulate-layout simulation="single-point">
       <!-- Sidebar content -->
       <template #sidebarContent>
-        <organism-single-parameter-form v-model="parameters" :parameters="parameters"></organism-single-parameter-form>
+        <div v-if="selectedBiorefinery == 'Lipidcane'" class="w-full">
+          <organism-single-parameter-form v-model="parameters.lipidcane" :parameters="parameters.lipidcane"></organism-single-parameter-form>
+        </div>
+        <div v-if="selectedBiorefinery == 'Cornstover'" class="w-full">
+          <organism-single-parameter-form v-model="parameters.cornstover" :parameters="parameters.cornstover"></organism-single-parameter-form>
+        </div>
+        <div v-if="selectedBiorefinery == 'Select a biorefinery'" class="w-full py-6">
+          <div class="rounded-md bg-cdarkgreenblue py-4 px-2">
+            <p class="text-lg text-white text-center">Select a biorefinery</p>
+          </div>
+        </div>
         <atom-form-error :errors="['parameter errors here']"></atom-form-error>
-        <atom-button @click="formCheck(parameters)" class="w-full bg-cdarkgreenblue bg-opacity-70 hover:bg-opacity-100 text-white text-lg">Run simulation</atom-button>
+        <atom-button @click="simLoading(parameters)" class="w-full bg-cdarkgreenblue bg-opacity-70 hover:bg-opacity-100 text-white text-lg">Run simulation</atom-button>
       </template>
 
       <!-- Simulation nav -->
@@ -20,6 +30,10 @@
 
       <!-- Main content view -->
       <template #mainContent>
+        <div v-if="loading" class="absolute z-100 top-0 left-0 bg-opacity-50 w-full h-full">
+          <atom-loading-screen simulation="single-point"></atom-loading-screen>
+        </div>
+        <atom-display-job-number v-if="jobId" :jobId="jobId" simulation="single-point"></atom-display-job-number>
         <atom-biorefinery-diagram :biorefinery="selectedBiorefinery" simulation="single-point"></atom-biorefinery-diagram>
         <atom-simulate-single-table :metrics="metrics"></atom-simulate-single-table>
       </template>
@@ -85,6 +99,8 @@ import AtomSimulateLayout from '@/components/atoms/AtomSimulateLayout.vue';
 import AtomButton from '@/components/atoms/AtomButton.vue';
 import AtomSimulateSingleTable from '@/components/atoms/AtomSimulateSingleTable.vue';
 import AtomFormError from '@/components/atoms/AtomFormError.vue';
+import AtomLoadingScreen from "@/components/atoms/AtomLoadingScreen.vue";
+import AtomDisplayJobNumber from "@/components/atoms/AtomDisplayJobNumber.vue";
 import MoleculeDropdownNav from '@/components/molecules/MoleculeDropdownNav.vue';
 import OrganismSingleParameterForm from '@/components/organisms/OrganismSingleParameterForm.vue';
 
@@ -104,6 +120,8 @@ export default {
     AtomButton,
     AtomSimulateSingleTable,
     AtomFormError,
+    AtomLoadingScreen,
+    AtomDisplayJobNumber,
     MoleculeDropdownNav,
     OrganismSingleParameterForm,
     // SimulateDropdownBar,
@@ -120,8 +138,10 @@ export default {
       selectedSimulate: 'Single point simulation',
       selectedBiorefinery: 'Select a biorefinery',     
       metrics: singleTable.cornstoverMetrics,
-      parameters: singleParameters.cornstover,
+      parameters: singleParameters,
       errors: [],
+      loading: false,
+      jobId: null,
     }
   },
   // computed: {
@@ -130,15 +150,24 @@ export default {
   //   }
   // },
   methods: {
-    formCheck(parameters) {
-      for(let i=0; i<parameters.length; i++) {
-        if(parameters[i].value < parameters[i].lowLimit || parameters[i].value > parameters[i].highLimit) {
+    simLoading() {
+      this.loading = true;
+      setTimeout(()=>{this.formCheck()}, 3000);
+    },
+
+    formCheck() {
+      this.loading = false;
+      this.jobId = 123456;
+
+      for(let i=0; i<this.parameters.length; i++) {
+        if(this.parameters[i].value < this.parameters[i].lowLimit || this.parameters[i].value > this.parameters[i].highLimit) {
           this.errors.push('error')
         }
       }
       if(this.errors == 0) {
         return console.log('success!')        
       }
+
       return this.errors
     }
     // setDefaultValue() {

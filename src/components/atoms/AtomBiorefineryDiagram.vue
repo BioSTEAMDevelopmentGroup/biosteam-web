@@ -6,6 +6,9 @@
                 'uncertainty': simulation=='uncertainty'            
             }"  
             class="p-6 border-2 rounded-md">
+            <div class="pb-4">
+                <h1 class="text-cfontgrey text-2xl text-center">Biorefinery overview</h1>
+            </div>
             <div v-if="biorefinery == 'Lipidcane'" class="">
                 <img :src="require('@/assets/simulation/lipidcane_flowsheet.png')">
             </div>

@@ -3,7 +3,19 @@
     <atom-simulate-layout simulation="uncertainty">
       <!-- Sidebar content -->
       <template #sidebarContent>
-        <atom-button @click="console.log('hello')" class="w-full bg-corange bg-opacity-70 hover:bg-opacity-100 text-white text-lg">Run simulation</atom-button>
+        <div v-if="selectedBiorefinery == 'Lipidcane'" class="w-full">
+          <organism-uncertainty-parameter-form v-model="parameters.lipidcaneParameters" :parameters="parameters.lipidcaneParameters"></organism-uncertainty-parameter-form>
+        </div>
+        <div v-if="selectedBiorefinery == 'Cornstover'" class="w-full">
+          <organism-uncertainty-parameter-form v-model="parameters.cornstoverParameters" :parameters="parameters.cornstoverParameters"></organism-uncertainty-parameter-form>
+        </div>
+        <div v-if="selectedBiorefinery == 'Select a biorefinery'" class="w-full py-4">
+          <div class="rounded-md bg-corange py-4 px-2">
+            <p class="text-lg text-cfontgrey text-center">Select a biorefinery</p>
+          </div>
+        </div>
+        <atom-set-samples v-model.number="sampleNumber" :sampleNumber="sampleNumber"></atom-set-samples>
+        <atom-button @click="runSimulation()" class="w-full bg-corange bg-opacity-70 hover:bg-opacity-100 text-white text-lg">Run simulation</atom-button>
       </template>
 
       <!-- Simulation nav -->
@@ -18,7 +30,18 @@
 
       <!-- Main content view -->
       <template #mainContent>
+        <div v-if="loading" class="absolute z-100 top-0 left-0 bg-opacity-50 w-full h-full">
+          <atom-loading-screen simulation="uncertainty"></atom-loading-screen>
+        </div>
+        <atom-display-job-number @click="runGetResults()" v-if="jobId" :jobId="jobId" :jobHasFinished="gatewayStatus" simulation="uncertainty"></atom-display-job-number>
+        <atom-checked-parameters :checked="checkedParameters" :sampleNumber="sampleNumber" :biorefinery="selectedBiorefinery"></atom-checked-parameters>
         <atom-biorefinery-diagram :biorefinery="selectedBiorefinery" simulation="uncertainty"></atom-biorefinery-diagram>
+        <div class="w-5/6 flex justify-between">
+          <atom-box-plot-info></atom-box-plot-info>
+          <box-plot :boxplot="biosteamResults" :options="spearman.cornstoverSpearmanOptions"></box-plot>
+        </div>       
+        <atom-spearman-info></atom-spearman-info>
+        <spearmans-graph class="w-5/6 pb-10" :spearman="biosteamSpearmanResults" :options="spearman.cornstoverSpearmanOptions"></spearmans-graph>   
       </template>
     </atom-simulate-layout>
   </div>
@@ -135,16 +158,21 @@ import spearman from "@/assets/simulation/spearman.json";
 import AtomSimulateLayout from '@/components/atoms/AtomSimulateLayout.vue';
 import AtomBiorefineryDiagram from "@/components/atoms/AtomBiorefineryDiagram.vue";
 import AtomButton from '@/components/atoms/AtomButton.vue';
+import AtomCheckedParameters from "@/components/atoms/AtomCheckedParameters.vue";
+import AtomLoadingScreen from "@/components/atoms/AtomLoadingScreen.vue";
+import AtomDisplayJobNumber from "@/components/atoms/AtomDisplayJobNumber.vue";
+import AtomBoxPlotInfo from "@/components/atoms/AtomBoxPlotInfo.vue";
+import AtomSpearmanInfo from "@/components/atoms/AtomSpearmanInfo.vue";
 import MoleculeDropdownNav from '@/components/molecules/MoleculeDropdownNav.vue';
-
+import AtomSetSamples from '@/components/atoms/AtomSetSamples.vue';
+import OrganismUncertaintyParameterForm from '@/components/organisms/OrganismUncertaintyParameterForm.vue';
 // import UncertainParameter from "@/components/UncertainParameter.vue";
 // import SetNumberSamples from "@/components/SetNumberSamples.vue";
 // import AppButton from "@/components/AppButton.vue";
-// import CheckedParameters from "@/components/CheckedParameters.vue";
 
-// import BoxPlot from "@/components/BoxPlot.vue";
+import BoxPlot from "@/components/BoxPlot.vue";
 // import BoxPlotInfo from "@/components/BoxPlotInfo.vue";
-// import SpearmansGraph from "@/components/SpearmansGraph.vue";
+import SpearmansGraph from "@/components/SpearmansGraph.vue";
 // import SpearmanInfo from "@/components/SpearmanInfo.vue";
 
 //library imports 
@@ -156,16 +184,23 @@ export default {
     AtomSimulateLayout,
     AtomButton,
     AtomBiorefineryDiagram,
+    AtomCheckedParameters,
+    AtomSetSamples,
+    AtomLoadingScreen,
+    AtomDisplayJobNumber,
+    AtomBoxPlotInfo,
+    AtomSpearmanInfo,
     MoleculeDropdownNav,
+    OrganismUncertaintyParameterForm,
 
     // UncertainParameter,
     // SetNumberSamples,
     // AppButton,
-    // CheckedParameters,
     
-    // BoxPlot,
+    
+    BoxPlot,
     // BoxPlotInfo,
-    // SpearmansGraph,
+    SpearmansGraph
     // SpearmanInfo
   },
   data() {

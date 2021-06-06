@@ -3,7 +3,7 @@
         {
             "name": "Cornstover price", 
             "checked": false, 
-            "distribution": "Distribution", 
+            "distribution": "--", 
             "values": {
                 "value1": null, 
                 "value2": null, 
@@ -15,7 +15,7 @@
         {
             "name": "Enzyme price", 
             "checked": false, 
-            "distribution": "Distribution", 
+            "distribution": "--", 
             "values": {
                 "value1": null, 
                 "value2": null, 
@@ -27,7 +27,7 @@
         {
             "name": "Electricity price", 
             "checked": false, 
-            "distribution": "Distribution", 
+            "distribution": "--", 
             "values": {
                 "value1": null, 
                 "value2": null, 
@@ -51,7 +51,7 @@
         {
             "name": "Plant size", 
             "checked": false, 
-            "distribution": "Distribution", 
+            "distribution": "--", 
             "values": {
                 "value1": null, 
                 "value2": null, 
@@ -63,7 +63,7 @@
         {
             "name": "PT glucose-to-glucose", 
             "checked": false, 
-            "distribution": "Distribution", 
+            "distribution": "--", 
             "values": {
                 "value1": null, 
                 "value2": null, 
@@ -75,7 +75,7 @@
         {
             "name": "PT xylan-to-xylose", 
             "checked": false, 
-            "distribution": "Distribution", 
+            "distribution": "--", 
             "values": {
                 "value1": null, 
                 "value2": null, 
@@ -87,7 +87,7 @@
         {
             "name": "Xylan-to-furfural conversion", 
             "checked": false, 
-            "distribution": "Distribution", 
+            "distribution": "--", 
             "values": {
                 "value1": null, 
                 "value2": null, 
@@ -99,7 +99,7 @@
         {
             "name": "EH cellulose-to-glucose", 
             "checked": false, 
-            "distribution": "Distribution", 
+            "distribution": "--", 
             "values": {
                 "value1": null, 
                 "value2": null, 
@@ -111,7 +111,7 @@
         {
             "name": "EH time", 
             "checked": false, 
-            "distribution": "Distribution", 
+            "distribution": "--", 
             "values": {
                 "value1": null, 
                 "value2": null, 
@@ -123,7 +123,7 @@
         {
             "name": "FERM glucose-to-ethanol", 
             "checked": false, 
-            "distribution": "Distribution", 
+            "distribution": "--", 
             "values": {
                 "value1": null, 
                 "value2": null, 
@@ -135,7 +135,7 @@
         {
             "name": "FERM time", 
             "checked": false, 
-            "distribution": "Distribution", 
+            "distribution": "--", 
             "values": {
                 "value1": null, 
                 "value2": null, 
@@ -147,7 +147,7 @@
         {
             "name": "Boiler efficiency", 
             "checked": false, 
-            "distribution": "Distribution", 
+            "distribution": "--", 
             "values": {
                 "value1": null, 
                 "value2": null, 
@@ -159,7 +159,7 @@
         {
             "name": "Turbogenerator efficiency", 
             "checked": false, 
-            "distribution": "Distribution", 
+            "distribution": "--", 
             "values": {
                 "value1": null, 
                 "value2": null, 

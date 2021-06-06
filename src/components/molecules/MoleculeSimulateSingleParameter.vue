@@ -1,9 +1,9 @@
 <template>
     <div class="bg-gray-50 bg-opacity-60 rounded-md divide-y divide-cdarkgreenblue">
-        <div class="h-10 flex justify-between items-center px-4">
+        <div class="h-14 flex justify-between items-center px-4">
             <h2>{{parameter.name}}</h2>
             <div class="flex">
-                <p class="pr-2">Default</p>
+                <p class="pr-2 text-cfontgrey">Default</p>
                 <atom-checkbox @check="setDefault()" v-model="parameter.checked"></atom-checkbox>    
             </div>
         </div>
