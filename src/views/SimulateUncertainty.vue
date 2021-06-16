@@ -36,7 +36,7 @@
         <atom-display-job-number @click="runGetResults()" v-if="jobId" :jobId="jobId" :jobHasFinished="gatewayStatus" simulation="uncertainty"></atom-display-job-number>
         <atom-checked-parameters :checked="checkedParameters" :sampleNumber="sampleNumber" :biorefinery="selectedBiorefinery"></atom-checked-parameters>
         <atom-biorefinery-diagram :biorefinery="selectedBiorefinery" simulation="uncertainty"></atom-biorefinery-diagram>
-        <div class="w-5/6 flex justify-between">
+        <div class="w-5/6 flex justify-between pb-10 pt-8">
           <atom-box-plot-info></atom-box-plot-info>
           <box-plot :boxplot="biosteamResults" :options="spearman.cornstoverSpearmanOptions"></box-plot>
         </div>       

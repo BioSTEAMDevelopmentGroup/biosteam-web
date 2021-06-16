@@ -1,15 +1,15 @@
 <template>
     <div class="spearman-graph">
-        <div class="spearman-buttons">
-            <app-dropdown 
+        <div class="w-full flex justify-start">
+            <atom-dropdown 
                 :options="options" 
                 :selected="selected"
                 @select-option="selectIndicatorOption"
-                type="options-graph"
-                icon="caret-down" 
-                class="indicator-dropdown">
-            </app-dropdown>
-            <app-button type="plot-button">Export Data</app-button>             
+                class="dropdown">
+            </atom-dropdown>
+            <div class="w-1/4 pl-4">
+                <atom-button class="w-full bg-gray-300 hover:bg-opacity-100 text-cfontgrey text-lg">Export Data</atom-button>
+            </div>
         </div>       
         <plotly class="plot" :react="true" :data="plotData" :layout="layout" :displayModeBar="false"/>
     </div>
@@ -19,8 +19,8 @@
 import { Plotly } from 'vue-plotly';
 //import spearman from "@/assets/simulation/spearman.json";
 
-import AppButton from "@/components/AppButton.vue";
-import AppDropdown from "@/components/AppDropdown.vue";
+import AtomButton from '@/components/atoms/AtomButton.vue';
+import AtomDropdown from '@/components/atoms/AtomDropdown.vue';
 
 //plot help --> https://plotly.com/javascript/continuous-error-bars/
 export default {
@@ -28,8 +28,8 @@ export default {
     props: ['options', 'spearman'],
     components: {
         Plotly,
-        AppButton,
-        AppDropdown,
+        AtomButton,
+        AtomDropdown,
     },
     data() {
         return{
@@ -70,13 +70,13 @@ export default {
                 hovermode: 'closest',
                 hoverlabel: { bgcolor: "#FFF" },
                 yaxis: {
-                    gridcolor: 'white',
-                    zerolinecolor: 'rgb(255, 255, 255)',
+                    gridcolor: '#d1d5db',
+                    zerolinecolor: '#d1d5db',
                     zerolinewidth: 2,
                 },
                 xaxis: {
-                    gridcolor: 'white',
-                    zerolinecolor: 'rgb(255, 255, 255)',
+                    gridcolor: '#d1d5db',
+                    zerolinecolor: '#d1d5db',
                     zerolinewidth: 2,
                 },
                 margin: {
@@ -85,8 +85,8 @@ export default {
                     b: 30,
                     t: 15,
                 },
-                paper_bgcolor: '#E1DEDA',
-                plot_bgcolor: '#E1DEDA',
+                paper_bgcolor: '#f3f4f6',
+                plot_bgcolor: '#f3f4f6',
             }
         
         }
@@ -135,10 +135,12 @@ export default {
         justify-content: space-around;
         width: 100%;
     }
-    .spearman-graph {
+    .dropdown {
         display: flex;
-        flex-direction: column;
-        align-items: center;
+        flex-direction: row;
+        align-items: space-between;
+        background-color: #d1d5db;
+        width: 400px;
     }
     .plot {
         padding: {

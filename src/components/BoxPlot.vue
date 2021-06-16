@@ -1,15 +1,17 @@
 <template>
-    <div class="box-plot">
-        <app-dropdown 
-            :options="options" 
-            :selected="selected"
-            @select-option="selectIndicatorOption"
-            type="options-graph"
-            icon="caret-down" 
-            class="indicator-dropdown">
-        </app-dropdown>
+    <div class="w-3/6 box-plot">
+        <div class="pb-4" style="width: 400px;">
+            <atom-dropdown 
+                class="dropdown"
+                :options="options" 
+                :selected="selected"
+                @select-option="selectIndicatorOption">
+            </atom-dropdown>
+        </div>
         <plotly class="plot" :data="plotData" :layout="layout" :displayModeBar="false"/>
-        <app-button type="plot-button">Export Data</app-button>
+        <div class="pt-4" style="width: 400px;">
+            <atom-button class="w-full bg-gray-300 hover:bg-opacity-100 text-cfontgrey text-lg">Export Data</atom-button>
+        </div>
     </div>
 </template>
 
@@ -17,8 +19,8 @@
 <script>
 import { Plotly } from 'vue-plotly';
 
-import AppButton from "@/components/AppButton.vue";
-import AppDropdown from "@/components/AppDropdown.vue";
+import AtomButton from '@/components/atoms/AtomButton.vue';
+import AtomDropdown from '@/components/atoms/AtomDropdown.vue';
 // box-plot help --> https://plotly.com/javascript/box-plots/
 
 export default {
@@ -26,8 +28,8 @@ export default {
     props: ['options', 'boxplot'],
     components: {
         Plotly,
-        AppButton,
-        AppDropdown
+        AtomDropdown,
+        AtomButton,
     },
     data() {
         return{
@@ -43,8 +45,8 @@ export default {
                 hoverlabel: { bgcolor: "#FFF" },
                 yaxis: {
                     zeroline: true,
-                    gridcolor: 'white',
-                    zerolinecolor: 'rgb(255, 255, 255)',
+                    gridcolor: '#d1d5db',
+                    zerolinecolor: '#d1d5db',
                     zerolinewidth: 2,
                 },
                 margin: {
@@ -54,8 +56,8 @@ export default {
                     t: 15,
                 },
                 //title: "Box plot component",
-                paper_bgcolor: '#E1DEDA',
-                plot_bgcolor: '#E1DEDA',
+                paper_bgcolor: '#f3f4f6',
+                plot_bgcolor: '#f3f4f6',
             }
         }
     },
@@ -91,15 +93,17 @@ export default {
         display: flex;
         flex-direction: column;
         align-items: center;
+    }
+
+    .dropdown {
+        display: flex;
+        flex-direction: row;
+        align-items: space-between;
+        background-color: #d1d5db;
         width: 400px;
     }
 
     .plot {
-        padding: {
-            top: 20px;
-            bottom: 25px;
-        }
-        //height: 50vh;  
         height: 350px;
         width: 400px;  
     }
