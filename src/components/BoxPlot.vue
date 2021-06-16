@@ -50,7 +50,7 @@ export default {
                     zerolinewidth: 2,
                 },
                 margin: {
-                    l: 45,
+                    l: 55,
                     r: 30,
                     b: 25,
                     t: 15,
