@@ -1,27 +1,24 @@
 <template>
   <div class="relative font-sans overflow-hidden" id="app">
     <div class="w-full h-14"></div>
-    <molecule-nav-bar class="fixed top-0" :items="items"></molecule-nav-bar>
+    <molecule-nav-bar v-on:click="firstOn = false" class="fixed top-0" :items="items"></molecule-nav-bar>
     <router-view/>
-    <Home />
   </div>
 
 </template>
 
 <script>
 import MoleculeNavBar from '@/components/molecules/MoleculeNavBar.vue';
-import Home from '@/views/Home'
 
 export default {
   components: {
     MoleculeNavBar,
-    Home,
   },
 
   data () {
     return{ 
       items: [
-        {name: 'Home', link: '/home'},
+        {name: 'Home', link: '/'},
         {name: 'About', link: '/resources'},
         {name: 'Docs', link: '/docs'},
         {name: 'Simulate', link: '/simulate'},
