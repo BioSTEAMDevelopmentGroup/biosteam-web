@@ -283,7 +283,7 @@ export default {
       };
       //call biosteamHelper lambda with payload
       axios({
-        url: "https://lh94msd306.execute-api.us-east-1.amazonaws.com/default/biosteamHelper",
+        url: "https://g8hun528wd.execute-api.us-west-1.amazonaws.com/default/biosteamHelper",
         method: "post",
         data: payload,
         headers: this.configHeaders
@@ -313,7 +313,7 @@ export default {
 
       //call lambda with payload
       axios({
-        url: "https://lh94msd306.execute-api.us-east-1.amazonaws.com/default/biosteamGetter",
+        url: "https://g8hun528wd.execute-api.us-west-1.amazonaws.com/default/biosteamHelper", // update 11-9-2021 this is the correct URL - jenndebellis
         method: "post",
         data: payload,
         headers: configHeaders
