@@ -10,8 +10,10 @@
             <p>BioSTEAM Citation</p>
         </div>
         <div>
-            <img src="" alt="CABBI Logo">
-            <p>© 2021 All Rights Reserved</p>
+          <p>© 2021 All Rights Reserved</p>
+        </div>
+        <div>
+          <img src="../../assets/resources/logo-CABBI.png" height="50" width="50" alt="CABBI Logo">
         </div>
     </div>
 </template>
