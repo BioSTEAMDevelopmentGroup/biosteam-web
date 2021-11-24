@@ -1,7 +1,21 @@
 {
     "cornstoverParameters": [
         {
-            "name": "Cornstover price", 
+            "name": "Cornstover price",
+            "units": "$/kg",
+            "checked": false,
+            "distribution": "--", 
+            "values": {
+                "value1": null, 
+                "value2": null, 
+                "value3": null
+            }, 
+            "info": "Some description about the paramter"
+        },
+
+        {
+            "name": "Enzyme price",
+            "units": "$/kg",
             "checked": false, 
             "distribution": "--", 
             "values": {
@@ -13,7 +27,8 @@
         },
 
         {
-            "name": "Enzyme price", 
+            "name": "Electricity price",
+            "units": "$/kWh",
             "checked": false, 
             "distribution": "--", 
             "values": {
@@ -25,19 +40,8 @@
         },
 
         {
-            "name": "Electricity price", 
-            "checked": false, 
-            "distribution": "--", 
-            "values": {
-                "value1": null, 
-                "value2": null, 
-                "value3": null
-            }, 
-            "info": "Some description about the paramter"
-        },
-
-        {
-            "name": "Income tax", 
+            "name": "Income tax",
+            "units": "% as fraction",
             "checked": false, 
             "distribution": "Distribution", 
             "values": {
@@ -49,7 +53,8 @@
         },
 
         {
-            "name": "Plant size", 
+            "name": "Plant size",
+            "units": "kg/hr",
             "checked": false, 
             "distribution": "--", 
             "values": {
@@ -61,7 +66,8 @@
         },
 
         {
-            "name": "PT glucose-to-glucose", 
+            "name": "PT glucose-to-glucose",
+            "units": "% as fraction",
             "checked": false, 
             "distribution": "--", 
             "values": {
@@ -73,7 +79,8 @@
         },
 
         {
-            "name": "PT xylan-to-xylose", 
+            "name": "PT xylan-to-xylose",
+            "units": "% as fraction",
             "checked": false, 
             "distribution": "--", 
             "values": {
@@ -85,7 +92,8 @@
         },
 
         {
-            "name": "Xylan-to-furfural conversion", 
+            "name": "Xylan-to-furfural conversion",
+            "units": "% as fraction",
             "checked": false, 
             "distribution": "--", 
             "values": {
@@ -97,7 +105,8 @@
         },
 
         {
-            "name": "EH cellulose-to-glucose", 
+            "name": "EH cellulose-to-glucose",
+            "units": "% as fraction",
             "checked": false, 
             "distribution": "--", 
             "values": {
@@ -109,7 +118,8 @@
         },
 
         {
-            "name": "EH time", 
+            "name": "EH time",
+            "units": "hrs",
             "checked": false, 
             "distribution": "--", 
             "values": {
@@ -121,7 +131,8 @@
         },
 
         {
-            "name": "FERM glucose-to-ethanol", 
+            "name": "FERM glucose-to-ethanol",
+            "units": "% as fraction",
             "checked": false, 
             "distribution": "--", 
             "values": {
@@ -133,7 +144,8 @@
         },
 
         {
-            "name": "FERM time", 
+            "name": "FERM time",
+            "units": "hrs",
             "checked": false, 
             "distribution": "--", 
             "values": {
@@ -145,7 +157,8 @@
         },
 
         {
-            "name": "Boiler efficiency", 
+            "name": "Boiler efficiency",
+            "units": "% as fraction",
             "checked": false, 
             "distribution": "--", 
             "values": {
@@ -157,7 +170,8 @@
         },
 
         {
-            "name": "Turbogenerator efficiency", 
+            "name": "Turbogenerator efficiency",
+            "units": "% as fraction",
             "checked": false, 
             "distribution": "--", 
             "values": {

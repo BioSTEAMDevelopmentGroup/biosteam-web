@@ -1,7 +1,7 @@
 <template>
   <div class="relative font-sans overflow-hidden" id="app">
     <div class="w-full h-14"></div>
-    <molecule-nav-bar v-on:click="firstOn = false" class="fixed top-0" :items="items"></molecule-nav-bar>
+    <molecule-nav-bar class="fixed top-0" :items="items"></molecule-nav-bar>
     <router-view/>
   </div>
 
