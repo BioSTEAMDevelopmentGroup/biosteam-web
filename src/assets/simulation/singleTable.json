@@ -1,0 +1,45 @@
+{
+    "cornstoverMetrics": [
+        {
+            "name": "Minimum ethanol selling price",
+            "value": null,
+            "units": "$/gal"
+        },
+
+        {
+            "name": "Ethanol production",
+            "value": null,
+            "units": "MM gal/yr"
+        },
+
+        {
+            "name": "Ethanol yield",
+            "value": null,
+            "units": "gal/dry-US ton"
+        },
+
+        {
+            "name": "Total capital investment",
+            "value": null,
+            "units": "MM$"
+        },
+
+        {
+            "name": "Annual operating cost", 
+            "value": null,
+            "units": "MM$/yr"
+        },
+
+        {
+            "name": "Net electricity",
+            "value": null,
+            "units": "MW"
+        },
+
+        {
+            "name": "Electricity credit",
+            "value": null,
+            "units": "MM $/yr"
+        }
+    ]
+}
