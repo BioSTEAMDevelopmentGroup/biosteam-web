@@ -61,7 +61,7 @@ export default {
                 {name: 'Triangular'}, 
                 {name: 'Uniform'},
             ],
-            isOpen: false,  
+            isOpen: false,
         }
     },
     watch: {
