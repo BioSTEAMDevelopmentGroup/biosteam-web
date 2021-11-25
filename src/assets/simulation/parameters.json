@@ -66,7 +66,7 @@
         },
 
         {
-            "name": "PT glucose-to-glucose",
+            "name": "Pretreatment glucose-to-glucose",
             "units": "% as fraction",
             "checked": false, 
             "distribution": "--", 
@@ -79,7 +79,7 @@
         },
 
         {
-            "name": "PT xylan-to-xylose",
+            "name": "Pretreatment xylan-to-xylose",
             "units": "% as fraction",
             "checked": false, 
             "distribution": "--", 
@@ -105,7 +105,7 @@
         },
 
         {
-            "name": "EH cellulose-to-glucose",
+            "name": "Saccharification cellulose-to-glucose",
             "units": "% as fraction",
             "checked": false, 
             "distribution": "--", 
@@ -114,11 +114,11 @@
                 "value2": null, 
                 "value3": null
             }, 
-            "info": "Some description about the paramter"
+            "info": "Some description about the parameter"
         },
 
         {
-            "name": "EH time",
+            "name": "Saccharification time",
             "units": "hrs",
             "checked": false, 
             "distribution": "--", 
@@ -127,11 +127,11 @@
                 "value2": null, 
                 "value3": null
             }, 
-            "info": "Some description about the paramter"
+            "info": "Some description about the parameter"
         },
 
         {
-            "name": "FERM glucose-to-ethanol",
+            "name": "Cofermentation glucose-to-ethanol",
             "units": "% as fraction",
             "checked": false, 
             "distribution": "--", 
@@ -144,7 +144,7 @@
         },
 
         {
-            "name": "FERM time",
+            "name": "Cofermentation time",
             "units": "hrs",
             "checked": false, 
             "distribution": "--", 
@@ -185,7 +185,19 @@
 
     "lipidcaneParameters": [
         {
-            "name": "Lipidcane1", 
+            "name": "Lipidcane1",
+            "checked": false,
+            "distribution": "Distribution", 
+            "values": {
+                "value1": null, 
+                "value2": null, 
+                "value3": null
+            }, 
+            "info": "Some description about the paramter"
+        },
+
+        {
+            "name": "Lipidcane2",
             "checked": false, 
             "distribution": "Distribution", 
             "values": {
@@ -197,7 +209,7 @@
         },
 
         {
-            "name": "Lipidcane2", 
+            "name": "Lipidcane3",
             "checked": false, 
             "distribution": "Distribution", 
             "values": {
@@ -209,7 +221,7 @@
         },
 
         {
-            "name": "Lipidcane3", 
+            "name": "Lipidcane4",
             "checked": false, 
             "distribution": "Distribution", 
             "values": {
@@ -221,7 +233,7 @@
         },
 
         {
-            "name": "Lipidcane4", 
+            "name": "Lipidcane5",
             "checked": false, 
             "distribution": "Distribution", 
             "values": {
@@ -233,7 +245,7 @@
         },
 
         {
-            "name": "Lipidcane5", 
+            "name": "Lipidcane6",
             "checked": false, 
             "distribution": "Distribution", 
             "values": {
@@ -245,7 +257,7 @@
         },
 
         {
-            "name": "Lipidcane6", 
+            "name": "Lipidcane7",
             "checked": false, 
             "distribution": "Distribution", 
             "values": {
@@ -257,7 +269,7 @@
         },
 
         {
-            "name": "Lipidcane7", 
+            "name": "Lipidcane8",
             "checked": false, 
             "distribution": "Distribution", 
             "values": {
@@ -269,7 +281,7 @@
         },
 
         {
-            "name": "Lipidcane8", 
+            "name": "Lipidcane9",
             "checked": false, 
             "distribution": "Distribution", 
             "values": {
@@ -281,7 +293,7 @@
         },
 
         {
-            "name": "Lipidcane9", 
+            "name": "Lipidcane10",
             "checked": false, 
             "distribution": "Distribution", 
             "values": {
@@ -293,19 +305,7 @@
         },
 
         {
-            "name": "Lipidcane10", 
-            "checked": false, 
-            "distribution": "Distribution", 
-            "values": {
-                "value1": null, 
-                "value2": null, 
-                "value3": null
-            }, 
-            "info": "Some description about the paramter"
-        },
-
-        {
-            "name": "Lipidcane11", 
+            "name": "Lipidcane11",
             "checked": false, 
             "distribution": "Distribution", 
             "values": {
