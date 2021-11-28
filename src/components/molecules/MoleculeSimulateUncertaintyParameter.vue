@@ -3,8 +3,8 @@
       <div class="h-14 px-4 flex justify-between items-center">
         <div class="flex">
             <atom-checkbox v-model="parameter.checked"></atom-checkbox>
-            <p v-if="parameter.checked == false" class="pl-2 text-cfontgrey">add</p> 
-            <p v-if="parameter.checked == true" class="pl-2 text-cfontgrey">added</p>            
+            <p v-if="parameter.checked === false" class="pl-2 text-cfontgrey">add</p>
+            <p v-if="parameter.checked === true" class="pl-2 text-cfontgrey">added</p>
         </div>
         <p class="text-right">{{parameter.name}}</p>
       </div>
@@ -22,21 +22,21 @@
           </div>
           <div class="flex w-full justify-between py-2">
               <p>Lower:</p>
-              <input v-model.number="parameter.values.value1" type="number" class="w-1/2">
+              <input v-model.number="parameter.values.value1" type="number" class="w-1/2" :disabled="noDistSelected">
           </div>
 
-          <div v-if="parameter.distribution == 'Triangular'" class="flex w-full justify-between py-2">
+          <div v-if="parameter.distribution === 'Triangular'" class="flex w-full justify-between py-2" >
               <p>Most prob:</p>
               <input v-model.number="parameter.values.value3" type="number" class="w-1/2">
           </div>
-          <div v-if="parameter.distribution == 'Triangular'" class="flex w-full justify-between py-2">
+          <div v-if="parameter.distribution === 'Triangular'" class="flex w-full justify-between py-2">
               <p>Upper:</p>
               <input v-model.number="parameter.values.value2" type="number" class="w-1/2">
           </div>
 
           <div v-else class="flex w-full justify-between py-2">
               <p>Upper:</p>
-              <input v-model.number="parameter.values.value2" type="number" class="w-1/2">
+              <input v-model.number="parameter.values.value2" type="number" class="w-1/2" :disabled="noDistSelected">
           </div>
 
       </div>
@@ -57,12 +57,14 @@ export default {
     data() {
         return {
             open: false,
-            distributions: ['Uniform', 'Triangular']
+            distributions: ['Uniform', 'Triangular'],
+            noDistSelected: true,
         }
     },
     methods: {
         selectDistribution(value) {
             this.$emit('select-distribution', value)
+            this.noDistSelected = false
         }
     }
 }
