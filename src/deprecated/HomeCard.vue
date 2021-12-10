@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import AppButton from '@/components/AppButton.vue';
+import AppButton from '@/deprecated/AppButton.vue';
 export default {
     name: 'HomeCard',
     components: {
@@ -24,7 +24,7 @@ export default {
         toLink() {
             window.open(this.link)
         }
-    }    
+    }
 }
 </script>
 
@@ -35,7 +35,7 @@ export default {
         flex-direction: column;
         min-height: 50vh;
         justify-content: space-between;
-        box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2); 
+        box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
         border-radius: 20px;
     }
 

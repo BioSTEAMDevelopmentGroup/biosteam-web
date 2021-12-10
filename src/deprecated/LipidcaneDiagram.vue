@@ -1,6 +1,6 @@
 <template>
     <div class="lipidcane-diagram" ref="chartdiv">
-    </div> 
+    </div>
 </template>
 
 <script>
@@ -14,7 +14,7 @@ export default {
     name: "LipidcaneDiagram",
     mounted() {
         let chart = am4core.create(this.$refs.chartdiv, am4plugins_forceDirected.ForceDirectedTree);
-        let series = chart.series.push(new am4plugins_forceDirected.ForceDirectedSeries());       
+        let series = chart.series.push(new am4plugins_forceDirected.ForceDirectedSeries());
         series.data = [{
             "name": "First",
             "color": "#FCB813",

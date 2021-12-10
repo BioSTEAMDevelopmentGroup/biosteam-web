@@ -13,7 +13,7 @@
                 <slot name="main-content">
                     main content here
                 </slot>
-            </div>            
+            </div>
         </div>
     </div>
 </template>
@@ -38,18 +38,18 @@ export default {
 
     .box-1 {
         display: flex;
-        flex-direction: column;  
+        flex-direction: column;
         flex: 1;
         border-radius: 5px 0px 0px 5px;
 
         &.grey {
-            background-color: $cabbi-grey;    
+            background-color: $cabbi-grey;
         }
         &.single {
-            background-color: $cabbi-green-blue;    
+            background-color: $cabbi-green-blue;
         }
         &.uncertainty {
-            background-color: $cabbi-yellow;    
+            background-color: $cabbi-yellow;
         }
     }
 
@@ -64,13 +64,13 @@ export default {
             bottom: 15px;
         }
         &.grey {
-            background-color: #707070;    
+            background-color: #707070;
         }
         &.single {
-            background-color: $cabbi-dark-green-blue;    
+            background-color: $cabbi-dark-green-blue;
         }
         &.uncertainty {
-            background-color: $cabbi-orange;    
+            background-color: $cabbi-orange;
         }
     }
 

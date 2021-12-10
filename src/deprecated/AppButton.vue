@@ -1,6 +1,6 @@
 <template>
     <button @click="$emit('click')" :class="type">
-        <slot></slot> 
+        <slot></slot>
     </button>
 </template>
 
@@ -15,8 +15,8 @@ export default {
 
 <style scoped lang="scss">
     button {
-        font-family: 'Montserrat', sans-serif; 
-        box-shadow: $shadow; 
+        font-family: 'Montserrat', sans-serif;
+        box-shadow: $shadow;
         padding: 10px 30px;
         border-radius: 20px;
         border: none;
@@ -24,7 +24,7 @@ export default {
 
         &:hover{
             cursor: pointer;
-            box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2); 
+            box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
         }
     }
 
@@ -32,7 +32,7 @@ export default {
         background-color: $cabbi-grey;
         color: #707070;
         font-size: 12pt;
-    } 
+    }
 
     .home-card {
         background-color: $cabbi-blue;

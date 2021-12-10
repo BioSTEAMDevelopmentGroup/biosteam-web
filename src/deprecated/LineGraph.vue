@@ -1,12 +1,12 @@
 <template>
     <div class="line-graph">
         <h3>Line graph component </h3>
-        <app-dropdown 
-            :options="options" 
+        <app-dropdown
+            :options="options"
             :selected="selected"
             @select-option="selectIndicatorOption"
             type="options-graph"
-            icon="caret-down" 
+            icon="caret-down"
             class="indicator-dropdown">
         </app-dropdown>
         <plotly class="plot" :data="plotData" :layout="layout" :displayModeBar="false"/>
@@ -16,8 +16,8 @@
 
 <script>
 import { Plotly } from 'vue-plotly';
-import AppButton from "@/components/AppButton.vue";
-import AppDropdown from "@/components/AppDropdown.vue";
+import AppButton from "@/deprecated/AppButton.vue";
+import AppDropdown from "@/deprecated/AppDropdown.vue";
 
 //plot help --> https://plotly.com/javascript/continuous-error-bars/
 export default {
@@ -32,20 +32,20 @@ export default {
         return{
             selected: 'Indicator',
             plotValue: {
-                x: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1], 
-                y: [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0],         
-                fill: "tozerox", 
-                fillcolor: "rgba(0,100,80,0.2)", 
-                line: {color: "transparent"}, 
-                showlegend: false, 
+                x: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1],
+                y: [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0],
+                fill: "tozerox",
+                fillcolor: "rgba(0,100,80,0.2)",
+                line: {color: "transparent"},
+                showlegend: false,
                 type: "scatter",
                 name: "error",
             },
             lowerBound: {
-                x: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 
-                y: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 
-                line: {color: "rgb(0,100,80)"}, 
-                mode: "lines", 
+                x: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+                y: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+                line: {color: "rgb(0,100,80)"},
+                mode: "lines",
                 type: "scatter",
                 name: "measurement",
             },
@@ -101,7 +101,7 @@ export default {
         padding: {
             top: 20px;
             bottom: 25px;
-        }    
+        }
         height: 50vh;
         width: 100%;
     }

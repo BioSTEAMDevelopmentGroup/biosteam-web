@@ -7,14 +7,14 @@
                     <router-link class="router-link" :to="item.link" exact>{{item.name}}</router-link>
                 </li>
             </ul>
-            <font-awesome-icon :rotation="rotate" size="2x" class="nav-toggle" icon="bars" @click="toggle"/>        
+            <font-awesome-icon :rotation="rotate" size="2x" class="nav-toggle" icon="bars" @click="toggle"/>
         </div>
         <div v-if="this.toggled === true" class="small">
             <ul>
                 <li v-for="item in items" :key="item.name">
                     <router-link @click.native="toggle" class="router-link" :to="item.link" exact>{{item.name}}</router-link>
                 </li>
-            </ul>        
+            </ul>
         </div>
     </nav>
 </template>
@@ -57,7 +57,7 @@ export default {
         justify-content: space-between;
         align-items: center;
         padding-left: 50px;
-        padding-right: 50px;       
+        padding-right: 50px;
     }
 
     img {
@@ -103,7 +103,7 @@ export default {
         display: inline-block;
 
         &:hover{
-            color: white;   
+            color: white;
         }
     }
 

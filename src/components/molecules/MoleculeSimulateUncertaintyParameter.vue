@@ -11,7 +11,7 @@
       <div @click="open = !open" :class="{'bg-corange': open}" class="h-10 px-4 flex justify-between items-center cursor-pointer hover:bg-corange">
 <!--        <p class="text-cfontgrey">Specify parameter</p>-->
         <p class="text-cfontgre">Specify in <b>{{parameter.units}}</b></p>
-        <font-awesome-icon 
+        <font-awesome-icon
             icon="caret-down"
             style="color: #707070;"/>
       </div>

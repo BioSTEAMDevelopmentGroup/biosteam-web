@@ -3,7 +3,7 @@
     <div class="box-plot-info">
         <h3>Box Plot Outcomes</h3>
         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquam explicabo molestias corporis eaque maxime aut praesentium labore. In possimus, deleniti nemo similique ad accusamus sapiente cum iusto alias atque ducimus?</p>
-    </div>      
+    </div>
 </div>
 </template>
 

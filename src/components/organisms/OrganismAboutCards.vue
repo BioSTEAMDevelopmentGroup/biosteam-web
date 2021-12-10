@@ -6,7 +6,7 @@
                 <template #description>{{card.description}}</template>
                 <template #button>{{card.button}}</template>
             </molecule-about-card>
-        </div>        
+        </div>
     </div>
 </template>
 

@@ -10,11 +10,11 @@
             <div class="flex flex-wrap">
                 <div class="pb-2 pr-2" v-for="item in checked" :key="item.name">
                     <div class="flex justify-center items-center rounded-md bg-white bg-opacity-60">
-                        <p class="text-cfontgrey p-2">{{item.name}}</p>                        
-                    </div>      
-                </div>                
+                        <p class="text-cfontgrey p-2">{{item.name}}</p>
+                    </div>
+                </div>
             </div>
-        </div>        
+        </div>
     </div>
 
 </template>

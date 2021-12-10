@@ -1,11 +1,11 @@
 <template>
     <div class="container">
         <app-button @click="open = !open" type="home-hero" class="select-button">
-            <font-awesome-icon 
+            <font-awesome-icon
                 :icon="icon"
                 style="color: #707070;"/>
-            <p>{{selected}}</p>  
-            <span></span>           
+            <p>{{selected}}</p>
+            <span></span>
         </app-button>
         <div v-if="open" class="options-wrapper">
             <div :class="type">
@@ -14,11 +14,11 @@
                 </div>
             </div>
         </div>
-    </div>  
+    </div>
 </template>
 
 <script>
-import AppButton from '@/components/AppButton.vue'
+import AppButton from '@/deprecated/AppButton.vue'
 
 export default {
     name: 'AppDropdown',
@@ -61,7 +61,7 @@ export default {
     .options-wrapper {
         position: absolute;
         top: 100%;
-        width: 340px; 
+        width: 340px;
         max-height: 200px;
         border-radius: 10px;
         box-shadow: $shadow;

@@ -14,7 +14,7 @@
         <div class="flex justify-center items-center w-1/2">
             <img class="w-full" src="@/assets/home/home-hero-logo.png" alt="biosteam logo">
         </div>
-    </div>  
+    </div>
 </template>
 
 <script>

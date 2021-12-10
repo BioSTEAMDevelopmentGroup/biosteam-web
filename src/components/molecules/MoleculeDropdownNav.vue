@@ -35,12 +35,12 @@ export default {
         selectSimulateOption(value) {
             this.$emit('select-simulate', value)
             if(value == 'Single point simulation') {
-                this.$router.push({path: '/simulate/simulate-single'})    
+                this.$router.push({path: '/simulate/simulate-single'})
             }
             if(value == 'Simulation with uncertainty') {
-                this.$router.push({path: '/simulate/simulate-uncertainty'})    
+                this.$router.push({path: '/simulate/simulate-uncertainty'})
             }
-            
+
         },
         selectBiorefineryOption(value) {
             this.$emit('select-biorefinery', value)
