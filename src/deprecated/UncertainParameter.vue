@@ -11,14 +11,14 @@
               <div class="distribution-dropdown">
                 <div class="distribution-box" @click="handleOpen()">
                     <font-awesome-icon icon="chart-area"/>
-                    <p>{{distribution}}</p> 
+                    <p>{{distribution}}</p>
                     <font-awesome-icon icon="caret-down"/>
-                </div> 
+                </div>
                 <div v-if="isOpen" class="distribution-options">
                     <div class="distribution-option" v-for="distribution in distributions" :key="distribution.name" @click="selectDistribution(distribution)">
                         <p>{{distribution.name}}</p>
                     </div>
-                </div>      
+                </div>
               </div>
               <div class="value-box">
                 <font-awesome-icon icon="calculator"/>
@@ -28,7 +28,7 @@
                     <input name="value2" v-model.number="value.value2" type="number" placeholder="0">,
                     <input name="value3" v-model.number="value.value3" type="number" placeholder="0">
                     <p>)</p>
-                </div> 
+                </div>
                 <div v-if="this.distribution == 'Uniform'" class="distribution-values">
                     <p>(</p>
                     <input name="value1" v-model.number="value.value1" type="number" placeholder="0">,
@@ -52,13 +52,13 @@ export default {
     props: {
         checked: Boolean,
         value: Object,
-        distribution: String, 
+        distribution: String,
     },
     data() {
         return{
             distributions: [
-                {name: '---'}, 
-                {name: 'Triangular'}, 
+                {name: '---'},
+                {name: 'Triangular'},
                 {name: 'Uniform'},
             ],
             isOpen: false,
@@ -70,7 +70,7 @@ export default {
         }
     },
     methods: {
-        handleCheck() { 
+        handleCheck() {
             this.$emit('checked', !this.checked);
         },
 
@@ -79,7 +79,7 @@ export default {
             this.isOpen = !this.isOpen
         },
 
-        handleOpen() { 
+        handleOpen() {
             this.isOpen = !this.isOpen
         },
     },
@@ -137,7 +137,7 @@ export default {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        background-color: #FCCA31;     
+        background-color: #FCCA31;
         padding: {
             right: 10px;
             left: 10px;
@@ -163,7 +163,7 @@ export default {
         display: flex;
         align-items: center;
         background-color: #FCCA31;
-        border: 2px $cabbi-orange solid;      
+        border: 2px $cabbi-orange solid;
         padding: {
             left: 10px;
             top: 5px;

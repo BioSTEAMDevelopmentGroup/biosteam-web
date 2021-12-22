@@ -1,16 +1,16 @@
 <template>
     <div>
         <app-button class="app-button" type="simulate-nav-button">
-            <font-awesome-icon 
+            <font-awesome-icon
                 :icon="icon"
                 style="color: #707070;"/>
-            <p><slot></slot></p>           
-        </app-button>  
+            <p><slot></slot></p>
+        </app-button>
     </div>
 </template>
 
 <script>
-import AppButton from "@/components/AppButton.vue";
+import AppButton from "@/deprecated/AppButton.vue";
 
 export default {
     name: 'SimulateDropdown',
@@ -21,7 +21,7 @@ export default {
         icon: String,
         value: null,
         options: {
-            type: Array 
+            type: Array
         }
     },
     data() {

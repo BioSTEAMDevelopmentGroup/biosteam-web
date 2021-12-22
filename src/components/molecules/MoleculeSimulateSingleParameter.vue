@@ -4,7 +4,7 @@
             <h2>{{parameter.name}}</h2>
             <div class="flex">
                 <p class="pr-2 text-cfontgrey">Default</p>
-                <atom-checkbox @check="setDefault()" v-model="parameter.checked"></atom-checkbox>    
+                <atom-checkbox @check="setDefault()" v-model="parameter.checked"></atom-checkbox>
             </div>
         </div>
         <div class="h-10 flex justify-center items-center px-4">

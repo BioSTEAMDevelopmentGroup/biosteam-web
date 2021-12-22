@@ -1,26 +1,26 @@
 <template>
     <div class="container">
-        <app-dropdown 
-            :options="simulateOptions" 
+        <app-dropdown
+            :options="simulateOptions"
             :selected="simulate"
             @select-option="selectSimulateOption"
             type="options-bar"
-            icon="caret-down" 
+            icon="caret-down"
             class="app-dropdown">
         </app-dropdown>
-        <app-dropdown 
-            :options="biorefineryOptions" 
+        <app-dropdown
+            :options="biorefineryOptions"
             :selected="biorefinery"
             @select-option="selectBiorefineryOption"
             type="options-bar"
-            icon="search" 
+            icon="search"
             class="app-dropdown">
         </app-dropdown>
     </div>
 </template>
 
 <script>
-import AppDropdown from "@/components/AppDropdown.vue"
+import AppDropdown from "@/deprecated/AppDropdown.vue"
 
 export default {
     name: 'SimulateDropdownBar',
@@ -42,7 +42,7 @@ export default {
             ],
             biorefineryOptions: [
                 {name: 'Select a biorefinery'},
-                {name: 'Oilcane'},
+                {name: 'Lipidcane'},
                 {name: 'Cornstover'}, 
             ]
         }

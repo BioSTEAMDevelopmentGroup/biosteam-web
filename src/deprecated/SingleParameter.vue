@@ -8,9 +8,9 @@
                 <a><font-awesome-icon icon="info-circle"/></a>
                 <template slot="popover">
                     <div class="tooltip">
-                        <slot name="info"> 
-                            Info goes here 
-                        </slot>                        
+                        <slot name="info">
+                            Info goes here
+                        </slot>
                     </div>
                 </template>
             </v-popover>
@@ -53,10 +53,10 @@ export default {
         display: flex;
         justify-content: center;
         padding: 10px;
-        background-color: #259b8d;      
+        background-color: #259b8d;
     }
     input {
-        background-color: #259b8d; 
+        background-color: #259b8d;
         outline: none;
         border: none;
         text-align: center;

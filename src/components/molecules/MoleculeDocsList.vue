@@ -4,7 +4,7 @@
         <div @click="shout(subcategory)" v-for="subcategory in list.subcategories" :key="subcategory.index">
             <p class="text-cfontgrey text-lg pl-5 pb-3">{{subcategory}}</p>
         </div>
-     </div> 
+     </div>
 </template>
 
 <script>

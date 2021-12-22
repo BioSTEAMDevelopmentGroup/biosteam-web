@@ -1,12 +1,12 @@
 <template>
   <div class="w-full py-4">
       <div v-for="parameter in parameters" :key="parameter.name" class="py-2">
-        <molecule-simulate-single-parameter 
+        <molecule-simulate-single-parameter
             :parameter="parameter"
             @change="$emit('change', $event.target.value)"
             >
-        </molecule-simulate-single-parameter>          
-      </div>      
+        </molecule-simulate-single-parameter>
+      </div>
   </div>
 </template>
 

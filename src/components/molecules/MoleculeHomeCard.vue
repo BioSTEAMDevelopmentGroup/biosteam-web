@@ -5,10 +5,10 @@
         <div class="bg-white flex flex-col justify-between h-2/3 px-8 py-5">
             <p class="text-cfontgrey pb-10"><slot name="content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus inventore nostrum alias suscipit placeat autem ratione fuga velit vitae error est maxime ipsum sequi ex repellat voluptates consectetur voluptatem itaque blanditiis quibusdam, provident repudiandae illum! Nesciunt dicta, labore repudiandae suscipit in voluptatibus ducimus qui exercitationem aspernatur, possimus aperiam sint cum.</slot></p>
             <div class="flex justify-center">
-                <atom-button @click="toLink()" class="bg-cblue text-lg text-white w-4/5 shadow-sm hover:shadow-md">Visit Link</atom-button>           
+                <atom-button @click="toLink()" class="bg-cblue text-lg text-white w-4/5 shadow-sm hover:shadow-md">Visit Link</atom-button>
             </div>
         </div>
-    </div>    
+    </div>
 </template>
 
 <script>
@@ -24,7 +24,7 @@ export default {
         toLink() {
             window.open(this.link)
         }
-    } 
+    }
 }
 </script>
 

@@ -19,7 +19,7 @@ export default {
     }
 
     .container p {
-        color: #707070; 
+        color: #707070;
         padding: 40px
     }
 

@@ -4,7 +4,7 @@
             <div class="color-bar"></div>
             <div class="logo">
                 <slot name="logo"></slot>
-            </div>            
+            </div>
         </div>
         <div class="content">
             <div class="title">
@@ -15,13 +15,13 @@
             </div>
             <div class="button">
                 <app-button @click="toLink" type="home-card"><slot name="button">Learn More</slot></app-button>
-            </div>            
+            </div>
         </div>
     </div>
 </template>
 
 <script>
-import AppButton from '@/components/AppButton.vue';
+import AppButton from '@/deprecated/AppButton.vue';
 
 export default {
     name: 'ResourcesCard',

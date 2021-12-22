@@ -3,7 +3,7 @@
         <p>Number of Simulations</p>
         <div class="sample-input">
             <input :value="value" @input="$emit('input', $event.target.value)" type="number">
-        </div>       
+        </div>
     </div>
 </template>
 

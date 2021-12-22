@@ -10,7 +10,7 @@
             <p class="pt-10"><slot name="description">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eos omnis, nostrum explicabo temporibus est in deleniti laudantium asperiores porro sequi.</slot></p>
             <div class="flex justify-center w-full">
                 <atom-button @click="toLink()" class="text-xl w-3/5 bg-gray-400 text-cdark shadow-md hover:shadow-lg"><slot name="button">Visit Link</slot></atom-button>
-            </div>            
+            </div>
         </div>
     </div>
 </template>
@@ -28,7 +28,7 @@ export default {
         toLink() {
             window.open(this.link)
         }
-    } 
+    }
 }
 </script>
 

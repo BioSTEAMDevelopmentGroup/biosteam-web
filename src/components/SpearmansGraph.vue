@@ -1,8 +1,8 @@
 <template>
     <div class="spearman-graph">
         <div class="w-full flex justify-start">
-            <atom-dropdown 
-                :options="options" 
+            <atom-dropdown
+                :options="options"
                 :selected="selected"
                 @select-option="selectIndicatorOption"
                 class="dropdown">
@@ -10,7 +10,7 @@
             <div class="w-1/4 pl-4">
                 <atom-button class="w-full bg-gray-300 hover:bg-opacity-100 text-cfontgrey text-lg">Export Data</atom-button>
             </div>
-        </div>       
+        </div>
         <plotly class="plot" :react="true" :data="plotData" :layout="layout" :displayModeBar="false"/>
     </div>
 </template>
@@ -37,7 +37,7 @@ export default {
             selected: 'Indicator',
             plot: {
                 x: [],
-                //only for cornstover at the moment// 
+                //only for cornstover at the moment//
                 //x: [-0.320651694, -0.007735579, -0.233021623, 0.041917709, -0.486752267, -0.208674911, -0.499473217, -0.162942112, 0.368498535, 0.190852107, -0.113052724, 0.072755361, 0.074500617, 0.059358043],
                 y: [
                     // "Plant size [kg/hr]",
@@ -88,7 +88,7 @@ export default {
                 paper_bgcolor: '#f3f4f6',
                 plot_bgcolor: '#f3f4f6',
             }
-        
+
         }
     },
     computed: {
@@ -104,7 +104,7 @@ export default {
 
                     for(var key in view) {
                         x_values.push(view[key])
-                        y_values.push(key)                        
+                        y_values.push(key)
                     }
 
                     data.x = x_values
@@ -146,7 +146,7 @@ export default {
         padding: {
             top: 20px;
             bottom: 25px;
-        }    
+        }
         height: 350px;
         width: 100%;
     }

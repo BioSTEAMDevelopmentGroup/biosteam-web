@@ -1,9 +1,9 @@
 <template>
     <div class="w-3/6 box-plot">
         <div class="pb-4" style="width: 400px;">
-            <atom-dropdown 
+            <atom-dropdown
                 class="dropdown"
-                :options="options" 
+                :options="options"
                 :selected="selected"
                 @select-option="selectIndicatorOption">
             </atom-dropdown>
@@ -105,7 +105,7 @@ export default {
 
     .plot {
         height: 350px;
-        width: 400px;  
+        width: 400px;
     }
 
     h3 {

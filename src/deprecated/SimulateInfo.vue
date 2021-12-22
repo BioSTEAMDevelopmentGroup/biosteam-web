@@ -5,7 +5,7 @@
             <h2 class="green">Single point simulation</h2>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur quis distinctio porro earum aperiam eius, excepturi eos assumenda dignissimos vitae voluptatibus, soluta reprehenderit ducimus iure. Quod reiciendis dolorum maxime excepturi.</p>
             <h2 class="orange">Simulation with uncertainty</h2>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quibusdam beatae laudantium aperiam, placeat magnam dolorum impedit nobis harum error cupiditate quasi quas culpa ex aliquam et praesentium dolor minima earum.</p>            
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quibusdam beatae laudantium aperiam, placeat magnam dolorum impedit nobis harum error cupiditate quasi quas culpa ex aliquam et praesentium dolor minima earum.</p>
         </div>
     </div>
 </template>

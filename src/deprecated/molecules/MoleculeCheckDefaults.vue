@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import AtomCheckbox from '../atoms/AtomCheckbox.vue';
+import AtomCheckbox from '../../components/atoms/AtomCheckbox.vue';
 
 export default {
     name: 'MoleculeCheckDefaults',
