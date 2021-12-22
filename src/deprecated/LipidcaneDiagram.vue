@@ -1,6 +1,6 @@
 <template>
     <div class="lipidcane-diagram" ref="chartdiv">
-    </div>
+    </div> 
 </template>
 
 <script>
@@ -11,7 +11,7 @@ import am4themes_animated from "@amcharts/amcharts4/themes/animated";
 am4core.useTheme(am4themes_animated);
 
 export default {
-    name: "LipidcaneDiagram",
+    name: "OilcaneDiagram",
     mounted() {
         let chart = am4core.create(this.$refs.chartdiv, am4plugins_forceDirected.ForceDirectedTree);
         let series = chart.series.push(new am4plugins_forceDirected.ForceDirectedSeries());
@@ -104,7 +104,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-    .lipidcane-diagram {
+    .oilcane-diagram {
         height: 500px;
         width: 500px;
     }

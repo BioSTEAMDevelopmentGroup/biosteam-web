@@ -154,9 +154,9 @@
             "info": "Some description about the paramter"
         }
     ],
-    "lipidcane": [
+    "oilcane": [
         {
-            "name": "Lipidcane 1", 
+            "name": "Oilcane 1",
             "units": "$/gal",
             "checked": false, 
             "value": null,
@@ -167,7 +167,7 @@
         },
 
         {
-            "name": "Lipidcane 2", 
+            "name": "Oilcane 2",
             "units": "$/kg",
             "checked": false, 
             "value": null,
@@ -178,7 +178,7 @@
         },
 
         {
-            "name": "Lipidcane 3", 
+            "name": "Oilcane 3",
             "units": "$/kg",
             "checked": false, 
             "value": null,
@@ -211,7 +211,7 @@
         },
 
         {
-            "name": "Lipidcane 4", 
+            "name": "Oilcane 4",
             "units": "$/kg",
             "checked": false, 
             "value": null,
@@ -222,7 +222,7 @@
         },
 
         {
-            "name": "Lipidcane 5", 
+            "name": "Oilcane 5",
             "units": "$/kg",
             "checked": false, 
             "value": null,

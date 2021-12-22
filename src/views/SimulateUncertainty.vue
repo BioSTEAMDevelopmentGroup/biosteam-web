@@ -3,8 +3,8 @@
     <atom-simulate-layout simulation="uncertainty">
       <!-- Sidebar content -->
       <template #sidebarContent>
-        <div v-if="selectedBiorefinery == 'Lipidcane'" class="w-full">
-          <organism-uncertainty-parameter-form v-model="parameters.lipidcaneParameters" :parameters="parameters.lipidcaneParameters"></organism-uncertainty-parameter-form>
+        <div v-if="selectedBiorefinery == 'Oilcane'" class="w-full">
+          <organism-uncertainty-parameter-form v-model="parameters.oilcaneParameters" :parameters="parameters.oilcaneParameters"></organism-uncertainty-parameter-form>
         </div>
         <div v-if="selectedBiorefinery == 'Cornstover'" class="w-full">
           <organism-uncertainty-parameter-form v-model="parameters.cornstoverParameters" :parameters="parameters.cornstoverParameters"></organism-uncertainty-parameter-form>
@@ -82,8 +82,8 @@
                 </uncertain-parameter>
               </div>  
             </div> 
-            <div v-if="selectedBiorefinery == 'Lipidcane'">
-              <div class="parameter" v-for="parameter in parameters.lipidcaneParameters" :key="parameter.name">
+            <div v-if="selectedBiorefinery == 'Oilcane'">
+              <div class="parameter" v-for="parameter in parameters.oilcaneParameters" :key="parameter.name">
                 <uncertain-parameter 
                   :value="parameter.values" 
                   :checked="parameter.checked" 
@@ -234,10 +234,10 @@ export default {
         }
       }
 
-      if(this.selectedBiorefinery == 'Lipidcane') {
-        for(let i=0; i<this.parameters.lipidcaneParameters.length; i++) {
-          if(this.parameters.lipidcaneParameters[i].checked == true) {
-            list.push(this.parameters.lipidcaneParameters[i])
+      if(this.selectedBiorefinery == 'Oilcane') {
+        for(let i=0; i<this.parameters.oilcaneParameters.length; i++) {
+          if(this.parameters.oilcaneParameters[i].checked == true) {
+            list.push(this.parameters.oilcaneParameters[i])
           }
         }
       }
@@ -278,6 +278,7 @@ export default {
       this.loading = true;
       //set axios configs 
       let payload = {
+        model: this.selectedBiorefinery,
         params: this.checkedParameters,
         samples: this.sampleNumber,
       };

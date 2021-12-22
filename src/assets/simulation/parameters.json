@@ -1,356 +1,527 @@
 {
     "cornstoverParameters": [
         {
-            "name": "Cornstover price",
-            "units": "$/kg",
+            "name": "Plant capacity",
+            "units": "dry US ton/yr",
             "checked": false,
-            "distribution": "--", 
+            "distribution": "Uniform",
             "values": {
-                "value1": null, 
-                "value2": null, 
-                "value3": null
-            }, 
-            "info": "Some description about the paramter"
+                "value1": 693793.4789461191,
+                "value2": 847969.8076008123
+            },
+            "info": "annual feestock processing capacity"
         },
-
         {
-            "name": "Enzyme price",
-            "units": "$/kg",
-            "checked": false, 
-            "distribution": "--", 
+            "name": "PT glucan-to-glucose",
+            "units": "% theoretical",
+            "checked": false,
+            "distribution": "Uniform",
             "values": {
-                "value1": null, 
-                "value2": null, 
-                "value3": null
-            }, 
-            "info": "Some description about the paramter"
+                "value1": 8.91,
+                "value2": 10.89
+            },
+            "info": "extent of reaction, glucan + water -> glucose, in pretreatment reactor"
         },
-
         {
-            "name": "Electricity price",
-            "units": "$/kWh",
-            "checked": false, 
-            "distribution": "--", 
+            "name": "PT xylan-to-xylose",
+            "units": "% theoretical",
+            "checked": false,
+            "distribution": "Uniform",
             "values": {
-                "value1": null, 
-                "value2": null, 
-                "value3": null
-            }, 
-            "info": "Some description about the paramter"
+                "value1": 81.0,
+                "value2": 99.00000000000001
+            },
+            "info": "extent of reaction, xylan + water -> xylose, in pretreatment reactor"
         },
-
         {
-            "name": "Income tax",
-            "units": "% as fraction",
-            "checked": false, 
-            "distribution": "Distribution", 
+            "name": "PT xylan-to-furfural",
+            "units": "% theoretical",
+            "checked": false,
+            "distribution": "Uniform",
             "values": {
-                "value1": null, 
-                "value2": null, 
-                "value3": null
-            }, 
-            "info": "Some description about the paramter"
+                "value1": 4.5,
+                "value2": 5.5
+            },
+            "info": "extent of reaction, xylan -> furfural + 2 water, in pretreatment reactor"
         },
-
         {
-            "name": "Plant size",
-            "units": "kg/hr",
-            "checked": false, 
-            "distribution": "--", 
+            "name": "EH cellulose-to-glucose",
+            "units": "% theoretical",
+            "checked": false,
+            "distribution": "Uniform",
             "values": {
-                "value1": null, 
-                "value2": null, 
-                "value3": null
-            }, 
-            "info": "Some description about the paramter"
+                "value1": 81.0,
+                "value2": 99.00000000000001
+            },
+            "info": "extent of reaction, gluan + water -> glulose, in enzyme hydrolysis"
         },
-
         {
-            "name": "Pretreatment glucose-to-glucose",
-            "units": "% as fraction",
-            "checked": false, 
-            "distribution": "--", 
+            "name": "FERM glucose-to-ethanol",
+            "units": "% theoretical",
+            "checked": false,
+            "distribution": "Uniform",
             "values": {
-                "value1": null, 
-                "value2": null, 
-                "value3": null
-            }, 
-            "info": "Some description about the paramter"
+                "value1": 85.5,
+                "value2": 104.50000000000001
+            },
+            "info": "extent of reaction, glucose -> 2 ethanol + 2 CO2, in enzyme hydrolysis"
         },
-
-        {
-            "name": "Pretreatment xylan-to-xylose",
-            "units": "% as fraction",
-            "checked": false, 
-            "distribution": "--", 
-            "values": {
-                "value1": null, 
-                "value2": null, 
-                "value3": null
-            }, 
-            "info": "Some description about the paramter"
-        },
-
-        {
-            "name": "Xylan-to-furfural conversion",
-            "units": "% as fraction",
-            "checked": false, 
-            "distribution": "--", 
-            "values": {
-                "value1": null, 
-                "value2": null, 
-                "value3": null
-            }, 
-            "info": "Some description about the paramter"
-        },
-
-        {
-            "name": "Saccharification cellulose-to-glucose",
-            "units": "% as fraction",
-            "checked": false, 
-            "distribution": "--", 
-            "values": {
-                "value1": null, 
-                "value2": null, 
-                "value3": null
-            }, 
-            "info": "Some description about the parameter"
-        },
-
-        {
-            "name": "Saccharification time",
-            "units": "hrs",
-            "checked": false, 
-            "distribution": "--", 
-            "values": {
-                "value1": null, 
-                "value2": null, 
-                "value3": null
-            }, 
-            "info": "Some description about the parameter"
-        },
-
-        {
-            "name": "Cofermentation glucose-to-ethanol",
-            "units": "% as fraction",
-            "checked": false, 
-            "distribution": "--", 
-            "values": {
-                "value1": null, 
-                "value2": null, 
-                "value3": null
-            }, 
-            "info": "Some description about the paramter"
-        },
-
-        {
-            "name": "Cofermentation time",
-            "units": "hrs",
-            "checked": false, 
-            "distribution": "--", 
-            "values": {
-                "value1": null, 
-                "value2": null, 
-                "value3": null
-            }, 
-            "info": "Some description about the paramter"
-        },
-
         {
             "name": "Boiler efficiency",
-            "units": "% as fraction",
-            "checked": false, 
-            "distribution": "--", 
+            "units": "%",
+            "checked": false,
+            "distribution": "Uniform",
             "values": {
-                "value1": null, 
-                "value2": null, 
-                "value3": null
-            }, 
-            "info": "Some description about the paramter"
+                "value1": 72.0,
+                "value2": 88.0
+            },
+            "info": "efficiency of burning fuel to produce steam"
         },
-
         {
             "name": "Turbogenerator efficiency",
-            "units": "% as fraction",
-            "checked": false, 
-            "distribution": "--", 
+            "units": "%",
+            "checked": false,
+            "distribution": "Uniform",
             "values": {
-                "value1": null, 
-                "value2": null, 
-                "value3": null
-            }, 
-            "info": "Some description about the paramter"
+                "value1": 76.5,
+                "value2": 93.50000000000001
+            },
+            "info": "efficiency of converting steam to power"
+        },
+        {
+            "name": "Cornstover price",
+            "units": "USD/ton",
+            "checked": false,
+            "distribution": "Uniform",
+            "values": {
+                "value1": 42.12001207163162,
+                "value2": 51.48001475421643
+            },
+            "info": null
+        },
+        {
+            "name": "Enzyme price",
+            "units": "$USD/ton",
+            "checked": false,
+            "distribution": "Uniform",
+            "values": {
+                "value1": 173.090898,
+                "value2": 211.555542
+            },
+            "info": "price of cellulase enzyme mixture containing 50 g of cellulase per 1000g of cocktail"
+        },
+        {
+            "name": "Electricity price",
+            "units": "USD/kWh",
+            "checked": false,
+            "distribution": "Uniform",
+            "values": {
+                "value1": 0.051480000000000005,
+                "value2": 0.06292
+            },
+            "info": null
+        },
+        {
+            "name": "Income tax rate",
+            "units": "%",
+            "checked": false,
+            "distribution": "Uniform",
+            "values": {
+                "value1": 31.5,
+                "value2": 38.5
+            },
+            "info": null
         }
     ],
-
-    "lipidcaneParameters": [
+    "oilcaneParameters": [
         {
-            "name": "Lipidcane1",
+            "name": "Bagasse oil retention",
+            "units": "%",
             "checked": false,
-            "distribution": "Distribution", 
+            "distribution": "Uniform",
             "values": {
-                "value1": null, 
-                "value2": null, 
-                "value3": null
-            }, 
-            "info": "Some description about the paramter"
+                "value1": 40.0,
+                "value2": 70.0
+            },
+            "info": null
         },
-
         {
-            "name": "Lipidcane2",
-            "checked": false, 
-            "distribution": "Distribution", 
+            "name": "Oil extraction efficiency",
+            "units": "%",
+            "checked": false,
+            "distribution": "Uniform",
             "values": {
-                "value1": null, 
-                "value2": null, 
-                "value3": null
-            }, 
-            "info": "Some description about the paramter"
+                "value1": 0.0,
+                "value2": 20.0
+            },
+            "info": null
         },
-
         {
-            "name": "Lipidcane3",
-            "checked": false, 
-            "distribution": "Distribution", 
+            "name": "Plant capacity",
+            "units": "ton/hr",
+            "checked": false,
+            "distribution": "Uniform",
             "values": {
-                "value1": null, 
-                "value2": null, 
-                "value3": null
-            }, 
-            "info": "Some description about the paramter"
+                "value1": 275.57782828225265,
+                "value2": 459.2963804704211
+            },
+            "info": null
         },
-
         {
-            "name": "Lipidcane4",
-            "checked": false, 
-            "distribution": "Distribution", 
+            "name": "Ethanol price",
+            "units": "USD/gal",
+            "checked": false,
+            "distribution": "Triangular",
             "values": {
-                "value1": null, 
-                "value2": null, 
-                "value3": null
-            }, 
-            "info": "Some description about the paramter"
+                "value1": 1.02,
+                "value2": 1.803249999999999,
+                "value3": 2.87
+            },
+            "info": null
         },
-
         {
-            "name": "Lipidcane5",
-            "checked": false, 
-            "distribution": "Distribution", 
+            "name": "Relative biodiesel price",
+            "units": "USD/gal",
+            "checked": false,
+            "distribution": "Triangular",
             "values": {
-                "value1": null, 
-                "value2": null, 
-                "value3": null
-            }, 
-            "info": "Some description about the paramter"
+                "value1": 0.31000000000000005,
+                "value2": 2.9757500000000006,
+                "value3": 4.11
+            },
+            "info": null
         },
-
         {
-            "name": "Lipidcane6",
-            "checked": false, 
-            "distribution": "Distribution", 
+            "name": "Natural gas price",
+            "units": "USD/cf",
+            "checked": false,
+            "distribution": "Triangular",
             "values": {
-                "value1": null, 
-                "value2": null, 
-                "value3": null
-            }, 
-            "info": "Some description about the paramter"
+                "value1": 3.71,
+                "value2": 4.299999999999997,
+                "value3": 6.18
+            },
+            "info": null
         },
-
         {
-            "name": "Lipidcane7",
-            "checked": false, 
-            "distribution": "Distribution", 
+            "name": "Electricity price",
+            "units": "USD/kWhr",
+            "checked": false,
+            "distribution": "Triangular",
             "values": {
-                "value1": null, 
-                "value2": null, 
-                "value3": null
-            }, 
-            "info": "Some description about the paramter"
+                "value1": 0.0583,
+                "value2": 0.065,
+                "value3": 0.069
+            },
+            "info": null
         },
-
         {
-            "name": "Lipidcane8",
-            "checked": false, 
-            "distribution": "Distribution", 
+            "name": "Operating days",
+            "units": "day/yr",
+            "checked": false,
+            "distribution": "Uniform",
             "values": {
-                "value1": null, 
-                "value2": null, 
-                "value3": null
-            }, 
-            "info": "Some description about the paramter"
+                "value1": 180.0,
+                "value2": 210.0
+            },
+            "info": null
         },
-
         {
-            "name": "Lipidcane9",
-            "checked": false, 
-            "distribution": "Distribution", 
+            "name": "IRR",
+            "units": "%",
+            "checked": false,
+            "distribution": "Uniform",
             "values": {
-                "value1": null, 
-                "value2": null, 
-                "value3": null
-            }, 
-            "info": "Some description about the paramter"
+                "value1": 10.0,
+                "value2": 15.0
+            },
+            "info": null
         },
-
         {
-            "name": "Lipidcane10",
-            "checked": false, 
-            "distribution": "Distribution", 
+            "name": "Crude glycerol price",
+            "units": "USD/kg",
+            "checked": false,
+            "distribution": "Uniform",
             "values": {
-                "value1": null, 
-                "value2": null, 
-                "value3": null
-            }, 
-            "info": "Some description about the paramter"
+                "value1": 0.1,
+                "value2": 0.22
+            },
+            "info": null
         },
-
         {
-            "name": "Lipidcane11",
-            "checked": false, 
-            "distribution": "Distribution", 
+            "name": "Pure glycerol price",
+            "units": "USD/kg",
+            "checked": false,
+            "distribution": "Uniform",
             "values": {
-                "value1": null, 
-                "value2": null, 
-                "value3": null
-            }, 
-            "info": "Some description about the paramter"
+                "value1": 0.48750000000000004,
+                "value2": 0.8125
+            },
+            "info": null
         },
-
         {
-            "name": "Lipidcane12", 
-            "checked": false, 
-            "distribution": "Distribution", 
+            "name": "Saccharification reaction time",
+            "units": "hr",
+            "checked": false,
+            "distribution": "Uniform",
             "values": {
-                "value1": null, 
-                "value2": null, 
-                "value3": null
-            }, 
-            "info": "Some description about the paramter"
+                "value1": 54.0,
+                "value2": 90.0
+            },
+            "info": null
         },
-
         {
-            "name": "Lipidcane13", 
-            "checked": false, 
-            "distribution": "Distribution", 
+            "name": "Cellulase price",
+            "units": "USD/kg",
+            "checked": false,
+            "distribution": "Uniform",
             "values": {
-                "value1": null, 
-                "value2": null, 
-                "value3": null
-            }, 
-            "info": "Some description about the paramter"
+                "value1": 0.159,
+                "value2": 0.265
+            },
+            "info": null
         },
-
         {
-            "name": "Turbogenerator efficiency", 
-            "checked": false, 
-            "distribution": "Distribution", 
+            "name": "Cellulase loading",
+            "units": "wt. % cellulose",
+            "checked": false,
+            "distribution": "Uniform",
             "values": {
-                "value1": null, 
-                "value2": null, 
-                "value3": null
-            }, 
-            "info": "Some description about the paramter"
+                "value1": 0.015,
+                "value2": 0.025
+            },
+            "info": null
+        },
+        {
+            "name": "PTRS base cost",
+            "units": "million USD",
+            "checked": false,
+            "distribution": "Uniform",
+            "values": {
+                "value1": 14755284.899999999,
+                "value2": 24592141.5
+            },
+            "info": null
+        },
+        {
+            "name": "Cane glucose yield",
+            "units": "%",
+            "checked": false,
+            "distribution": "Uniform",
+            "values": {
+                "value1": 85.0,
+                "value2": 97.5
+            },
+            "info": null
+        },
+        {
+            "name": "Sorghum glucose yield",
+            "units": "%",
+            "checked": false,
+            "distribution": "Uniform",
+            "values": {
+                "value1": 79.0,
+                "value2": 97.5
+            },
+            "info": null
+        },
+        {
+            "name": "Cane xylose yield",
+            "units": "%",
+            "checked": false,
+            "distribution": "Uniform",
+            "values": {
+                "value1": 65.0,
+                "value2": 97.5
+            },
+            "info": null
+        },
+        {
+            "name": "Sorghum xylose yield",
+            "units": "%",
+            "checked": false,
+            "distribution": "Uniform",
+            "values": {
+                "value1": 86.0,
+                "value2": 97.5
+            },
+            "info": null
+        },
+        {
+            "name": "Glucose to ethanol yield",
+            "units": "%",
+            "checked": false,
+            "distribution": "Uniform",
+            "values": {
+                "value1": 90.0,
+                "value2": 95.0
+            },
+            "info": null
+        },
+        {
+            "name": "Xylose to ethanol yield",
+            "units": "%",
+            "checked": false,
+            "distribution": "Uniform",
+            "values": {
+                "value1": 50.0,
+                "value2": 95.0
+            },
+            "info": null
+        },
+        {
+            "name": "Titer",
+            "units": "g/L",
+            "checked": false,
+            "distribution": "Uniform",
+            "values": {
+                "value1": 68.5,
+                "value2": 137.0
+            },
+            "info": null
+        },
+        {
+            "name": "Productivity",
+            "units": "g/L",
+            "checked": false,
+            "distribution": "Uniform",
+            "values": {
+                "value1": 0.951,
+                "value2": 1.902
+            },
+            "info": null
+        },
+        {
+            "name": "Cane PL content",
+            "units": "% oil",
+            "checked": false,
+            "distribution": "Uniform",
+            "values": {
+                "value1": 7.5,
+                "value2": 12.5
+            },
+            "info": null
+        },
+        {
+            "name": "Sorghum PL content",
+            "units": "% oil",
+            "checked": false,
+            "distribution": "Uniform",
+            "values": {
+                "value1": 7.5,
+                "value2": 12.5
+            },
+            "info": null
+        },
+        {
+            "name": "Cane FFA content",
+            "units": "% oil",
+            "checked": false,
+            "distribution": "Uniform",
+            "values": {
+                "value1": 7.5,
+                "value2": 12.5
+            },
+            "info": null
+        },
+        {
+            "name": "Sorghum FFA content",
+            "units": "% oil",
+            "checked": false,
+            "distribution": "Uniform",
+            "values": {
+                "value1": 7.5,
+                "value2": 12.5
+            },
+            "info": null
+        },
+        {
+            "name": "Cane oil content",
+            "units": "dry wt. %",
+            "checked": false,
+            "distribution": "Uniform",
+            "values": {
+                "value1": 5.0,
+                "value2": 15.0
+            },
+            "info": null
+        },
+        {
+            "name": "Relative sorghum oil content",
+            "units": "dry wt. %",
+            "checked": false,
+            "distribution": "Uniform",
+            "values": {
+                "value1": -3.0,
+                "value2": 0.0
+            },
+            "info": null
+        },
+        {
+            "name": "TAG to FFA conversion",
+            "units": "% oil",
+            "checked": false,
+            "distribution": "Uniform",
+            "values": {
+                "value1": 17.25,
+                "value2": 28.75
+            },
+            "info": null
+        },
+        {
+            "name": "Feedstock GWPCF",
+            "units": "kg*CO2-eq/kg",
+            "checked": false,
+            "distribution": "Uniform",
+            "values": {
+                "value1": 0.0316548,
+                "value2": 0.0386892
+            },
+            "info": null
+        },
+        {
+            "name": "Methanol GWPCF",
+            "units": "kg*CO2-eq/kg",
+            "checked": false,
+            "distribution": "Uniform",
+            "values": {
+                "value1": 0.405,
+                "value2": 0.49500000000000005
+            },
+            "info": null
+        },
+        {
+            "name": "Pure glycerine",
+            "units": "kg*CO2-eq/kg",
+            "checked": false,
+            "distribution": "Uniform",
+            "values": {
+                "value1": 1.50102,
+                "value2": 1.83458
+            },
+            "info": null
+        },
+        {
+            "name": "Cellulase GWPCF",
+            "units": "kg*CO2-eq/kg",
+            "checked": false,
+            "distribution": "Uniform",
+            "values": {
+                "value1": 0.14526000000000003,
+                "value2": 0.17754000000000003
+            },
+            "info": null
+        },
+        {
+            "name": "Natural gas GWPCF",
+            "units": "kg*CO2-eq/kg",
+            "checked": false,
+            "distribution": "Uniform",
+            "values": {
+                "value1": 0.29700000000000004,
+                "value2": 0.36300000000000004
+            },
+            "info": null
         }
-      ]
-
+    ]
 }
