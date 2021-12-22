@@ -278,7 +278,7 @@ export default {
       this.loading = true;
       //set axios configs 
       let payload = {
-        model: this.selectedBiorefinery
+        model: this.selectedBiorefinery,
         params: this.checkedParameters,
         samples: this.sampleNumber,
       };

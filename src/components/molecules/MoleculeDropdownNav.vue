@@ -28,7 +28,7 @@ export default {
     data() {
         return{
             simulationOptions: ['Single point simulation', 'Simulation with uncertainty'],
-            biorefineryOptions: ['Cornstover', 'Lipidcane']
+            biorefineryOptions: ['Cornstover', 'Oilcane']
         }
     },
     methods: {

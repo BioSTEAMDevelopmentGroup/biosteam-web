@@ -42,7 +42,7 @@ export default {
             ],
             biorefineryOptions: [
                 {name: 'Select a biorefinery'},
-                {name: 'Lipidcane'},
+                {name: 'Oilcane'},
                 {name: 'Cornstover'}, 
             ]
         }

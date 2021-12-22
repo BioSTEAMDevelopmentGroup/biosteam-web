@@ -3,7 +3,7 @@
     <atom-simulate-layout simulation="single-point">
       <!-- Sidebar content -->
       <template #sidebarContent>
-        <div v-if="selectedBiorefinery == 'Lipidcane'" class="w-full">
+        <div v-if="selectedBiorefinery == 'Oilcane'" class="w-full">
           <organism-single-parameter-form v-model="parameters.lipidcane" :parameters="parameters.lipidcane"></organism-single-parameter-form>
         </div>
         <div v-if="selectedBiorefinery == 'Cornstover'" class="w-full">

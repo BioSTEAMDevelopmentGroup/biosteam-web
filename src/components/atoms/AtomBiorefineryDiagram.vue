@@ -9,8 +9,8 @@
             <div class="pb-4">
                 <h1 class="text-cfontgrey text-2xl text-center">Biorefinery overview</h1>
             </div>
-            <div v-if="biorefinery == 'Lipidcane'" class="">
-                <img :src="require('@/assets/simulation/lipidcane_flowsheet.png')">
+            <div v-if="biorefinery == 'Oilcane'" class="">
+                <img :src="require('@/assets/simulation/oilcane_flowsheet.png')">
             </div>
             <div v-if="biorefinery == 'Cornstover'" class="">
                 <img :src="require('@/assets/simulation/cornstover_flowsheet.png')">
