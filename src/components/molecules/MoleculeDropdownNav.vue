@@ -15,6 +15,7 @@
 
 <script>
 import AtomDropdown from "@/components/atoms/AtomDropdown.vue";
+import parameters from "@/assets/simulation/parameters.json";
 
 export default {
     name: 'MoleculeDropdownNav',
@@ -27,8 +28,9 @@ export default {
     },
     data() {
         return{
+            parameters: parameters,
             simulationOptions: ['Single point simulation', 'Simulation with uncertainty'],
-            biorefineryOptions: ['Cornstover', 'Oilcane']
+            biorefineryOptions: parameters.refineries // ['Cornstover', 'Oilcane']
         }
     },
     methods: {

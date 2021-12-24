@@ -3,17 +3,22 @@
     <atom-simulate-layout simulation="uncertainty">
       <!-- Sidebar content -->
       <template #sidebarContent>
-        <div v-if="selectedBiorefinery == 'Oilcane'" class="w-full">
-          <organism-uncertainty-parameter-form v-model="parameters.oilcaneParameters" :parameters="parameters.oilcaneParameters"></organism-uncertainty-parameter-form>
-        </div>
-        <div v-if="selectedBiorefinery == 'Cornstover'" class="w-full">
-          <organism-uncertainty-parameter-form v-model="parameters.cornstoverParameters" :parameters="parameters.cornstoverParameters"></organism-uncertainty-parameter-form>
-        </div>
+<!--        <div v-if="selectedBiorefinery == 'Oilcane'" class="w-full">-->
+<!--          <organism-uncertainty-parameter-form v-model="parameters.oilcaneParameters" :parameters="parameters.oilcaneParameters"></organism-uncertainty-parameter-form>-->
+<!--        </div>-->
+<!--        <div v-if="selectedBiorefinery == 'Cornstover'" class="w-full">-->
+<!--          <organism-uncertainty-parameter-form v-model="parameters.cornstoverParameters" :parameters="parameters.cornstoverParameters"></organism-uncertainty-parameter-form>-->
+<!--        </div>-->
         <div v-if="selectedBiorefinery == 'Select a biorefinery'" class="w-full py-4">
           <div class="rounded-md bg-corange py-4 px-2">
             <p class="text-lg text-cfontgrey text-center">Select a biorefinery</p>
           </div>
         </div>
+
+        <div v-else class="w-full">
+          <organism-uncertainty-parameter-form v-model="parameters[selectedBiorefinery]" :parameters="parameters[selectedBiorefinery]"></organism-uncertainty-parameter-form>
+        </div>
+
         <atom-set-samples v-model.number="sampleNumber" :sampleNumber="sampleNumber"></atom-set-samples>
         <atom-button @click="runSimulation()" class="w-full bg-corange bg-opacity-70 hover:bg-opacity-100 text-white text-lg">Run simulation</atom-button>
       </template>
@@ -226,18 +231,18 @@ export default {
   computed: {
     checkedParameters: function() {
       let list = []
-      if(this.selectedBiorefinery == 'Cornstover') {
-        for(let i=0; i<this.parameters.cornstoverParameters.length; i++) {
-          if(this.parameters.cornstoverParameters[i].checked == true) {
-            list.push(this.parameters.cornstoverParameters[i])
-          }
-        }
-      }
+      // if(this.selectedBiorefinery == 'Cornstover') {
+      //   for(let i=0; i<this.parameters.cornstoverParameters.length; i++) {
+      //     if(this.parameters.cornstoverParameters[i].checked == true) {
+      //       list.push(this.parameters.cornstoverParameters[i])
+      //     }
+      //   }
+      // }
 
-      if(this.selectedBiorefinery == 'Oilcane') {
-        for(let i=0; i<this.parameters.oilcaneParameters.length; i++) {
-          if(this.parameters.oilcaneParameters[i].checked == true) {
-            list.push(this.parameters.oilcaneParameters[i])
+      if(this.selectedBiorefinery != 'Select a biorefinery') {
+        for(let i=0; i<this.parameters[this.selectedBiorefinery].length; i++) {
+          if(this.parameters[this.selectedBiorefinery][i].checked == true) {
+            list.push(this.parameters[this.selectedBiorefinery][i])
           }
         }
       }

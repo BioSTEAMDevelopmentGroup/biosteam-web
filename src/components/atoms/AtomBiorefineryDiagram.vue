@@ -1,3 +1,4 @@
+<!--TODO decouple biorefinery diagram-->
 <template>
     <div class="w-5/6 py-6">
         <div :class="{

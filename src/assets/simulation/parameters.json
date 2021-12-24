@@ -1,5 +1,10 @@
 {
-    "cornstoverParameters": [
+    "refineries" : [
+        "Cornstover",
+        "Oilcane",
+        "Triglyceride"
+    ],
+    "Cornstover": [
         {
             "name": "Plant capacity",
             "units": "dry US ton/yr",
@@ -133,7 +138,7 @@
             "info": null
         }
     ],
-    "oilcaneParameters": [
+    "Oilcane": [
         {
             "name": "Bagasse oil retention",
             "units": "%",
