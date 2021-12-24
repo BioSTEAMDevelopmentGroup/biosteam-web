@@ -15,7 +15,7 @@
 
 <script>
 import AtomDropdown from "@/components/atoms/AtomDropdown.vue";
-import parameters from "@/assets/simulation/parameters.json";
+import parameters from "@/assets/simulation/refineries.json";
 
 // loads keys from parameters
 var refineries = [];

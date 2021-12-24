@@ -156,7 +156,7 @@
 
 <script>
 //data imports
-import parameters from "@/assets/simulation/parameters.json";
+import parameters from "@/assets/simulation/refineries.json";
 import spearman from "@/assets/simulation/spearman.json";
 
 //component imports
