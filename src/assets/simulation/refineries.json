@@ -1,6 +1,7 @@
 {
     "Cornstover": [
         {
+            "diagram": "cornstover_flowsheet.png",
             "parameters": [
                 {
                     "name": "Plant capacity",
@@ -139,6 +140,7 @@
     ],
     "Oilcane": [
         {
+            "diagram": "oilcane_flowsheet.png",
             "parameters": [
                 {
                     "name": "Bagasse oil retention",
@@ -520,6 +522,24 @@
                 },
                 {
                     "name": "Natural gas GWPCF",
+                    "units": "kg*CO2-eq/kg",
+                    "checked": false,
+                    "distribution": "Uniform",
+                    "values": {
+                        "value1": 0.29700000000000004,
+                        "value2": 0.36300000000000004
+                    },
+                    "info": null
+                }
+            ]
+        }
+    ],
+    "TESTING": [
+        {
+            "diagram": "cornstover_flowsheet.png",
+            "parameters": [
+                {
+                    "name": "TEST param",
                     "units": "kg*CO2-eq/kg",
                     "checked": false,
                     "distribution": "Uniform",
