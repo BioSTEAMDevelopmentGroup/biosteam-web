@@ -16,7 +16,7 @@
         </div>
 
         <div v-else class="w-full">
-          <organism-uncertainty-parameter-form v-model="parameters[selectedBiorefinery]" :parameters="parameters[selectedBiorefinery]"></organism-uncertainty-parameter-form>
+          <organism-uncertainty-parameter-form v-model="parameters[selectedBiorefinery][0].parameters" :parameters="parameters[selectedBiorefinery][0].parameters"></organism-uncertainty-parameter-form>
         </div>
 
         <atom-set-samples v-model.number="sampleNumber" :sampleNumber="sampleNumber"></atom-set-samples>
@@ -240,9 +240,9 @@ export default {
       // }
 
       if(this.selectedBiorefinery != 'Select a biorefinery') {
-        for(let i=0; i<this.parameters[this.selectedBiorefinery].length; i++) {
-          if(this.parameters[this.selectedBiorefinery][i].checked == true) {
-            list.push(this.parameters[this.selectedBiorefinery][i])
+        for(let i=0; i<this.parameters[this.selectedBiorefinery][0].parameters.length; i++) {
+          if(this.parameters[this.selectedBiorefinery][0].parameters[i].checked == true) {
+            list.push(this.parameters[this.selectedBiorefinery][0].parameters[i])
           }
         }
       }
