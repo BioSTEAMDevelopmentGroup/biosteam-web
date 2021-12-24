@@ -1,9 +1,4 @@
 {
-    "refineries" : [
-        "Cornstover",
-        "Oilcane",
-        "Triglyceride"
-    ],
     "Cornstover": [
         {
             "name": "Plant capacity",
