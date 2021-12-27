@@ -3,17 +3,22 @@
     <atom-simulate-layout simulation="single-point">
       <!-- Sidebar content -->
       <template #sidebarContent>
-        <div v-if="selectedBiorefinery == 'Oilcane'" class="w-full">
-          <organism-single-parameter-form v-model="parameters.lipidcane" :parameters="parameters.lipidcane"></organism-single-parameter-form>
-        </div>
-        <div v-if="selectedBiorefinery == 'Cornstover'" class="w-full">
-          <organism-single-parameter-form v-model="parameters.cornstover" :parameters="parameters.cornstover"></organism-single-parameter-form>
-        </div>
+<!--        <div v-if="selectedBiorefinery == 'Oilcane'" class="w-full">-->
+<!--          <organism-single-parameter-form v-model="parameters.lipidcane" :parameters="parameters.lipidcane"></organism-single-parameter-form>-->
+<!--        </div>-->
+<!--        <div v-if="selectedBiorefinery == 'Cornstover'" class="w-full">-->
+<!--          <organism-single-parameter-form v-model="parameters.cornstover" :parameters="parameters.cornstover"></organism-single-parameter-form>-->
+<!--        </div>-->
         <div v-if="selectedBiorefinery == 'Select a biorefinery'" class="w-full py-6">
           <div class="rounded-md bg-cdarkgreenblue py-4 px-2">
             <p class="text-lg text-white text-center">Select a biorefinery</p>
           </div>
         </div>
+
+        <div v-else class="w-full">
+          <organism-single-parameter-form v-model="parameters[selectedBiorefinery][0].parameters" :parameters="parameters[selectedBiorefinery][0].parameters"></organism-single-parameter-form>
+        </div>
+
         <atom-form-error :errors="['parameter errors here']"></atom-form-error>
         <atom-button @click="simLoading(parameters)" class="w-full bg-cdarkgreenblue bg-opacity-70 hover:bg-opacity-100 text-white text-lg">Run simulation</atom-button>
       </template>
@@ -154,22 +159,22 @@ export default {
       this.loading = true;
       setTimeout(()=>{this.formCheck()}, 3000);
     },
-
+    // TODO outsource validation to new util
     formCheck() {
-      this.loading = false;
-      this.jobId = 123456;
-
-      for(let i=0; i<this.parameters.length; i++) {
-        if(this.parameters[i].value < this.parameters[i].lowLimit || this.parameters[i].value > this.parameters[i].highLimit) {
-          this.errors.push('error')
-        }
-      }
-      if(this.errors == 0) {
-        return console.log('success!')        
-      }
-
-      return this.errors
-    }
+    //   this.loading = false;
+    //   this.jobId = 123456;
+    //
+    //   for(let i=0; i<this.parameters.length; i++) {
+    //     if(this.parameters[i].value < this.parameters[i].lowLimit || this.parameters[i].value > this.parameters[i].highLimit) {
+    //       this.errors.push('error')
+    //     }
+    //   }
+    //   if(this.errors == 0) {
+    //     return console.log('success!')
+    //   }
+    //
+    //   return this.errors
+    // }
     // setDefaultValue() {
     //   if(this.defaultChecked == true) {
     //     for(let i=0; i<this.parameters.length; i++) {
@@ -182,7 +187,7 @@ export default {
     //   for(let i=0; i<this.parameters.length; i++) {
     //     this.parameters[i].computedValue = this.parameters[i].value + (Math.random()*100)
     //   }
-    // }
+    }
   },
 }
 </script>
