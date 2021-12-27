@@ -16,7 +16,7 @@
         </div>
 
         <div v-else class="w-full">
-          <organism-uncertainty-parameter-form v-model="parameters[selectedBiorefinery]" :parameters="parameters[selectedBiorefinery]"></organism-uncertainty-parameter-form>
+          <organism-uncertainty-parameter-form v-model="parameters[selectedBiorefinery][0].parameters" :parameters="parameters[selectedBiorefinery][0].parameters"></organism-uncertainty-parameter-form>
         </div>
 
         <atom-set-samples v-model.number="sampleNumber" :sampleNumber="sampleNumber"></atom-set-samples>
@@ -40,7 +40,8 @@
         </div>
         <atom-display-job-number @click="runGetResults()" v-if="jobId" :jobId="jobId" :jobHasFinished="gatewayStatus" simulation="uncertainty"></atom-display-job-number>
         <atom-checked-parameters :checked="checkedParameters" :sampleNumber="sampleNumber" :biorefinery="selectedBiorefinery"></atom-checked-parameters>
-        <atom-biorefinery-diagram :biorefinery="selectedBiorefinery" simulation="uncertainty"></atom-biorefinery-diagram>
+        <atom-biorefinery-diagram v-if="selectedBiorefinery == 'Select a biorefinery'" :diagram="'Select a biorefinery'" simulation="uncertainty"></atom-biorefinery-diagram>
+        <atom-biorefinery-diagram v-else :diagram="parameters[selectedBiorefinery][0].diagram" simulation="uncertainty"></atom-biorefinery-diagram>
         <div class="w-5/6 flex justify-between pb-10 pt-8">
           <atom-box-plot-info></atom-box-plot-info>
           <box-plot :boxplot="biosteamResults" :options="spearman.cornstoverSpearmanOptions"></box-plot>
@@ -156,7 +157,7 @@
 
 <script>
 //data imports
-import parameters from "@/assets/simulation/parameters.json";
+import parameters from "@/assets/simulation/refineries.json";
 import spearman from "@/assets/simulation/spearman.json";
 
 //component imports
@@ -240,9 +241,9 @@ export default {
       // }
 
       if(this.selectedBiorefinery != 'Select a biorefinery') {
-        for(let i=0; i<this.parameters[this.selectedBiorefinery].length; i++) {
-          if(this.parameters[this.selectedBiorefinery][i].checked == true) {
-            list.push(this.parameters[this.selectedBiorefinery][i])
+        for(let i=0; i<this.parameters[this.selectedBiorefinery][0].parameters.length; i++) {
+          if(this.parameters[this.selectedBiorefinery][0].parameters[i].checked == true) {
+            list.push(this.parameters[this.selectedBiorefinery][0].parameters[i])
           }
         }
       }
