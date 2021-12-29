@@ -5,7 +5,7 @@
             <p class="text-cfontgrey text-center text-xl">For detailed information on how to use the BioSTEAM web app</p>
         </div>
         <div class="w-full h-full flex justify-center items-center">
-            <atom-button @click="toRoute('/docs')" class="text-xl text-cfontgrey bg-corange h-auto w-1/2 shadow-md hover:shadow-lg">View Documentation</atom-button>
+            <atom-button :link="'/docs'" class="text-xl text-cfontgrey bg-corange h-auto w-1/2 shadow-md hover:shadow-lg">View Documentation</atom-button>
         </div>
     </div>
 </template>

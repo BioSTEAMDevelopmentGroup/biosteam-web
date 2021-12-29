@@ -15,6 +15,11 @@ Vue.use(VueRouter)
     name: 'Home',
     component: Home
   },
+    // {
+    //   path: '/#startexplore',
+    //   name: 'startexplore',
+    //   component: Home
+    // },
   {
     path: '/simulate',
     name: 'Simulate',
@@ -40,6 +45,7 @@ Vue.use(VueRouter)
     name: 'Docs',
     component: Docs
   },
+
 ]
 
 const router = new VueRouter({
