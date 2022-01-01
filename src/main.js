@@ -14,9 +14,18 @@ import {
   faDownload, 
   faChartArea,
   faCalculator,
-  faSquare 
+  faSquare,
+    faEnvelope,
+    faFileAlt
 } from '@fortawesome/free-solid-svg-icons'
-import { faClone, faHandPointer } from '@fortawesome/free-regular-svg-icons'
+import {
+  faClone,
+  faHandPointer
+
+} from '@fortawesome/free-regular-svg-icons'
+import {
+  faGithubSquare
+} from '@fortawesome/free-brands-svg-icons'
 
 library.add(
   faUserSecret, 
@@ -29,7 +38,10 @@ library.add(
   faDownload,
   faChartArea,
   faCalculator,
-  faSquare
+  faSquare,
+    faEnvelope,
+faGithubSquare,
+    faFileAlt
 );
 
 Vue.use(VTooltip);
