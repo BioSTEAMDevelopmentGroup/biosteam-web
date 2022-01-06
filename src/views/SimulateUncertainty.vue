@@ -280,6 +280,7 @@ export default {
     },
 
     runSimulation() {
+      console.log("here");
       //set loading visuals 
       this.loading = true;
       //set axios configs 
@@ -333,7 +334,7 @@ export default {
         this.gatewayStatus = gateway.item;
         this.biosteamDbResults = csUncertaintyResults;
         this.biosteamResults = JSON.parse(csUncertaintyResults.item.results.S);
-        this.biosteamSpearmanResults = JSON.parse(csUncertaintyResults.item.spearmanResults.S);
+        // this.biosteamSpearmanResults = JSON.parse(csUncertaintyResults.item.spearmanResults.S);
       })
       .catch(function (error) {
         console.log(error);
