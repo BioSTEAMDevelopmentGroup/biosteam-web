@@ -11,7 +11,7 @@ import {
   faSearch, 
   faCaretDown, 
   faInfoCircle, 
-  faDownload, 
+  faDownload,
   faChartArea,
   faCalculator,
   faSquare,
