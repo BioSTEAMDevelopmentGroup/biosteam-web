@@ -15,14 +15,14 @@ export default {
     name: 'AtomButton',
     props: {
         link: String,
-        element: HTMLAnchorElement,
+        // element: HTMLAnchorElement,
         type: String,
     },
     methods: {
       toRoute() {
         this.$router.push({path: this.link})
       },
-      scrollto(element) {
+      scrollto() {
         // console.log('scroll')
         // console.log(typeof element)
         // console.log(element)
