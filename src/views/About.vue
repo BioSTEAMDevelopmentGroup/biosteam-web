@@ -1,15 +1,13 @@
 <template>
   <div>
 <!-- Top Banner -->
-    <div class="relative z-10 bg-cdarkgreenblue flex justify-center items-center" style="height: 60vh;">
+    <div class="banner relative bg-cdarkgreenblue justify-center items-center">
       <atom-about-banner></atom-about-banner>
-      <div class="absolute z-20 -bottom-3 inset-x-0 text-center">
-        <code class="bg-white px-8 py-4 rounded-full shadow-md text-xl">pip install biosteam</code>
-      </div>
+
     </div>
 
 <!-- Info cards -->
-    <div class="bg-gray-200 flex justify-center items-center" style="height: 160vh;">
+    <div class="info bg-gray-200 flex justify-center items-center" >
       <organism-about-cards :cards="cards" class="w-5/6"></organism-about-cards> 
     </div>
 
@@ -18,9 +16,10 @@
       <atom-footer class="h-40 flex justify-center items-center bg-clightblue"></atom-footer>
     </div>
   </div>
+
   <!-- <div class="resources">
     <div class="banner">
-      <img src="../assets/resources/resources-hero-banner.png" class="banner-image">
+      <img src="../assets/resources/about-hero-banner.png" class="banner-image">
       <div class="banner-card">
         <h1>Get the most out of BioSTEAM</h1>
         <p>With the fully featured Python package</p>
@@ -54,7 +53,7 @@ import OrganismAboutCards from "@/components/organisms/OrganismAboutCards.vue";
 import AtomFooter from "@/components/atoms/AtomFooter.vue";
 
 export default {
-  name: 'Resources',
+  name: 'About',
   components: {
     AtomAboutBanner,
     OrganismAboutCards,
@@ -63,10 +62,10 @@ export default {
   data() {
     return{
       cards: [
-        {title: 'In Publication', logo: 'logo-ACS.png', button: 'See Article', link: 'https://pubs.acs.org/doi/10.1021/acssuschemeng.9b07040', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea '},
+        {title: 'BioSTEAM Ecosystem', logo: 'logo-BioSTEAM.svg', button: 'See Article', link: 'https://pubs.acs.org/doi/10.1021/acssuschemeng.9b07040', description: 'asdfghujkl;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea '},
         {title: 'Guest Research Group', logo: 'logo-guest-group.png', button: 'Visit Site', link: 'http://engineeringforsustainability.com/', description: 'The Guest Research Group at the University of Illinois at Urbana-Champaign specializes in the development of sustainable infrastructure. We are in the Sustainability Theme of CABBI and we leverage the BioSTEAM platform for techno-economic analysis (TEA) and life cycle assessment (LCA) to chart innovation pathways for sustainable biofuels and bioproducts.'},
-        {title: 'CABBI Bio', logo: 'logo-CABBI.png', button: 'Visit Site', link: 'https://cabbi.bio/research/sustainability-theme/', description: 'The Center for Advanced Bioenergy and Bioproducts Innovation (CABBI) is a U.S. Department of Energy-funded Bioenergy Research Center led by the University of Illinois at Urbana-Champaign. CABBI integrates recent advances in agronomics, genomics, biosystems design, and computational biology to increase the value of energy crops, using a “plants as factories” approach to grow fuels and chemicals in plant stems and an automated foundry to convert biomass into valuable chemicals that are ecologically and economically sustainable.'},
-        {title: 'On GitHub', logo: 'logo-github.svg', button: 'Go to GitHub', link: 'https://github.com/BioSTEAMDevelopmentGroup', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea '},
+        {title: 'CABBI', logo: 'logo-CABBI.png', button: 'Visit Site', link: 'https://cabbi.bio/research/sustainability-theme/', description: 'The Center for Advanced Bioenergy and Bioproducts Innovation (CABBI) is a U.S. Department of Energy-funded Bioenergy Research Center led by the University of Illinois at Urbana-Champaign. CABBI integrates recent advances in agronomics, genomics, biosystems design, and computational biology to increase the value of energy crops, using a “plants as factories” approach to grow fuels and chemicals in plant stems and an automated foundry to convert biomass into valuable chemicals that are ecologically and economically sustainable.'},
+        // {title: 'On GitHub', logo: 'logo-github.svg', button: 'Go to GitHub', link: 'https://github.com/BioSTEAMDevelopmentGroup', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea '},
       ]
     }
   },
@@ -81,11 +80,16 @@ export default {
 <style lang="scss" scoped>
 
 .banner{
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center; 
-  height: 75vh;
+  //position: relative;
+  //display: flex;
+  //align-items: center;
+  //justify-content: center;
+  //height: 75vh;
+  //margin-bottom: 200px;
+}
+
+.info {
+  padding: 5vh;
 }
 
 .banner-image{

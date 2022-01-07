@@ -1,21 +1,52 @@
 <template>
+  <div>
+    <div class="flex items-center justify-evenly text-cfontgrey text-lg" style="width: 100%">
+      <div class="w-1/6">
+        <a href="mailto:biosteamdevelopmentgroup@gmail.com" target="_blank">
+          <font-awesome-icon icon="envelope" class="fa-2x"></font-awesome-icon>
+        </a>
+      </div>
+      <div class="w-1/6">
+        <a href="https://github.com/bioSTEAMDevelopmentGroup/biosteam/" target="_blank">
+          <font-awesome-icon :icon="['fab', 'github-square']" class="fa-2x"></font-awesome-icon>
+        </a>
+      </div>
+      <div class="w-1/6">
+        <a href="https://biosteam.readthedocs.io/en/latest/" target="_blank">
+          <font-awesome-icon :icon="['fas', 'file-alt']" class="fa-2x"></font-awesome-icon>
+        </a>
+      </div>
+    </div>
     <div class="flex items-center justify-evenly text-cfontgrey text-lg">
-        <div>
-            <p>Email - jsguest@illinois.edu</p>
-            <p>Twitter - @CABBIbio</p>
+<!--        <div>-->
+<!--            <p>Email - jsguest@illinois.edu</p>-->
+<!--            <p>Twitter - @CABBIbio</p>-->
+<!--        </div>-->
+<!--        <div>-->
+<!--            <p>BioSTEAM Github</p>-->
+<!--            <p>BioSTEAM Docs</p>-->
+<!--            <p>BioSTEAM Citation</p>-->
+<!--        </div>-->
+<!--        <div>-->
+<!--          <p>© 2021 All Rights Reserved</p>-->
+<!--        </div>-->
+        <div class="w-1/4">
+          <a href="https://engineeringforsustainability.com/" target="_blank">
+            <img src="../../assets/footer/guest_logo.png" alt="Guest Research Group Logo">
+          </a>
         </div>
-        <div>
-            <p>BioSTEAM Github</p>
-            <p>BioSTEAM Docs</p>
-            <p>BioSTEAM Citation</p>
+        <div class="w-1/4">
+          <a href="https://cabbi.bio/" target="_blank">
+            <img src="../../assets/footer/cabbi_logo.png"  alt="CABBI Logo">
+          </a>
         </div>
-        <div>
-          <p>© 2021 All Rights Reserved</p>
-        </div>
-        <div>
-          <img src="../../assets/resources/logo-CABBI.png" height="50" width="50" alt="CABBI Logo">
+        <div class="w-1/4">
+          <a href="https://illinois.edu/" target="_blank">
+            <img src="../../assets/footer/illinois_logo.png"  alt="University of Illinois Logo">
+          </a>
         </div>
     </div>
+  </div>
 </template>
 
 <script>

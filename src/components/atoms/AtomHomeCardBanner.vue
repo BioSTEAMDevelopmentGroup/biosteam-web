@@ -4,7 +4,7 @@
         <h1 class="text-6xl text-cblue pb-5 pt-16">What is BioSTEAM?</h1>
         <p class="text-cfontgrey text-center w-2/3">
             BioSTEAM is a fast and flexible package for the design, simulation,
-            and techno-economic analysis of biorefineries under uncertainty 1.
+            and techno-economic analysis of biorefineries under uncertainty.
             BioSTEAM’s framework is built to streamline and automate early-stage
             technology evaluations and to enable rigorous sensitivity and uncertainty
             analyses.

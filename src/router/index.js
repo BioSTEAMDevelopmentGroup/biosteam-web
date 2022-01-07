@@ -4,7 +4,7 @@ import Home from '../views/Home.vue'
 import Simulate from '../views/Simulate.vue'
 import SimulateSingle from '../views/SimulateSingle.vue'
 import SimulateUncertainty from '../views/SimulateUncertainty.vue'
-import Resources from '../views/Resources.vue'
+import Resources from '../views/About.vue'
 import Docs from '../views/Docs.vue'
 
 Vue.use(VueRouter)
@@ -15,6 +15,11 @@ Vue.use(VueRouter)
     name: 'Home',
     component: Home
   },
+    // {
+    //   path: '/#startexplore',
+    //   name: 'startexplore',
+    //   component: Home
+    // },
   {
     path: '/simulate',
     name: 'Simulate',
@@ -40,6 +45,7 @@ Vue.use(VueRouter)
     name: 'Docs',
     component: Docs
   },
+
 ]
 
 const router = new VueRouter({

@@ -1,6 +1,6 @@
 <template>
-    <div class="flex flex-wrap items-stretch h-5/6">
-        <div class="w-1/2 h-1/2 p-3" v-for="card in cards" :key="card.title">
+    <div class="flex flex-wrap items-stretch ">
+        <div class="  p-3" v-for="card in cards" :key="card.title">
             <molecule-about-card :logo="card.logo" :link="card.link" class="h-full">
                 <template #title>{{card.title}}</template>
                 <template #description>{{card.description}}</template>
