@@ -2,38 +2,40 @@
   <div>
 <!--- Hero Banner ---> 
     <div class="w-full flex justify-center items-center bg-gradient-to-t from-cyellow to-clightblue" style="height: 80vh;">
-      <molecule-home-hero class="w-4/5"></molecule-home-hero>
+      <molecule-home-hero class="w-11/12" ></molecule-home-hero>
+<!--      <button @click="scrollto()">same</button>-->
     </div>
 
-<!--- Info header ---> 
-    <div class="h-80 flex justify-center items-center">
+<!--- Info header --->
+    <a ref="startExplore">
+    <div  class="h-80 flex justify-center items-center">
       <atom-home-card-banner class="h-full w-full flex justify-center items-center"></atom-home-card-banner>
     </div>
-
+    </a>
 <!-- Info cards -->
-    <div class="h-screen">
-      <div class="flex h-screen px-10 pb-10">
-        <div v-for="card in cards" :key="card.title" class="p-3 w-1/3 h-full flex items-center">
-          <molecule-home-card :link="card.link" class="h-5/6">
-            <template #title>
-              {{card.title}}
-            </template>
-            <template #content>
-              {{card.content}}
-            </template>             
-          </molecule-home-card>
-        </div>
-      </div>
-    </div>
+<!--    <div class="h-screen">-->
+<!--      <div class="flex h-screen px-10 pb-10">-->
+<!--        <div v-for="card in cards" :key="card.title" class="p-3 w-1/3 h-full flex items-center">-->
+<!--          <molecule-home-card :link="card.link" class="h-5/6">-->
+<!--            <template #title>-->
+<!--              {{card.title}}-->
+<!--            </template>-->
+<!--            <template #content>-->
+<!--              {{card.content}}-->
+<!--            </template>-->
+<!--          </molecule-home-card>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
 
 <!-- Home info -->
     <div class="relative z-10 bg-cblue flex flex-col justify-center items-center w-screen shadow-xl shadow-inner">
       <div class="absolute z-20 top-0 left-3/5 w-20 h-10" :style="{'background-image': `url(${require('@/assets/home/info-pulldown.svg')})`}"></div>
-      <molecule-home-info class="relative z-10 h-1/2 w-full pt-12 px-8" link="/simulate/simulate-single" direction="left" img="home/screenshot1.png">
+      <molecule-home-info class="relative z-10 h-1/2 w-full pt-12 px-8" :link="'/simulate/simulate-single'" direction="left" img="home/screenshot1.png">
           <template #title>Single-point simulation</template>
           <template #description>Given user-input (or default) values for each parameter in a single scenario describing feedstock composition, biorefinery design and operation, and financial assumptions, a Techno-Economic Analysis (TEA) and a Life Cycle Impact Assessment (LCIA) estimate respectively the economic and environmental sustainability for that scenario.</template>
       </molecule-home-info>
-      <molecule-home-info class="relative z-10 h-1/2 w-full p-10" link="/simulate/simulate-uncertainty" direction="right" img="home/screenshot2.png">
+      <molecule-home-info class="relative z-10 h-1/2 w-full p-10" :link="'/simulate/simulate-uncertainty'" direction="right" img="home/screenshot2.png">
           <template #title>Simulation with uncertainty</template>
           <template #description>Given user-input (or default) distributions of parameters describing feedstock composition, biorefinery design and operation, and financial assumptions, across the breadth of scenarios so generated, Techno-Economic Analyses (TEAs) and Life Cycle Impact Assessments (LCIAs) estimate respectively the economic and environmental sustainability with results represented as 95% confidence intervals.</template>  
       </molecule-home-info>
@@ -52,7 +54,7 @@
 
 
 <script>
-import MoleculeHomeCard from '@/components/molecules/MoleculeHomeCard.vue';
+// import MoleculeHomeCard from '@/components/molecules/MoleculeHomeCard.vue';
 import MoleculeHomeHero from '@/components/molecules/MoleculeHomeHero.vue';
 import MoleculeHomeInfo from '@/components/molecules/MoleculeHomeInfo.vue';
 import AtomHomeCardBanner from '@/components/atoms/AtomHomeCardBanner.vue';
@@ -62,7 +64,7 @@ import AtomFooter from '@/components/atoms/AtomFooter.vue';
 export default {
   name: 'Home',
   components: {
-    MoleculeHomeCard,
+    // MoleculeHomeCard,
     MoleculeHomeHero,
     MoleculeHomeInfo,
     AtomHomeCardBanner,
@@ -71,17 +73,21 @@ export default {
   },
   data() {
     return{
-      cards: [
-        {title: 'About BioSTEAM', link: 'https://biosteam.readthedocs.io/en/latest/', content: 'orem ipsum d, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur '},
-        {title: 'CABBI Bio', link: 'https://cabbi.bio/', content: 'The Center for Advanced Bioenergy and Bioproducts Innovation (CABBI) at the University of Illinois at Urbana-Champaign is a U.S. Department of Energy Bioenergy Research Center. CABBI aims to increase the value of energy crops and convert biomass into chemicals which are both ecologically and economically sustainable.'},
-        {title: 'Bioenergy Research Centers', link: 'https://genomicscience.energy.gov/centers/', content: 'The Bioenergy Research Center (BRC) program is supported by DOE with a mission to break down the barriers to actualizing a domestic bioenergy industry. BRCs are led by DOE national laboratories or top universities to take distinctive approaches toward the common goal of accelerating the pathway to improving and scaling up advanced biofuel and bioproduct production processes.'},
-      ]
+      // cards: [
+      //   {title: 'About BioSTEAM', link: 'https://biosteam.readthedocs.io/en/latest/', content: 'orem ipsum d, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur '},
+      //   {title: 'CABBI Bio', link: 'https://cabbi.bio/', content: 'The Center for Advanced Bioenergy and Bioproducts Innovation (CABBI) at the University of Illinois at Urbana-Champaign is a U.S. Department of Energy Bioenergy Research Center. CABBI aims to increase the value of energy crops and convert biomass into chemicals which are both ecologically and economically sustainable.'},
+      //   {title: 'Bioenergy Research Centers', link: 'https://genomicscience.energy.gov/centers/', content: 'The Bioenergy Research Center (BRC) program is supported by DOE with a mission to break down the barriers to actualizing a domestic bioenergy industry. BRCs are led by DOE national laboratories or top universities to take distinctive approaches toward the common goal of accelerating the pathway to improving and scaling up advanced biofuel and bioproduct production processes.'},
+      // ]
     }
   },
   methods: {
     toRoute(link) {
       this.$router.push({path: link})
-    }
+    },
+    // scrollto() {
+    //   console.log(typeof this.$refs["startExplore"])
+    //   console.log(this.$refs["startExplore"])
+    // }
   }
 }
 </script>
