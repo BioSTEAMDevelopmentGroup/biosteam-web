@@ -135,6 +135,15 @@
                     },
                     "info": null
                 }
+            ],
+            "metrics": [
+                "Minimum ethanol selling price [USD/gal]",
+                "Ethanol production [10^6*gal/yr]",
+                "Ethanol yield [gal/dry US ton]",
+                "Total capital investment [10^6*USD]",
+                "Annual operating cost [10^6*USD/yr]",
+                "Net electricity production [MWhr/yr]",
+                "Electricity credit [10^6*USD/yr]"
             ]
         }
     ],
@@ -531,6 +540,21 @@
                     },
                     "info": null
                 }
+            ],
+            "metrics": [
+                "Maximum feedstock purchase price [USD/ton]",
+                "Biodiesel production [Gal/ton]",
+                "Ethanol production [Gal/ton]",
+                "Electricity production [kWhr/ton]",
+                "Natural gas consumption [cf/ton]",
+                "Ethanol GWP, economic allocation [kg*CO2*eq / USD]",
+                "Biodiesel GWP, economic allocation [kg*CO2*eq / gal]",
+                "Crude glycerol GWP, economic allocation [kg*CO2*eq / gal]",
+                "Electricity GWP, economic allocation [kg*CO2*eq / kg]",
+                "Ethanol GWP, displacement allocation [kg*CO2*eq / MWhr]",
+                "Ethanol GWP, energy allocation [kg*CO2*eq / GGE]",
+                "Biodiesel GWP, energy allocation [kg*CO2*eq / gal]",
+                "Crude glycerol GWP, energy allocation [kg*CO2*eq / gal]"
             ]
         }
     ],

@@ -65,17 +65,21 @@ export default {
         plotData: function() {
             let data = this.plot
 
-            for(let i=0; i<this.options.length; i++) {
-                if(this.options[i].name == this.selected && this.boxplot !== null) {
-                    let metric = this.options[i].name
-                    data.y = this.boxplot[metric]
-                    data.name = this.selected
-                    return [data]
-                }
-                else {
-                    data.y = [0, 0, 0, 0, 0, 0, 0, 0, 0]
-                }
+            // for(let i=0; i<this.options.length; i++) {
+            //     if(this.options[i] == this.selected && this.boxplot !== null) {
+            //         let metric = this.options[i]
+            //         data.y = this.boxplot[metric]
+            //         data.name = this.selected
+            //         return [data]
+            //     }
+            // }
+            if (this.boxplot !== null) {
+              data.y = this.boxplot[this.selected]
+              data.name = this.selected
+              return [data]
             }
+
+            data.y = [0]
             return [data]
         }
     },

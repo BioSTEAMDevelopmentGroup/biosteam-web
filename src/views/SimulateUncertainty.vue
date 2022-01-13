@@ -21,6 +21,7 @@
 
         <atom-set-samples v-model.number="sampleNumber" :sampleNumber="sampleNumber"></atom-set-samples>
         <atom-button @click="runSimulation()" class="w-full bg-corange bg-opacity-70 hover:bg-opacity-100 text-white text-lg">Run simulation</atom-button>
+<!--        <atom-button @click="runSimulation()" class="w-full bg-corange bg-opacity-70 hover:bg-opacity-100 text-white text-lg" :disabled="selectedBiorefinery == 'Select a biorefinery'">Run simulation</atom-button>-->
       </template>
 
       <!-- Simulation nav -->
@@ -42,9 +43,12 @@
         <atom-checked-parameters :checked="checkedParameters" :sampleNumber="sampleNumber" :biorefinery="selectedBiorefinery"></atom-checked-parameters>
         <atom-biorefinery-diagram v-if="selectedBiorefinery == 'Select a biorefinery'" :diagram="'Select a biorefinery'" simulation="uncertainty"></atom-biorefinery-diagram>
         <atom-biorefinery-diagram v-else :diagram="parameters[selectedBiorefinery][0].diagram" simulation="uncertainty"></atom-biorefinery-diagram>
+        <div v-if="biosteamResults!=null">
+          {{biosteamResults}}
+        </div>
         <div class="w-5/6 flex justify-between pb-10 pt-8">
           <atom-box-plot-info></atom-box-plot-info>
-          <box-plot :boxplot="biosteamResults" :options="spearman.cornstoverSpearmanOptions"></box-plot>
+          <box-plot :boxplot="biosteamResults" :options="parameters[selectedBiorefinery][0].metrics"></box-plot>
         </div>       
         <atom-spearman-info></atom-spearman-info>
         <spearmans-graph class="w-5/6 pb-10" :spearman="biosteamSpearmanResults" :options="spearman.cornstoverSpearmanOptions"></spearmans-graph>   
@@ -259,25 +263,26 @@ export default {
       console.log(value)
     },
 
-    getBiosteamData() {
-      axios({
-        url: "https://lh94msd306.execute-api.us-east-1.amazonaws.com/default/biosteamGetter",
-        method: "post",
-        data: this.jobId,
-        headers: this.configHeaders
-      })
-      .then(response => {
-        let gatewayResponse = JSON.parse(response.data.body);
-        this.gatewayStatus = gatewayResponse.item;
-        if(this.gatewayStatus !== 'no data') {
-          this.biosteamResults = JSON.parse(gatewayResponse.item.results.S);
-          this.biosteamSpearmanResults = JSON.parse(gatewayResponse.item.spearmanResults.S);          
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-    },
+    // getBiosteamData() {
+    //   axios({
+    //     url: "https://g8hun528wd.execute-api.us-west-1.amazonaws.com/default/biosteamGetter",
+    //     method: "get",
+    //     data: this.jobId,
+    //     headers: this.configHeaders
+    //   })
+    //   .then(response => {
+    //     // console.log(response)
+    //     let gatewayResponse = JSON.parse(response.data.body);
+    //     this.gatewayStatus = gatewayResponse.item;
+    //     if(this.gatewayStatus !== 'no data') {
+    //       this.biosteamResults = JSON.parse(gatewayResponse.item.results.S);
+    //       // this.biosteamSpearmanResults = JSON.parse(gatewayResponse.item.spearmanResults.S);
+    //     }
+    //   })
+    //   .catch((error) => {
+    //     console.log(error);
+    //   });
+    // },
 
     runSimulation() {
       console.log("here");
@@ -289,6 +294,7 @@ export default {
         params: this.checkedParameters,
         samples: this.sampleNumber,
       };
+      console.log(payload);
       //call biosteamHelper lambda with payload
       axios({
         url: "https://g8hun528wd.execute-api.us-west-1.amazonaws.com/default/biosteamHelper",
@@ -312,29 +318,33 @@ export default {
     runGetResults() {
       //set axios configs 
       let payload = {
-        jobId: this.jobId,
+        // jobId: 'd83a9520-9956-4221-a3ef-4f53f35e4d97'
+        jobId: this.jobId
       };
-      const configHeaders = {
-        "content-type": "application/json",
-        "Accept": "application/json, access-control-allow-origin",
-      };
-
+      // const configHeaders = {
+      //   "Access-Control-Allow-Methods": "POST, GET, OPTIONS, PUT, DELETE",
+      //   "Access-Control-ALlow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token'",
+      // };
+      console.log(payload);
       //call lambda with payload
       axios({
-        url: "https://g8hun528wd.execute-api.us-west-1.amazonaws.com/default/biosteamHelper", // update 11-9-2021 this is the correct URL - jenndebellis
+        url: "https://g8hun528wd.execute-api.us-west-1.amazonaws.com/default/biosteamGetter", // update 11-9-2021 this is the correct URL - jenndebellis
         method: "post",
         data: payload,
-        headers: configHeaders
+        headers: this.configHeaders
       })
 
       //accept and parse incoming data 
       .then(response=>{
+        console.log(response);
         let csUncertaintyResults = JSON.parse(response.data.body);
         let gateway = JSON.parse(response.data.body);
         this.gatewayStatus = gateway.item;
         this.biosteamDbResults = csUncertaintyResults;
         this.biosteamResults = JSON.parse(csUncertaintyResults.item.results.S);
-        // this.biosteamSpearmanResults = JSON.parse(csUncertaintyResults.item.spearmanResults.S);
+        this.biosteamSpearmanResults = JSON.parse(csUncertaintyResults.item.spearmanResults.S);
+        console.log(this.biosteamResults)
+        console.log(this.biosteamSpearmanResults)
       })
       .catch(function (error) {
         console.log(error);
