@@ -72,20 +72,24 @@ export default {
             //         data.name = this.selected
             //         return [data]
             //     }
+            //     else {
+            //         data.y = [0, 0, 0, 0, 0, 0, 0, 0, 0] //may be arbitrary
+            //       // //could be [0]
+            //       // data.y = [0]
+            //     }
             // }
             if (this.boxplot !== null) {
               data.y = this.boxplot[this.selected]
               data.name = this.selected
               return [data]
             }
-
             data.y = [0]
             return [data]
         }
     },
     methods: {
         selectIndicatorOption(value) {
-            this.selected = value.name
+            this.selected = value
         }
     },
 }

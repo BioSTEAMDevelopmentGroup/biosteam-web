@@ -48,10 +48,11 @@
         </div>
         <div class="w-5/6 flex justify-between pb-10 pt-8">
           <atom-box-plot-info></atom-box-plot-info>
-          <box-plot :boxplot="biosteamResults" :options="parameters[selectedBiorefinery][0].metrics"></box-plot>
-        </div>       
+          <box-plot v-if="selectedBiorefinery !== 'Select a biorefinery'" :boxplot="biosteamResults" :options="parameters[selectedBiorefinery][0].metrics"></box-plot>
+          <box-plot v-else :boxplot="biosteamResults" :options="['Select a biorefinery']"></box-plot>
+        </div>
         <atom-spearman-info></atom-spearman-info>
-        <spearmans-graph class="w-5/6 pb-10" :spearman="biosteamSpearmanResults" :options="spearman.cornstoverSpearmanOptions"></spearmans-graph>   
+        <spearmans-graph class="w-5/6 pb-10" :spearman="biosteamSpearmanResults" :options="spearman.cornstoverSpearmanOptions"></spearmans-graph>
       </template>
     </atom-simulate-layout>
   </div>
@@ -318,8 +319,9 @@ export default {
     runGetResults() {
       //set axios configs 
       let payload = {
-        // jobId: 'd83a9520-9956-4221-a3ef-4f53f35e4d97'
-        jobId: this.jobId
+        // jobId: 'd83a9520-9956-4221-a3ef-4f53f35e4d97' //cornstover
+        jobId: 'b53ff052-9b28-4505-8156-204caecbcd9c' //oilcane
+        // jobId: this.jobId
       };
       // const configHeaders = {
       //   "Access-Control-Allow-Methods": "POST, GET, OPTIONS, PUT, DELETE",
