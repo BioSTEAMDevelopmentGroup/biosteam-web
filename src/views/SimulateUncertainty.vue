@@ -52,7 +52,7 @@
           <box-plot v-else :boxplot="biosteamResults" :options="['Select a biorefinery']"></box-plot>
         </div>
         <atom-spearman-info></atom-spearman-info>
-        <spearmans-graph class="w-5/6 pb-10" :spearman="biosteamSpearmanResults" :options="spearman.cornstoverSpearmanOptions"></spearmans-graph>
+        <spearmans-graph class="w-5/6 pb-10" :spearman="biosteamSpearmanResults" :options="parameters[selectedBiorefinery][0].metrics"></spearmans-graph>
       </template>
     </atom-simulate-layout>
   </div>
@@ -320,7 +320,7 @@ export default {
       //set axios configs 
       let payload = {
         // jobId: 'd83a9520-9956-4221-a3ef-4f53f35e4d97' //cornstover
-        jobId: '65d24c29-2b22-4c8d-9bcd-e806d0663314' //oilcane
+        jobId: '55cb9e41-84a2-4752-9753-b45fc24eab9a' //oilcane spearman
         // jobId: this.jobId
       };
       // const configHeaders = {
