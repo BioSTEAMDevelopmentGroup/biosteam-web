@@ -22,21 +22,21 @@
           </div>
           <div class="flex w-full justify-between py-2">
               <p>Lower:</p>
-              <input v-model.number="parameter.values.value1" type="number" class="w-1/2" :disabled="noDistSelected">
+              <input v-model.number="parameter.values.lower" type="number" class="w-1/2">
           </div>
 
           <div v-if="parameter.distribution === 'Triangular'" class="flex w-full justify-between py-2" >
               <p>Most prob:</p>
-              <input v-model.number="parameter.values.value3" type="number" class="w-1/2">
+              <input v-model.number="parameter.values.midpoint" type="number" class="w-1/2">
           </div>
           <div v-if="parameter.distribution === 'Triangular'" class="flex w-full justify-between py-2">
               <p>Upper:</p>
-              <input v-model.number="parameter.values.value2" type="number" class="w-1/2">
+              <input v-model.number="parameter.values.upper" type="number" class="w-1/2">
           </div>
 
           <div v-else class="flex w-full justify-between py-2">
               <p>Upper:</p>
-              <input v-model.number="parameter.values.value2" type="number" class="w-1/2" :disabled="noDistSelected">
+              <input v-model.number="parameter.values.upper" type="number" class="w-1/2">
           </div>
 
       </div>
@@ -58,13 +58,13 @@ export default {
         return {
             open: false,
             distributions: ['Uniform', 'Triangular'],
-            noDistSelected: true,
+            // noDistSelected: true,
         }
     },
     methods: {
         selectDistribution(value) {
             this.$emit('select-distribution', value)
-            this.noDistSelected = false
+            // this.noDistSelected = false
         }
     }
 }
