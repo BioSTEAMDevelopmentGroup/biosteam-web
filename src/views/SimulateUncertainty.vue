@@ -27,7 +27,7 @@
       <!-- Simulation nav -->
       <template #simulationNav>
         <molecule-dropdown-nav class="w-full h-10 bg-gray-300"
-          @select-simulate="(newSimulate)=>{selectedSimulate = newSimulate}" 
+          @select-simulate="(newSimulate)=>{selectedSimulate = newSimulate}"
           @select-biorefinery="(newBiorefinery)=>{selectedBiorefinery = newBiorefinery}"
           :selectedSimulate="selectedSimulate" 
           :selectedBiorefinery="selectedBiorefinery">
@@ -35,7 +35,7 @@
       </template>
 
       <!-- Main content view -->
-      <template #mainContent>
+      <template v-if="selectedBiorefinery !=='Select a biorefinery'" #mainContent>
         <div v-if="loading" class="absolute z-100 top-0 left-0 bg-opacity-50 w-full h-full">
           <atom-loading-screen simulation="uncertainty"></atom-loading-screen>
         </div>

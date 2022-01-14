@@ -5,7 +5,7 @@
                    :selected="selectedSimulate"
                    @select-option="selectSimulateOption">
     </atom-dropdown>
-    <atom-dropdown class="w-1/3"
+    <atom-dropdown v-if="selectedSimulate !== 'Select simulation mode'" class="w-1/3"
                    :options="biorefineryOptions"
                    :selected="selectedBiorefinery"
                    @select-option="selectBiorefineryOption">
