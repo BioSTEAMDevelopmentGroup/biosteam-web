@@ -10,7 +10,7 @@
         </div>
         <plotly class="plot" :data="plotData" :layout="layout" :displayModeBar="false"/>
         <div class="pt-4" style="width: 400px;">
-            <atom-button class="w-full bg-gray-300 hover:bg-opacity-100 text-cfontgrey text-lg">Export Data</atom-button>
+            <atom-button @click="exportData()" class="w-full bg-gray-300 hover:bg-opacity-100 text-cfontgrey text-lg">Export Data</atom-button>
         </div>
     </div>
 </template>
@@ -90,7 +90,31 @@ export default {
     methods: {
         selectIndicatorOption(value) {
             this.selected = value
-        }
+        },
+        exportData() {
+          if (this.boxplot !== null) {
+            // console.log(this.boxplot['Maximum feedstock purchase price [USD/ton]'])
+            // console.log('here')
+            let rows = []
+            for (let key in this.boxplot) {
+              let row = []
+              row.push("\"" + key + "\"")
+              for (let idx in this.boxplot[key]) {
+                row.push(this.boxplot[key][idx])
+              }
+              rows.push(row)
+            }
+            let csvContent = "data:text/csv;charset=utf-8,"
+                + rows.map(e => e.join(",")).join("\n");
+
+            var encodedUri = encodeURI(csvContent);
+            var link = document.createElement("a");
+            link.setAttribute("href", encodedUri);
+            link.setAttribute("download", "uncertainty_results.csv");
+            document.body.appendChild(link); // Required for FF
+            link.click()
+          }
+        },
     },
 }
 </script>
