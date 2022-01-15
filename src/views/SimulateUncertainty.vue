@@ -41,11 +41,12 @@
         </div>
         <atom-display-job-number @click="runGetResults()" v-if="jobId" :jobId="jobId" :jobHasFinished="gatewayStatus" simulation="uncertainty"></atom-display-job-number>
         <atom-checked-parameters :checked="checkedParameters" :sampleNumber="sampleNumber" :biorefinery="selectedBiorefinery"></atom-checked-parameters>
+        <atom-input-job-i-d @setJobId="setJobId"></atom-input-job-i-d>
         <atom-biorefinery-diagram v-if="selectedBiorefinery == 'Select a biorefinery'" :diagram="'Select a biorefinery'" simulation="uncertainty"></atom-biorefinery-diagram>
         <atom-biorefinery-diagram v-else :diagram="parameters[selectedBiorefinery][0].diagram" simulation="uncertainty"></atom-biorefinery-diagram>
-        <div v-if="biosteamResults!=null">
-          {{biosteamResults}}
-        </div>
+<!--        <div v-if="biosteamResults!=null">-->
+<!--          {{biosteamResults}}-->
+<!--        </div>-->
         <div class="w-5/6 flex justify-between pb-10 pt-8">
           <atom-box-plot-info></atom-box-plot-info>
           <box-plot v-if="selectedBiorefinery !== 'Select a biorefinery'" :boxplot="biosteamResults" :options="parameters[selectedBiorefinery][0].metrics"></box-plot>
@@ -177,6 +178,7 @@ import AtomSpearmanInfo from "@/components/atoms/AtomSpearmanInfo.vue";
 import MoleculeDropdownNav from '@/components/molecules/MoleculeDropdownNav.vue';
 import AtomSetSamples from '@/components/atoms/AtomSetSamples.vue';
 import OrganismUncertaintyParameterForm from '@/components/organisms/OrganismUncertaintyParameterForm.vue';
+import AtomInputJobID from "@/components/atoms/AtomInputJobID";
 // import UncertainParameter from "@/components/UncertainParameter.vue";
 // import SetNumberSamples from "@/components/SetNumberSamples.vue";
 // import AppButton from "@/components/AppButton.vue";
@@ -203,6 +205,7 @@ export default {
     AtomSpearmanInfo,
     MoleculeDropdownNav,
     OrganismUncertaintyParameterForm,
+    AtomInputJobID,
 
     // UncertainParameter,
     // SetNumberSamples,
@@ -256,6 +259,11 @@ export default {
     },
   },
   methods: {
+    setJobId(value) {
+      this.jobId = value
+      this.gatewayStatus = null
+      console.log(this.jobId)
+    },
     selectSimulate(value) {
       console.log(value)
     },
@@ -286,6 +294,7 @@ export default {
     // },
 
     runSimulation() {
+      this.gatewayStatus = null
       console.log("here");
       //set loading visuals 
       this.loading = true;
@@ -320,8 +329,8 @@ export default {
       //set axios configs 
       let payload = {
         // jobId: 'd83a9520-9956-4221-a3ef-4f53f35e4d97' //cornstover
-        jobId: '55cb9e41-84a2-4752-9753-b45fc24eab9a' //oilcane spearman
-        // jobId: this.jobId
+        // jobId: '55cb9e41-84a2-4752-9753-b45fc24eab9a' //oilcane spearman
+        jobId: this.jobId
       };
       // const configHeaders = {
       //   "Access-Control-Allow-Methods": "POST, GET, OPTIONS, PUT, DELETE",
