@@ -26,7 +26,7 @@
           </div>
 
           <div v-if="parameter.distribution === 'Triangular'" class="flex w-full justify-between py-2" >
-              <p>Most prob:</p>
+              <p>Mode:</p>
               <input v-model.number="parameter.values.midpoint" type="number" class="w-1/2">
           </div>
           <div v-if="parameter.distribution === 'Triangular'" class="flex w-full justify-between py-2">

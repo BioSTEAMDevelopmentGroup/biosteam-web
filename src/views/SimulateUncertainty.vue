@@ -218,7 +218,7 @@ export default {
     return {
       selectedSimulate: 'Simulation with uncertainty',
       selectedBiorefinery: 'Select a biorefinery',
-      sampleNumber: 0,
+      sampleNumber: 1,
       parameters: parameters,
       spearman: spearman,
       biosteamResults: null,

@@ -23,9 +23,6 @@ export default {
         this.$router.push({path: this.link})
       },
       scrollto() {
-        // console.log('scroll')
-        // console.log(typeof element)
-        // console.log(element)
         var el = this.$parent.$parent.$refs['startExplore'];
         // this.$forceUpdate()
         var top = el.offsetTop;

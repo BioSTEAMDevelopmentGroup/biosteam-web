@@ -10,7 +10,8 @@
                     "distribution": "Uniform",
                     "values": {
                         "lower": 693793.4789461191,
-                        "upper": 847969.8076008123
+                        "upper": 847969.8076008123,
+                        "midpoint": 770881.6432734657
                     },
                     "info": "annual feestock processing capacity"
                 },
@@ -21,7 +22,8 @@
                     "distribution": "Uniform",
                     "values": {
                         "lower": 8.91,
-                        "upper": 10.89
+                        "upper": 10.89,
+                        "midpoint": 9.9
                     },
                     "info": "extent of reaction, glucan + water -> glucose, in pretreatment reactor"
                 },
@@ -32,7 +34,8 @@
                     "distribution": "Uniform",
                     "values": {
                         "lower": 81.0,
-                        "upper": 99.00000000000001
+                        "upper": 99.00000000000001,
+                        "midpoint": 90.0
                     },
                     "info": "extent of reaction, xylan + water -> xylose, in pretreatment reactor"
                 },
@@ -43,7 +46,8 @@
                     "distribution": "Uniform",
                     "values": {
                         "lower": 4.5,
-                        "upper": 5.5
+                        "upper": 5.5,
+                        "midpoint": 5.0
                     },
                     "info": "extent of reaction, xylan -> furfural + 2 water, in pretreatment reactor"
                 },
@@ -54,7 +58,8 @@
                     "distribution": "Uniform",
                     "values": {
                         "lower": 81.0,
-                        "upper": 99.00000000000001
+                        "upper": 99.00000000000001,
+                        "midpoint": 90.0
                     },
                     "info": "extent of reaction, gluan + water -> glulose, in enzyme hydrolysis"
                 },
@@ -65,7 +70,8 @@
                     "distribution": "Uniform",
                     "values": {
                         "lower": 85.5,
-                        "upper": 104.50000000000001
+                        "upper": 104.50000000000001,
+                        "midpoint": 95.0
                     },
                     "info": "extent of reaction, glucose -> 2 ethanol + 2 CO2, in enzyme hydrolysis"
                 },
@@ -76,7 +82,8 @@
                     "distribution": "Uniform",
                     "values": {
                         "lower": 72.0,
-                        "upper": 88.0
+                        "upper": 88.0,
+                        "midpoint": 80.0
                     },
                     "info": "efficiency of burning fuel to produce steam"
                 },
@@ -87,7 +94,8 @@
                     "distribution": "Uniform",
                     "values": {
                         "lower": 76.5,
-                        "upper": 93.50000000000001
+                        "upper": 93.50000000000001,
+                        "midpoint": 85.0
                     },
                     "info": "efficiency of converting steam to power"
                 },
@@ -98,7 +106,8 @@
                     "distribution": "Uniform",
                     "values": {
                         "lower": 42.12001207163162,
-                        "upper": 51.48001475421643
+                        "upper": 51.48001475421643,
+                        "midpoint": 46.800013412924024
                     },
                     "info": null
                 },
@@ -109,7 +118,8 @@
                     "distribution": "Uniform",
                     "values": {
                         "lower": 173.090898,
-                        "upper": 211.555542
+                        "upper": 211.555542,
+                        "midpoint": 192.32322
                     },
                     "info": "price of cellulase enzyme mixture containing 50 g of cellulase per 1000g of cocktail"
                 },
@@ -120,7 +130,8 @@
                     "distribution": "Uniform",
                     "values": {
                         "lower": 0.051480000000000005,
-                        "upper": 0.06292
+                        "upper": 0.06292,
+                        "midpoint": 0.0572
                     },
                     "info": null
                 },
@@ -131,7 +142,8 @@
                     "distribution": "Uniform",
                     "values": {
                         "lower": 31.5,
-                        "upper": 38.5
+                        "upper": 38.5,
+                        "midpoint": 35.0
                     },
                     "info": null
                 }
@@ -158,7 +170,8 @@
                     "distribution": "Uniform",
                     "values": {
                         "lower": 40.0,
-                        "upper": 70.0
+                        "upper": 70.0,
+                        "midpoint": 55.0
                     },
                     "info": null
                 },
@@ -169,7 +182,8 @@
                     "distribution": "Uniform",
                     "values": {
                         "lower": 0.0,
-                        "upper": 20.0
+                        "upper": 20.0,
+                        "midpoint": 10.0
                     },
                     "info": null
                 },
@@ -180,7 +194,8 @@
                     "distribution": "Uniform",
                     "values": {
                         "lower": 275.57782828225265,
-                        "upper": 459.2963804704211
+                        "upper": 459.2963804704211,
+                        "midpoint": 367.4371043763369
                     },
                     "info": null
                 },
@@ -191,7 +206,7 @@
                     "distribution": "Triangular",
                     "values": {
                         "lower": 1.02,
-                        "midpoint": 1.803249999999999,
+                        "midpoint": 1.945,
                         "upper": 2.87
                     },
                     "info": null
@@ -203,7 +218,7 @@
                     "distribution": "Triangular",
                     "values": {
                         "lower": 0.31000000000000005,
-                        "midpoint": 2.9757500000000006,
+                        "midpoint": 2.21,
                         "upper": 4.11
                     },
                     "info": null
@@ -215,7 +230,7 @@
                     "distribution": "Triangular",
                     "values": {
                         "lower": 3.71,
-                        "midpoint": 4.299999999999997,
+                        "midpoint": 4.945,
                         "upper": 6.18
                     },
                     "info": null
@@ -227,7 +242,7 @@
                     "distribution": "Triangular",
                     "values": {
                         "lower": 0.0583,
-                        "midpoint": 0.065,
+                        "midpoint": 0.06365,
                         "upper": 0.069
                     },
                     "info": null
@@ -239,7 +254,8 @@
                     "distribution": "Uniform",
                     "values": {
                         "lower": 180.0,
-                        "upper": 210.0
+                        "upper": 210.0,
+                        "midpoint": 195.0
                     },
                     "info": null
                 },
@@ -250,7 +266,8 @@
                     "distribution": "Uniform",
                     "values": {
                         "lower": 10.0,
-                        "upper": 15.0
+                        "upper": 15.0,
+                        "midpoint": 12.5
                     },
                     "info": null
                 },
@@ -261,7 +278,8 @@
                     "distribution": "Uniform",
                     "values": {
                         "lower": 0.1,
-                        "upper": 0.22
+                        "upper": 0.22,
+                        "midpoint": 0.16
                     },
                     "info": null
                 },
@@ -272,7 +290,8 @@
                     "distribution": "Uniform",
                     "values": {
                         "lower": 0.48750000000000004,
-                        "upper": 0.8125
+                        "upper": 0.8125,
+                        "midpoint": 0.65
                     },
                     "info": null
                 },
@@ -283,7 +302,8 @@
                     "distribution": "Uniform",
                     "values": {
                         "lower": 54.0,
-                        "upper": 90.0
+                        "upper": 90.0,
+                        "midpoint": 72.0
                     },
                     "info": null
                 },
@@ -294,7 +314,8 @@
                     "distribution": "Uniform",
                     "values": {
                         "lower": 0.159,
-                        "upper": 0.265
+                        "upper": 0.265,
+                        "midpoint": 0.21200000000000002
                     },
                     "info": null
                 },
@@ -305,7 +326,8 @@
                     "distribution": "Uniform",
                     "values": {
                         "lower": 0.015,
-                        "upper": 0.025
+                        "upper": 0.025,
+                        "midpoint": 0.02
                     },
                     "info": null
                 },
@@ -316,7 +338,8 @@
                     "distribution": "Uniform",
                     "values": {
                         "lower": 14755284.899999999,
-                        "upper": 24592141.5
+                        "upper": 24592141.5,
+                        "midpoint": 19673713.2
                     },
                     "info": null
                 },
@@ -327,7 +350,8 @@
                     "distribution": "Uniform",
                     "values": {
                         "lower": 85.0,
-                        "upper": 97.5
+                        "upper": 97.5,
+                        "midpoint": 91.25
                     },
                     "info": null
                 },
@@ -338,7 +362,8 @@
                     "distribution": "Uniform",
                     "values": {
                         "lower": 79.0,
-                        "upper": 97.5
+                        "upper": 97.5,
+                        "midpoint": 88.25
                     },
                     "info": null
                 },
@@ -349,7 +374,8 @@
                     "distribution": "Uniform",
                     "values": {
                         "lower": 65.0,
-                        "upper": 97.5
+                        "upper": 97.5,
+                        "midpoint": 81.25
                     },
                     "info": null
                 },
@@ -360,7 +386,8 @@
                     "distribution": "Uniform",
                     "values": {
                         "lower": 86.0,
-                        "upper": 97.5
+                        "upper": 97.5,
+                        "midpoint": 91.75
                     },
                     "info": null
                 },
@@ -371,7 +398,8 @@
                     "distribution": "Uniform",
                     "values": {
                         "lower": 90.0,
-                        "upper": 95.0
+                        "upper": 95.0,
+                        "midpoint": 92.5
                     },
                     "info": null
                 },
@@ -382,7 +410,8 @@
                     "distribution": "Uniform",
                     "values": {
                         "lower": 50.0,
-                        "upper": 95.0
+                        "upper": 95.0,
+                        "midpoint": 72.5
                     },
                     "info": null
                 },
@@ -393,7 +422,8 @@
                     "distribution": "Uniform",
                     "values": {
                         "lower": 68.5,
-                        "upper": 137.0
+                        "upper": 137.0,
+                        "midpoint": 102.75
                     },
                     "info": null
                 },
@@ -404,7 +434,8 @@
                     "distribution": "Uniform",
                     "values": {
                         "lower": 0.951,
-                        "upper": 1.902
+                        "upper": 1.902,
+                        "midpoint": 1.4264999999999999
                     },
                     "info": null
                 },
@@ -415,7 +446,8 @@
                     "distribution": "Uniform",
                     "values": {
                         "lower": 7.5,
-                        "upper": 12.5
+                        "upper": 12.5,
+                        "midpoint": 10.0
                     },
                     "info": null
                 },
@@ -426,7 +458,8 @@
                     "distribution": "Uniform",
                     "values": {
                         "lower": 7.5,
-                        "upper": 12.5
+                        "upper": 12.5,
+                        "midpoint": 10.0
                     },
                     "info": null
                 },
@@ -437,7 +470,8 @@
                     "distribution": "Uniform",
                     "values": {
                         "lower": 7.5,
-                        "upper": 12.5
+                        "upper": 12.5,
+                        "midpoint": 10.0
                     },
                     "info": null
                 },
@@ -448,7 +482,8 @@
                     "distribution": "Uniform",
                     "values": {
                         "lower": 7.5,
-                        "upper": 12.5
+                        "upper": 12.5,
+                        "midpoint": 10.0
                     },
                     "info": null
                 },
@@ -459,7 +494,8 @@
                     "distribution": "Uniform",
                     "values": {
                         "lower": 5.0,
-                        "upper": 15.0
+                        "upper": 15.0,
+                        "midpoint": 10.0
                     },
                     "info": null
                 },
@@ -470,7 +506,8 @@
                     "distribution": "Uniform",
                     "values": {
                         "lower": -3.0,
-                        "upper": 0.0
+                        "upper": 0.0,
+                        "midpoint": -1.5
                     },
                     "info": null
                 },
@@ -481,7 +518,8 @@
                     "distribution": "Uniform",
                     "values": {
                         "lower": 17.25,
-                        "upper": 28.75
+                        "upper": 28.75,
+                        "midpoint": 23.0
                     },
                     "info": null
                 },
@@ -492,7 +530,8 @@
                     "distribution": "Uniform",
                     "values": {
                         "lower": 0.0316548,
-                        "upper": 0.0386892
+                        "upper": 0.0386892,
+                        "midpoint": 0.035171999999999995
                     },
                     "info": null
                 },
@@ -503,7 +542,8 @@
                     "distribution": "Uniform",
                     "values": {
                         "lower": 0.405,
-                        "upper": 0.49500000000000005
+                        "upper": 0.49500000000000005,
+                        "midpoint": 0.45000000000000007
                     },
                     "info": null
                 },
@@ -514,7 +554,8 @@
                     "distribution": "Uniform",
                     "values": {
                         "lower": 1.50102,
-                        "upper": 1.83458
+                        "upper": 1.83458,
+                        "midpoint": 1.6678000000000002
                     },
                     "info": null
                 },
@@ -525,7 +566,8 @@
                     "distribution": "Uniform",
                     "values": {
                         "lower": 0.14526000000000003,
-                        "upper": 0.17754000000000003
+                        "upper": 0.17754000000000003,
+                        "midpoint": 0.16140000000000004
                     },
                     "info": null
                 },
@@ -536,7 +578,8 @@
                     "distribution": "Uniform",
                     "values": {
                         "lower": 0.29700000000000004,
-                        "upper": 0.36300000000000004
+                        "upper": 0.36300000000000004,
+                        "midpoint": 0.33000000000000007
                     },
                     "info": null
                 }
