@@ -8,8 +8,8 @@
 
 <!--- Info header --->
     <a ref="startExplore">
-    <div  class="h-80 flex justify-center items-center">
-      <atom-home-card-banner class="h-full w-full flex justify-center items-center"></atom-home-card-banner>
+    <div  class="flex justify-center items-center">
+      <atom-home-card-banner class=""></atom-home-card-banner>
     </div>
     </a>
 <!-- Info cards -->
@@ -48,7 +48,7 @@
     </div>
 
 <!-- Footer -->
-    <atom-footer class="h-40 flex justify-center items-center bg-clightblue"></atom-footer>
+    <atom-footer class=""></atom-footer>
   </div>
 </template>
 

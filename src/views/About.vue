@@ -1,19 +1,19 @@
 <template>
   <div>
 <!-- Top Banner -->
-    <div class="banner relative bg-cdarkgreenblue justify-center items-center">
+    <div class="banner relative justify-center items-center bg-gray-200">
       <atom-about-banner></atom-about-banner>
 
     </div>
 
 <!-- Info cards -->
-    <div class="info bg-gray-200 flex justify-center items-center" >
+    <div class="info bg-gray-200 flex justify-center items-center " >
       <organism-about-cards :cards="cards" class="w-5/6"></organism-about-cards> 
     </div>
 
 <!-- App footer -->
     <div>
-      <atom-footer class="h-40 flex justify-center items-center bg-clightblue"></atom-footer>
+      <atom-footer class=""></atom-footer>
     </div>
   </div>
 
@@ -62,9 +62,9 @@ export default {
   data() {
     return{
       cards: [
-        {title: 'BioSTEAM Ecosystem', logo: 'logo-BioSTEAM.svg', button: 'See Article', link: 'https://pubs.acs.org/doi/10.1021/acssuschemeng.9b07040', description: 'asdfghujkl;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea '},
-        {title: 'Guest Research Group', logo: 'logo-guest-group.png', button: 'Visit Site', link: 'http://engineeringforsustainability.com/', description: 'The Guest Research Group at the University of Illinois at Urbana-Champaign specializes in the development of sustainable infrastructure. We are in the Sustainability Theme of CABBI and we leverage the BioSTEAM platform for techno-economic analysis (TEA) and life cycle assessment (LCA) to chart innovation pathways for sustainable biofuels and bioproducts.'},
-        {title: 'CABBI', logo: 'logo-CABBI.png', button: 'Visit Site', link: 'https://cabbi.bio/research/sustainability-theme/', description: 'The Center for Advanced Bioenergy and Bioproducts Innovation (CABBI) is a U.S. Department of Energy-funded Bioenergy Research Center led by the University of Illinois at Urbana-Champaign. CABBI integrates recent advances in agronomics, genomics, biosystems design, and computational biology to increase the value of energy crops, using a “plants as factories” approach to grow fuels and chemicals in plant stems and an automated foundry to convert biomass into valuable chemicals that are ecologically and economically sustainable.'},
+        {title: 'BioSTEAM Ecosystem', logo: 'logo-BioSTEAM.svg', button: 'Visit BioSTEAM Development Group', link: 'http://github.com/bioSTEAMDevelopmentGroup/', description: 'asdfghujkl;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea '},
+        {title: 'Guest Research Group', logo: 'logo-guest-group.png', button: 'Visit Guest Research Group', link: 'http://engineeringforsustainability.com/', description: 'The Guest Research Group at the University of Illinois at Urbana-Champaign specializes in the development of sustainable infrastructure. We are in the Sustainability Theme of CABBI and we leverage the BioSTEAM platform for techno-economic analysis (TEA) and life cycle assessment (LCA) to chart innovation pathways for sustainable biofuels and bioproducts.'},
+        {title: 'CABBI', logo: 'logo-CABBI.png', button: 'Visit CABBI', link: 'https://cabbi.bio', description: 'The Center for Advanced Bioenergy and Bioproducts Innovation (CABBI) is a U.S. Department of Energy-funded Bioenergy Research Center led by the University of Illinois at Urbana-Champaign. CABBI integrates recent advances in agronomics, genomics, biosystems design, and computational biology to increase the value of energy crops, using a “plants as factories” approach to grow fuels and chemicals in plant stems and an automated foundry to convert biomass into valuable chemicals that are ecologically and economically sustainable.'},
         // {title: 'On GitHub', logo: 'logo-github.svg', button: 'Go to GitHub', link: 'https://github.com/BioSTEAMDevelopmentGroup', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea '},
       ]
     }
@@ -106,7 +106,7 @@ img.banner-image{
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: rgba(255, 255, 255, 0.9);
+  //background-color: rgba(255, 255, 255, 0.9);
   border-radius: 10px;
   box-shadow: $shadow;
   padding: 40px;
