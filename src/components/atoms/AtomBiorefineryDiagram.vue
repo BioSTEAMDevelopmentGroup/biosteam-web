@@ -1,6 +1,6 @@
 <!--TODO decouple biorefinery diagram-->
 <template>
-    <div class="w-5/6 py-6">
+    <div class="w-5/6 pt-6">
         <div :class="{
                 'default': simulation=='default',
                 'single-point': simulation=='single-point',
