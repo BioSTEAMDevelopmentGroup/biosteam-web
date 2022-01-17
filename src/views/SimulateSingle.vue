@@ -34,13 +34,13 @@
       </template>
 
       <!-- Main content view -->
-      <template #mainContent>
+      <template v-if="selectedBiorefinery!=='Select a biorefinery'" #mainContent>
         <div v-if="loading" class="absolute z-100 top-0 left-0 bg-opacity-50 w-full h-full">
           <atom-loading-screen simulation="single-point"></atom-loading-screen>
         </div>
         <atom-display-job-number v-if="jobId" :jobId="jobId" simulation="single-point"></atom-display-job-number>
         <atom-biorefinery-diagram :biorefinery="selectedBiorefinery" simulation="single-point"></atom-biorefinery-diagram>
-        <atom-simulate-single-table :metrics="metrics"></atom-simulate-single-table>
+        <atom-simulate-single-table :metrics="parameters[selectedBiorefinery][0].metrics"></atom-simulate-single-table>
       </template>
     </atom-simulate-layout>    
   </div>
@@ -96,8 +96,9 @@
 
 <script>
 //data imports 
-import singleTable from '@/assets/simulation/singleTable.json';
-import singleParameters from '@/assets/simulation/singleParameters.json';
+// import singleTable from '@/assets/simulation/singleTable.json';
+// import singleParameters from '@/assets/simulation/singleParameters.json';
+import refineries from '@/assets/simulation/refineries.json';
 
 //component imports 
 import AtomSimulateLayout from '@/components/atoms/AtomSimulateLayout.vue';
@@ -142,8 +143,8 @@ export default {
     return {
       selectedSimulate: 'Single point simulation',
       selectedBiorefinery: 'Select a biorefinery',     
-      metrics: singleTable.cornstoverMetrics,
-      parameters: singleParameters,
+      // metrics: refineries[this.selectedBiorefinery][0].metrics,
+      parameters: refineries,
       errors: [],
       loading: false,
       jobId: null,
