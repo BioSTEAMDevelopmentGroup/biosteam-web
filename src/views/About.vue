@@ -1,13 +1,13 @@
 <template>
   <div>
 <!-- Top Banner -->
-    <div class="banner relative bg-cdarkgreenblue justify-center items-center">
+    <div class="banner relative justify-center items-center bg-gray-200">
       <atom-about-banner></atom-about-banner>
 
     </div>
 
 <!-- Info cards -->
-    <div class="info bg-gray-200 flex justify-center items-center" >
+    <div class="info bg-gray-200 flex justify-center items-center " >
       <organism-about-cards :cards="cards" class="w-5/6"></organism-about-cards> 
     </div>
 
@@ -106,7 +106,7 @@ img.banner-image{
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: rgba(255, 255, 255, 0.9);
+  //background-color: rgba(255, 255, 255, 0.9);
   border-radius: 10px;
   box-shadow: $shadow;
   padding: 40px;
