@@ -600,23 +600,5 @@
                 "Crude glycerol GWP, energy allocation [kg*CO2*eq / gal]"
             ]
         }
-    ],
-    "TESTING": [
-        {
-            "diagram": "cornstover_flowsheet.png",
-            "parameters": [
-                {
-                    "name": "TEST param",
-                    "units": "kg*CO2-eq/kg",
-                    "checked": false,
-                    "distribution": "Uniform",
-                    "values": {
-                        "lower": 0.29700000000000004,
-                        "upper": 0.36300000000000004
-                    },
-                    "info": null
-                }
-            ]
-        }
     ]
 }

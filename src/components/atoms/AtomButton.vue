@@ -8,9 +8,6 @@
     <button v-else class="rounded-full text-lg py-2 px-4" @click="toRoute(link)">
           <slot>Default Button</slot>
     </button>
-    <button v-else class="rounded-full text-lg py-2 px-4" @click="$emit('click')">
-      <slot>Default Button</slot>
-    </button>
 </template>
 
 <script>
