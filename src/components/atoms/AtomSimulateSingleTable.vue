@@ -15,14 +15,14 @@
                     <tr class="border-gray-300 border">
                         <th>Metric</th>
                         <th>Value</th>
-                        <th>Units</th>
+<!--                        <th>Units</th>-->
                     </tr>
                 </thead>
                 <tbody>
                     <tr v-for="metric in metrics" :key="metric.name">
-                        <td>{{metric.name}}</td>
+                        <td>{{metric}}</td>
                         <td class="text-center">{{metric.computedValue}}</td>
-                        <td class="text-center">{{metric.units}}</td>
+<!--                        <td class="text-center">{{metric.units}}</td>-->
                     </tr>
                 </tbody>
             </table>
