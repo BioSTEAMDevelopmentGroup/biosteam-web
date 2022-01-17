@@ -13,7 +13,7 @@
 
 <!-- App footer -->
     <div>
-      <atom-footer class="h-40 flex justify-center items-center bg-clightblue"></atom-footer>
+      <atom-footer class=""></atom-footer>
     </div>
   </div>
 
