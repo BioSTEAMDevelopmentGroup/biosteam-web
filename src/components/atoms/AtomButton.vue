@@ -2,6 +2,9 @@
     <button v-if="type == 'scroll'" class="rounded-full text-lg py-2 px-4" @click="scrollto(element)">
       <slot>Default Button</slot>
     </button>
+  <a v-else-if="type == 'hyper'" class="rounded-full text-lg py-2 px-4" @click="toHyper()">
+      <slot>Default Button</slot>
+  </a>
     <button v-else class="rounded-full text-lg py-2 px-4" @click="toRoute(link)">
           <slot>Default Button</slot>
     </button>
@@ -28,6 +31,9 @@ export default {
         var top = el.offsetTop;
         window.scrollTo({left: 0, top: top, behavior: 'smooth'});
         // element.
+      },
+      toHyper() {
+        window.open(this.link, '_blank')
       }
     }
 
