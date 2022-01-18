@@ -10,7 +10,7 @@
         </div>
         <plotly class="plot" :data="plotData" :layout="layout" :displayModeBar="false"/>
         <div class="pt-4" style="width: 400px;">
-            <atom-button @click="exportData()" class="w-full bg-gray-300 hover:bg-opacity-100 text-cfontgrey text-lg">Export Data</atom-button>
+            <atom-button :type="'parentDef'" @click="exportData()" class="w-full bg-gray-300 hover:bg-opacity-100 text-cfontgrey text-lg">Export Data</atom-button>
         </div>
     </div>
 </template>
@@ -96,16 +96,32 @@ export default {
             // console.log(this.boxplot['Maximum feedstock purchase price [USD/ton]'])
             // console.log('here')
             let rows = []
+            console.log(this.boxplot)
+
             for (let key in this.boxplot) {
+              console.log(key)
               let row = []
               row.push("\"" + key + "\"")
               for (let idx in this.boxplot[key]) {
+                console.log(idx)
+                console.log(this.boxplot[key][idx])
                 row.push(this.boxplot[key][idx])
               }
               rows.push(row)
             }
+            console.log(rows)
+            let columns = []
+            for (let i = 0; i < rows[0].length; i ++) {
+              let column = []
+              for (let j = 0; j < rows.length; j ++) {
+                column.push(rows[j][i])
+              }
+              columns.push(column)
+            }
             let csvContent = "data:text/csv;charset=utf-8,"
-                + rows.map(e => e.join(",")).join("\n");
+                + columns.map(e => e.join(",")).join("\n");
+
+
 
             var encodedUri = encodeURI(csvContent);
             var link = document.createElement("a");

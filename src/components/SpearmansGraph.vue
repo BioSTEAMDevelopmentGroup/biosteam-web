@@ -8,7 +8,7 @@
           class="dropdown">
       </atom-dropdown>
       <div class="w-1/4 pl-4">
-        <atom-button @click="exportData()" class="w-full bg-gray-300 hover:bg-opacity-100 text-cfontgrey text-lg">Export
+        <atom-button :type="'parentDef'" @click="exportData()" class="w-full bg-gray-300 hover:bg-opacity-100 text-cfontgrey text-lg">Export
           Data
         </atom-button>
       </div>
