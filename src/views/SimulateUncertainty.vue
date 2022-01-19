@@ -42,7 +42,7 @@
         <atom-display-job-number @click="runGetResults()" :jobId="jobId" :jobHasFinished="gatewayStatus" simulation="uncertainty"></atom-display-job-number>
 <!--        <atom-display-job-number @click="runGetResults()" v-if="jobId" :jobId="jobId" :jobHasFinished="gatewayStatus" simulation="uncertainty"></atom-display-job-number>-->
         <atom-checked-parameters :checked="checkedParameters" :sampleNumber="sampleNumber" :biorefinery="selectedBiorefinery"></atom-checked-parameters>
-        <atom-input-job-i-d @setJobId="setJobId"></atom-input-job-i-d>
+        <atom-input-job-i-d @setJobId="setJobId" simulation="single-point"></atom-input-job-i-d>
         <atom-biorefinery-diagram v-if="selectedBiorefinery == 'Select a biorefinery'" :diagram="'Select a biorefinery'" simulation="uncertainty"></atom-biorefinery-diagram>
         <atom-biorefinery-diagram v-else :diagram="parameters[selectedBiorefinery].diagram" simulation="uncertainty"></atom-biorefinery-diagram>
 <!--        <div v-if="biosteamResults!=null">-->

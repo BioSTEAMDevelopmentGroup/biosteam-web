@@ -1,5 +1,5 @@
 <template>
-    <div class="w-5/6 pb-10">
+    <div class="w-5/6 pb-10 pt-10">
         <div class="flex flex-col justify-center items-center bg-gray-100 border-2 border-cdarkgreenblue">
             <div class="w-full flex justify-between items-center px-10 py-2 bg-gray-300">
                 <span></span>
@@ -19,9 +19,10 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr v-for="metric in metrics" :key="metric.name">
-                        <td>{{metric}}</td>
-                        <td class="text-center">{{metric.computedValue}}</td>
+                    <tr v-for="(metric, key) in results" :key="metric.name">
+                        <td v-if="results == null">Load a simulation</td>
+                        <td>{{key}}</td>
+                        <td class="text-center">{{metric}}</td>
 <!--                        <td class="text-center">{{metric.units}}</td>-->
                     </tr>
                 </tbody>
@@ -33,7 +34,7 @@
 <script>
 export default {
     name: 'AtomSimulateSingleTable',
-    props: ['metrics']
+    props: ['metrics', 'results']
 }
 </script>
 
