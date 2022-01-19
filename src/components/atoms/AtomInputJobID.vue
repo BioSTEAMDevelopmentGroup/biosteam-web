@@ -1,6 +1,6 @@
 <template>
   <div class="w-5/6 pt-6">
-    <div class="rounded-md p-6 bg-opacity-60 bg-corange">
+    <div class="rounded-md p-6 bg-opacity-60" :class="{'bg-cdarkgreenblue': simulation == 'single-point', 'bg-corange': simulation == 'uncertainty'}">
       <h1 class="text-2xl text-cdark">Load simulation by ID:</h1>
       <p class="text-cfontgrey pb-2">Example: 55cb9e41-84a2-4752-9753-b45fc24eab9a</p>
       <div class="flex w-full justify-between ">
@@ -20,7 +20,7 @@ import AtomButton from "@/components/atoms/AtomButton";
 
 export default {
   name: "AtomInputJobID",
-  props: ['jobId'],
+  props: ['jobId', 'simulation'],
   components: {
     AtomButton,
   },
