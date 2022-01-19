@@ -7,7 +7,7 @@
                 <font-awesome-icon
                     size="lg"
                     icon="download"
-                    style="color: #707070; float: right; cursor: pointer;"
+                    style="color: #707070; float: right; cursor: pointer;" @click="exportData()"
                 />
             </div>
             <table class="table-auto border-collapse w-full text-lg">
@@ -34,7 +34,35 @@
 <script>
 export default {
     name: 'AtomSimulateSingleTable',
-    props: ['metrics', 'results']
+    props: ['metrics', 'results'],
+    methods: {
+      exportData() {
+        if (this.results !== null) {
+          // console.log(this.boxplot['Maximum feedstock purchase price [USD/ton]'])
+          // console.log('here')
+          let results = []
+          let keys = []
+          let values = []
+          for (let key in this.results) {
+            keys.push("\"" + key + "\"")
+            values.push(this.results[key])
+          }
+          results.push(keys)
+          results.push(values)
+          let csvContent = "data:text/csv;charset=utf-8,"
+              + results.map(e => e.join(",")).join("\n");
+
+
+
+          var encodedUri = encodeURI(csvContent);
+          var link = document.createElement("a");
+          link.setAttribute("href", encodedUri);
+          link.setAttribute("download", "single_point_results.csv");
+          document.body.appendChild(link); // Required for FF
+          link.click()
+        }
+      },
+    }
 }
 </script>
 
