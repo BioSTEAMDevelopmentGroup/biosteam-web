@@ -21,6 +21,7 @@ export default {
         {name: 'Home', link: '/'},
         {name: 'About', link: '/resources'},
         {name: 'Docs', link: '/docs'},
+        {name: 'Publications', link: '/pubs'},
         {name: 'Simulate', link: '/simulate'},
       ],
       navToggle: false,
