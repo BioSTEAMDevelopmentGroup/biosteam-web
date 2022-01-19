@@ -19,8 +19,8 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <tr class="text-center" v-if="results == null">Run or load simulation</tr>
                     <tr v-for="(metric, key) in results" :key="metric.name">
-                        <td v-if="results == null">Load a simulation</td>
                         <td>{{key}}</td>
                         <td class="text-center">{{metric}}</td>
 <!--                        <td class="text-center">{{metric.units}}</td>-->
