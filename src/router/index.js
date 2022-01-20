@@ -6,7 +6,6 @@ import SimulateSingle from '../views/SimulateSingle.vue'
 import SimulateUncertainty from '../views/SimulateUncertainty.vue'
 import Resources from '../views/About.vue'
 import Docs from '../views/Docs.vue'
-import Publications from "@/views/Publications";
 
 Vue.use(VueRouter)
 
@@ -46,11 +45,6 @@ Vue.use(VueRouter)
     name: 'Docs',
     component: Docs
   },
-    {
-      path: '/pubs',
-      name: 'Publications',
-      component: Publications
-    },
 
 ]
 
