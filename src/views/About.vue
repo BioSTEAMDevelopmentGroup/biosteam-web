@@ -1,7 +1,7 @@
 <template>
   <div>
 <!-- Top Banner -->
-    <div class="banner relative justify-center items-center bg-gray-200">
+    <div class="banner relative justify-center items-center">
       <atom-about-banner></atom-about-banner>
 
     </div>

@@ -29,5 +29,7 @@ export default {
   background-image: url(../../assets/resources/about-banner.svg);
   background-size: cover;
   background-repeat: no-repeat;
+  --tw-bg-opacity: 1;
+  background-color: rgba(229, 231, 235, var(--tw-bg-opacity));
 }
 </style>
