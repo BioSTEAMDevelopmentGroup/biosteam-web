@@ -51,7 +51,7 @@
 import AtomPubsBanner from "@/components/atoms/AtomPubsBanner.vue";
 //import OrganismAboutCards from "@/components/organisms/OrganismAboutCards.vue";
 import AtomFooter from "@/components/atoms/AtomFooter.vue";
-import PubsCard from "@/components/PubsCard";
+import PubsCard from "@/components/atoms/AtomPubsCard";
 
 export default {
   name: 'About',

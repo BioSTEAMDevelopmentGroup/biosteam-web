@@ -14,7 +14,7 @@
 
 <script>
 //import Pubs from '@/components/molecules/MoleculeAboutCard.vue';
-import PubsSecondCard from "@/components/atoms/Pubs 2Card";
+import PubsSecondCard from "@/components/atoms/Pubs2Card";
 
 export default {
   name: 'PubsCard',
