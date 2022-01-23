@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-wrap items-stretch ">
     <div class="  p-4" v-for="card in cards" :key="card.title">
-      <pubs-second-card :logo="card.logo" :journal="card.journal" :link="card.link1" class="h-full">
+      <pubs-second-card :logo="card.logo" :journal="card.journal" :link1="card.link1" :link2="card.link2" class="h-full">
         <template #title>{{card.title}}</template>
         <template #description>{{card.description}}</template>
         <template #button1>{{card.button1}}</template>
