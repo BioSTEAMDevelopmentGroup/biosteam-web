@@ -5,7 +5,7 @@
       <div class="w-full flex justify-bottom-left-end inset-x-0 py-2 px-6">
         <img class="shadow-xl full bg-gray-100 border-4 border-gray-400 h-40 w-80 p-1" :src="require('@/assets/resources/' + logo + '')" alt="card logo"><slot name = "logo"></slot>
         <div class="flex flex-col justify-top-left  py-5 px-7">
-          <p class=" p-8"><slot name="description">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eos omnis, nostrum explicabo temporibus est in deleniti laudantium asperiores porro sequi.</slot></p>
+          <p class=" p-8"><slot name="description">Lorem, ipsum dolois, nostrum explicabo temporibus est in deleniti laudantium asperiores porro sequi.</slot></p>
           <div class="w-full flex justify-middle-left-end inset-x-0 py-2 px-6">
             <img class="shadow-xl full bg-gray-100 border-4 border-gray-400 h-20 w-40 p-1" :src="require('@/assets/resources/' + journal + '')" alt="card journal"><slot name= "journal"></slot>
             <div class="flex flex-col justify-right extreme py-2 px-10">

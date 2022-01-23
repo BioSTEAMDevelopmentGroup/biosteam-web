@@ -17,7 +17,7 @@
                     'bg-cdarkgreenblue': simulation=='single-point',
                     'bg-corange': simulation=='uncertainty'}"
                 class="text-cdark text-xl h-10 flex justify-center items-center">
-                Input Paramters
+                Input Parameters
             </h1>
 
             <!-- Sidebar content -->

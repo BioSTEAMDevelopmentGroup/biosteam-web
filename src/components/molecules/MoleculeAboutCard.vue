@@ -9,7 +9,7 @@
         <div class="flex flex-col justify-between  py-5 px-7">
             <p class=" p-5"><slot name="description">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eos omnis, nostrum explicabo temporibus est in deleniti laudantium asperiores porro sequi.</slot></p>
             <div class="flex justify-center w-full">
-                <atom-button @click="toLink()" class="text-xl w-3/5 bg-gray-400 text-cdark shadow-md hover:shadow-lg"><slot name="button">Visit Link</slot></atom-button>
+                <atom-button @click="toLink()" :type="'parentDef'" class="text-xl w-3/5 bg-gray-400 text-cdark shadow-md hover:shadow-lg"><slot name="button">Visit Link</slot></atom-button>
             </div>
         </div>
     </div>

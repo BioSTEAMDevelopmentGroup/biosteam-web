@@ -20,8 +20,8 @@ export default {
       items: [
         {name: 'Home', link: '/'},
         {name: 'About', link: '/resources'},
+        {name: 'Publications', link: '/publications'},
         {name: 'Docs', link: '/docs'},
-        {name: 'Publications', link: '/pubs'},
         {name: 'Simulate', link: '/simulate'},
       ],
       navToggle: false,

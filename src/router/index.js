@@ -47,7 +47,7 @@ Vue.use(VueRouter)
     component: Docs
   },
     {
-      path: '/pubs',
+      path: '/publications',
       name: 'Publications',
       component: Publications
     },

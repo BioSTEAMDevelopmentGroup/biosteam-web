@@ -16,33 +16,35 @@
         </div>
 
         <div v-else class="w-full">
-          <organism-single-parameter-form v-model="parameters[selectedBiorefinery][0].parameters" :parameters="parameters[selectedBiorefinery][0].parameters"></organism-single-parameter-form>
+          <organism-single-parameter-form v-model="parameters[selectedBiorefinery].parameters" :parameters="parameters[selectedBiorefinery].parameters"></organism-single-parameter-form>
         </div>
 
         <atom-form-error :errors="['parameter errors here']"></atom-form-error>
-        <atom-button @click="simLoading(parameters)" class="w-full bg-cdarkgreenblue bg-opacity-70 hover:bg-opacity-100 text-white text-lg">Run simulation</atom-button>
+        <atom-button :type="'parentDef'" @click="runSimulation()" class="w-full bg-cdarkgreenblue bg-opacity-70 hover:bg-opacity-100 text-white text-lg">Run simulation</atom-button>
       </template>
 
       <!-- Simulation nav -->
       <template #simulationNav>
         <molecule-dropdown-nav class="w-full h-10 bg-gray-300"
-          @select-simulate="(newSimulate)=>{selectedSimulate = newSimulate}" 
+          @select-simulate="(newSimulate)=>{selectedSimulate = newSimulate}"
           @select-biorefinery="(newBiorefinery)=>{selectedBiorefinery = newBiorefinery}"
-          :selectedSimulate="selectedSimulate" 
+          :selectedSimulate="selectedSimulate"
           :selectedBiorefinery="selectedBiorefinery">
-        </molecule-dropdown-nav>        
+        </molecule-dropdown-nav>
       </template>
 
       <!-- Main content view -->
-      <template #mainContent>
+      <template v-if="selectedBiorefinery!=='Select a biorefinery'" #mainContent>
+        <atom-display-job-number @click="runGetResults()" :jobId="jobId" :jobHasFinished="gatewayStatus" simulation="single-point"></atom-display-job-number>
+        <atom-input-job-i-d @setJobId="setJobId" simulation="single-point"></atom-input-job-i-d>
         <div v-if="loading" class="absolute z-100 top-0 left-0 bg-opacity-50 w-full h-full">
           <atom-loading-screen simulation="single-point"></atom-loading-screen>
         </div>
-        <atom-display-job-number v-if="jobId" :jobId="jobId" simulation="single-point"></atom-display-job-number>
+<!--        <atom-display-job-number v-if="jobId" :jobId="jobId" simulation="single-point"></atom-display-job-number>-->
         <atom-biorefinery-diagram :biorefinery="selectedBiorefinery" simulation="single-point"></atom-biorefinery-diagram>
-        <atom-simulate-single-table :metrics="metrics"></atom-simulate-single-table>
+        <atom-simulate-single-table :metrics="parameters[selectedBiorefinery].metrics" :results="results"></atom-simulate-single-table>
       </template>
-    </atom-simulate-layout>    
+    </atom-simulate-layout>
   </div>
   <!-- <div class="simulate-single">
     <div class="dropdown-bar">
@@ -54,7 +56,7 @@
         >
       </simulate-dropdown-bar>
     </div> -->
-<!---simulate area ---> 
+<!---simulate area --->
     <!-- <div class="simulate-box">
       <simulate-box type="single">
         <template #sidebar>
@@ -68,36 +70,37 @@
                 <template #name>{{parameter.name}}</template>
                 <template #info>{{parameter.info}}</template>
               </single-parameter>
-            </div>            
+            </div>
           </div>
           <div class="run">
             <app-button class="run-button" type="run-single" @click="runSimulation()">Run simulation</app-button>
-          </div>       
+          </div>
         </template>
         <template #main-content>
           <div class="content-container">
             <div class="biorefinery-info-container">
               <biorefinery-diagram :biorefinery="selectedBiorefinery"></biorefinery-diagram>
-            </div>             
+            </div>
             <div class="table-container">
               <simulate-single-table :parameters="parameters"></simulate-single-table>
-            </div>            
-          </div>         
+            </div>
+          </div>
         </template>
       </simulate-box>
     </div>  -->
 
-<!---simulate info ---> 
+<!---simulate info --->
     <!-- <div class="simulate-info">
       <simulate-info></simulate-info>
-    </div> 
+    </div>
   </div> -->
 </template>
 
 <script>
 //data imports 
-import singleTable from '@/assets/simulation/singleTable.json';
-import singleParameters from '@/assets/simulation/singleParameters.json';
+// import singleTable from '@/assets/simulation/singleTable.json';
+// import singleParameters from '@/assets/simulation/singleParameters.json';
+import refineries from '@/assets/simulation/refineries.json';
 
 //component imports 
 import AtomSimulateLayout from '@/components/atoms/AtomSimulateLayout.vue';
@@ -108,6 +111,7 @@ import AtomLoadingScreen from "@/components/atoms/AtomLoadingScreen.vue";
 import AtomDisplayJobNumber from "@/components/atoms/AtomDisplayJobNumber.vue";
 import MoleculeDropdownNav from '@/components/molecules/MoleculeDropdownNav.vue';
 import OrganismSingleParameterForm from '@/components/organisms/OrganismSingleParameterForm.vue';
+import AtomInputJobID from "@/components/atoms/AtomInputJobID";
 
 // import SimulateDropdownBar from "@/components/SimulateDropdownBar.vue";
 // import SimulateBox from "@/components/SimulateBox.vue";
@@ -115,6 +119,7 @@ import OrganismSingleParameterForm from '@/components/organisms/OrganismSinglePa
 // import SimulateInfo from "@/components/SimulateInfo.vue";
 // import AppButton from "@/components/AppButton.vue";
 import AtomBiorefineryDiagram from "@/components/atoms/AtomBiorefineryDiagram.vue";
+import axios from "axios";
 // //import LipidcaneDiagram from "@/components/LipidcaneDiagram.vue";
 // import SimulateSingleTable from "@/components/SimulateSingleTable.vue";
 
@@ -137,17 +142,48 @@ export default {
     AtomBiorefineryDiagram,
     // //LipidcaneDiagram,
     // SimulateSingleTable,
+    AtomInputJobID,
   },
   data() {
     return {
       selectedSimulate: 'Single point simulation',
-      selectedBiorefinery: 'Select a biorefinery',     
-      metrics: singleTable.cornstoverMetrics,
-      parameters: singleParameters,
+      selectedBiorefinery: 'Select a biorefinery',
+      // metrics: refineries[this.selectedBiorefinery][0].metrics,
+      sampleNumber: 1,
+      parameters: refineries,
       errors: [],
       loading: false,
       jobId: null,
+      jobTimestamp: null,
+      gatewayStatus: null,
+      biosteamDbResults: null,
+      configHeaders: {
+        "content-type": "application/json",
+        "Accept": "application/json, access-control-allow-origin",
+      },
+      results: null,
     }
+  },
+  computed: {
+    checkedParameters: function() {
+      let list = []
+      // if(this.selectedBiorefinery == 'Cornstover') {
+      //   for(let i=0; i<this.parameters.cornstoverParameters.length; i++) {
+      //     if(this.parameters.cornstoverParameters[i].checked == true) {
+      //       list.push(this.parameters.cornstoverParameters[i])
+      //     }
+      //   }
+      // }
+
+      if(this.selectedBiorefinery != 'Select a biorefinery') {
+        for(let i=0; i<this.parameters[this.selectedBiorefinery].parameters.length; i++) {
+          if(this.parameters[this.selectedBiorefinery].parameters[i].checked == true) {
+            list.push(this.parameters[this.selectedBiorefinery].parameters[i])
+          }
+        }
+      }
+      return list;
+    },
   },
   // computed: {
   //   errorList() {
@@ -155,6 +191,11 @@ export default {
   //   }
   // },
   methods: {
+    setJobId(value) {
+      this.jobId = value
+      this.gatewayStatus = null
+      console.log(this.jobId)
+    },
     simLoading() {
       this.loading = true;
       setTimeout(()=>{this.formCheck()}, 3000);
@@ -183,12 +224,83 @@ export default {
     //   }
     // },
 
-    // runSimulation() { 
+    // runSimulation() {
     //   for(let i=0; i<this.parameters.length; i++) {
     //     this.parameters[i].computedValue = this.parameters[i].value + (Math.random()*100)
     //   }
-    }
-  },
+    },
+
+    runSimulation() {
+      this.gatewayStatus = null
+      console.log("here");
+      //set loading visuals
+      this.loading = true;
+      //set axios configs
+      let payload = {
+        model: this.selectedBiorefinery,
+        params: this.checkedParameters,
+        samples: this.sampleNumber,
+        sim_type: "single",
+      };
+      console.log(payload);
+      //call biosteamHelper lambda with payload
+      axios({
+        url: "https://g8hun528wd.execute-api.us-west-1.amazonaws.com/default/biosteamHelper",
+        method: "post",
+        data: payload,
+        headers: this.configHeaders
+      })
+          //accept and parse incoming jobId and jobTimestamp
+          .then(response => {
+            let biosteamHelperResults = JSON.parse(response.data.body);
+            this.jobId = biosteamHelperResults.jobId;
+            this.jobTimestamp = biosteamHelperResults.jobTimestamp;
+          }).catch((error) => {
+        console.log(error);
+      }).finally(() => {
+        this.loading =  false
+      });
+    },
+
+    runGetResults() {
+      //set axios configs
+      let payload = {
+        // jobId: 'd83a9520-9956-4221-a3ef-4f53f35e4d97' //cornstover
+        // jobId: '55cb9e41-84a2-4752-9753-b45fc24eab9a' //oilcane spearman
+        jobId: this.jobId
+      };
+      // const configHeaders = {
+      //   "Access-Control-Allow-Methods": "POST, GET, OPTIONS, PUT, DELETE",
+      //   "Access-Control-ALlow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token'",
+      // };
+      console.log(payload);
+      //call lambda with payload
+      axios({
+        url: "https://g8hun528wd.execute-api.us-west-1.amazonaws.com/default/biosteamGetter", // update 11-9-2021 this is the correct URL - jenndebellis
+        method: "post",
+        data: payload,
+        headers: this.configHeaders
+      })
+
+          //accept and parse incoming data
+          .then(response=>{
+            console.log(response);
+            let singlePointResults = JSON.parse(response.data.body);
+            let gateway = JSON.parse(response.data.body);
+            this.gatewayStatus = gateway.item;
+            this.biosteamDbResults = singlePointResults;
+            this.results = JSON.parse(singlePointResults.item.singleResults.S);
+            console.log(this.results)
+            // console.log(this.biosteamSpearmanResults)
+
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
+    },
+
+  }
+
 }
 </script>
 

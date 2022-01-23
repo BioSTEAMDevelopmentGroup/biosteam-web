@@ -16,11 +16,11 @@
         </div>
 
         <div v-else class="w-full">
-          <organism-uncertainty-parameter-form v-model="parameters[selectedBiorefinery][0].parameters" :parameters="parameters[selectedBiorefinery][0].parameters"></organism-uncertainty-parameter-form>
+          <organism-uncertainty-parameter-form v-model="parameters[selectedBiorefinery].parameters" :parameters="parameters[selectedBiorefinery].parameters"></organism-uncertainty-parameter-form>
         </div>
 
         <atom-set-samples v-model.number="sampleNumber" :sampleNumber="sampleNumber"></atom-set-samples>
-        <atom-button @click="runSimulation()" class="w-full bg-corange bg-opacity-70 hover:bg-opacity-100 text-white text-lg">Run simulation</atom-button>
+        <atom-button :type="'parentDef'" @click="runSimulation()" class="w-full bg-corange bg-opacity-70 hover:bg-opacity-100 text-white text-lg">Run simulation</atom-button>
 <!--        <atom-button @click="runSimulation()" class="w-full bg-corange bg-opacity-70 hover:bg-opacity-100 text-white text-lg" :disabled="selectedBiorefinery == 'Select a biorefinery'">Run simulation</atom-button>-->
       </template>
 
@@ -39,20 +39,22 @@
         <div v-if="loading" class="absolute z-100 top-0 left-0 bg-opacity-50 w-full h-full">
           <atom-loading-screen simulation="uncertainty"></atom-loading-screen>
         </div>
-        <atom-display-job-number @click="runGetResults()" v-if="jobId" :jobId="jobId" :jobHasFinished="gatewayStatus" simulation="uncertainty"></atom-display-job-number>
+        <atom-display-job-number @click="runGetResults()" :jobId="jobId" :jobHasFinished="gatewayStatus" simulation="uncertainty"></atom-display-job-number>
+        <atom-input-job-i-d @setJobId="setJobId" simulation="uncertainty"></atom-input-job-i-d>
+<!--        <atom-display-job-number @click="runGetResults()" v-if="jobId" :jobId="jobId" :jobHasFinished="gatewayStatus" simulation="uncertainty"></atom-display-job-number>-->
         <atom-checked-parameters :checked="checkedParameters" :sampleNumber="sampleNumber" :biorefinery="selectedBiorefinery"></atom-checked-parameters>
         <atom-biorefinery-diagram v-if="selectedBiorefinery == 'Select a biorefinery'" :diagram="'Select a biorefinery'" simulation="uncertainty"></atom-biorefinery-diagram>
-        <atom-biorefinery-diagram v-else :diagram="parameters[selectedBiorefinery][0].diagram" simulation="uncertainty"></atom-biorefinery-diagram>
-        <div v-if="biosteamResults!=null">
-          {{biosteamResults}}
-        </div>
+        <atom-biorefinery-diagram v-else :diagram="parameters[selectedBiorefinery].diagram" simulation="uncertainty"></atom-biorefinery-diagram>
+<!--        <div v-if="biosteamResults!=null">-->
+<!--          {{biosteamResults}}-->
+<!--        </div>-->
         <div class="w-5/6 flex justify-between pb-10 pt-8">
           <atom-box-plot-info></atom-box-plot-info>
-          <box-plot v-if="selectedBiorefinery !== 'Select a biorefinery'" :boxplot="biosteamResults" :options="parameters[selectedBiorefinery][0].metrics"></box-plot>
+          <box-plot v-if="selectedBiorefinery !== 'Select a biorefinery'" :boxplot="biosteamResults" :options="parameters[selectedBiorefinery].metrics"></box-plot>
           <box-plot v-else :boxplot="biosteamResults" :options="['Select a biorefinery']"></box-plot>
         </div>
         <atom-spearman-info></atom-spearman-info>
-        <spearmans-graph class="w-5/6 pb-10" :spearman="biosteamSpearmanResults" :options="spearman.cornstoverSpearmanOptions"></spearmans-graph>
+        <spearmans-graph class="w-5/6 pb-10" :spearman="biosteamSpearmanResults" :options="parameters[selectedBiorefinery].metrics"></spearmans-graph>
       </template>
     </atom-simulate-layout>
   </div>
@@ -177,6 +179,7 @@ import AtomSpearmanInfo from "@/components/atoms/AtomSpearmanInfo.vue";
 import MoleculeDropdownNav from '@/components/molecules/MoleculeDropdownNav.vue';
 import AtomSetSamples from '@/components/atoms/AtomSetSamples.vue';
 import OrganismUncertaintyParameterForm from '@/components/organisms/OrganismUncertaintyParameterForm.vue';
+import AtomInputJobID from "@/components/atoms/AtomInputJobID";
 // import UncertainParameter from "@/components/UncertainParameter.vue";
 // import SetNumberSamples from "@/components/SetNumberSamples.vue";
 // import AppButton from "@/components/AppButton.vue";
@@ -203,6 +206,7 @@ export default {
     AtomSpearmanInfo,
     MoleculeDropdownNav,
     OrganismUncertaintyParameterForm,
+    AtomInputJobID,
 
     // UncertainParameter,
     // SetNumberSamples,
@@ -218,7 +222,7 @@ export default {
     return {
       selectedSimulate: 'Simulation with uncertainty',
       selectedBiorefinery: 'Select a biorefinery',
-      sampleNumber: 0,
+      sampleNumber: 1,
       parameters: parameters,
       spearman: spearman,
       biosteamResults: null,
@@ -246,9 +250,9 @@ export default {
       // }
 
       if(this.selectedBiorefinery != 'Select a biorefinery') {
-        for(let i=0; i<this.parameters[this.selectedBiorefinery][0].parameters.length; i++) {
-          if(this.parameters[this.selectedBiorefinery][0].parameters[i].checked == true) {
-            list.push(this.parameters[this.selectedBiorefinery][0].parameters[i])
+        for(let i=0; i<this.parameters[this.selectedBiorefinery].parameters.length; i++) {
+          if(this.parameters[this.selectedBiorefinery].parameters[i].checked == true) {
+            list.push(this.parameters[this.selectedBiorefinery].parameters[i])
           }
         }
       }
@@ -256,6 +260,11 @@ export default {
     },
   },
   methods: {
+    setJobId(value) {
+      this.jobId = value
+      this.gatewayStatus = null
+      console.log(this.jobId)
+    },
     selectSimulate(value) {
       console.log(value)
     },
@@ -286,6 +295,7 @@ export default {
     // },
 
     runSimulation() {
+      this.gatewayStatus = null
       console.log("here");
       //set loading visuals 
       this.loading = true;
@@ -294,6 +304,7 @@ export default {
         model: this.selectedBiorefinery,
         params: this.checkedParameters,
         samples: this.sampleNumber,
+        sim_type: "uncertainty",
       };
       console.log(payload);
       //call biosteamHelper lambda with payload
@@ -320,8 +331,8 @@ export default {
       //set axios configs 
       let payload = {
         // jobId: 'd83a9520-9956-4221-a3ef-4f53f35e4d97' //cornstover
-        jobId: '65d24c29-2b22-4c8d-9bcd-e806d0663314' //oilcane
-        // jobId: this.jobId
+        // jobId: '55cb9e41-84a2-4752-9753-b45fc24eab9a' //oilcane spearman
+        jobId: this.jobId
       };
       // const configHeaders = {
       //   "Access-Control-Allow-Methods": "POST, GET, OPTIONS, PUT, DELETE",
