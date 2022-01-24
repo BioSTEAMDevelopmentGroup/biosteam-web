@@ -19,7 +19,7 @@
           <organism-single-parameter-form v-model="parameters[selectedBiorefinery].parameters" :parameters="parameters[selectedBiorefinery].parameters"></organism-single-parameter-form>
         </div>
 
-        <atom-form-error :errors="['parameter errors here']"></atom-form-error>
+<!--        <atom-form-error :errors="['parameter errors here']"></atom-form-error>-->
         <atom-button :type="'parentDef'" @click="runSimulation()" class="w-full bg-cdarkgreenblue bg-opacity-70 hover:bg-opacity-100 text-white text-lg">Run simulation</atom-button>
       </template>
 
@@ -106,7 +106,7 @@ import refineries from '@/assets/simulation/refineries.json';
 import AtomSimulateLayout from '@/components/atoms/AtomSimulateLayout.vue';
 import AtomButton from '@/components/atoms/AtomButton.vue';
 import AtomSimulateSingleTable from '@/components/atoms/AtomSimulateSingleTable.vue';
-import AtomFormError from '@/components/atoms/AtomFormError.vue';
+// import AtomFormError from '@/components/atoms/AtomFormError.vue';
 import AtomLoadingScreen from "@/components/atoms/AtomLoadingScreen.vue";
 import AtomDisplayJobNumber from "@/components/atoms/AtomDisplayJobNumber.vue";
 import MoleculeDropdownNav from '@/components/molecules/MoleculeDropdownNav.vue';
@@ -129,7 +129,7 @@ export default {
     AtomSimulateLayout,
     AtomButton,
     AtomSimulateSingleTable,
-    AtomFormError,
+    // AtomFormError,
     AtomLoadingScreen,
     AtomDisplayJobNumber,
     MoleculeDropdownNav,
