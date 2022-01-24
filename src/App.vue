@@ -19,7 +19,7 @@ export default {
     return{ 
       items: [
         {name: 'Home', link: '/'},
-        {name: 'About', link: '/resources'},
+        {name: 'About', link: '/about'},
         {name: 'Publications', link: '/publications'},
         {name: 'Docs', link: '/docs'},
         {name: 'Simulate', link: '/simulate'},

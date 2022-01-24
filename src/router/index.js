@@ -37,7 +37,7 @@ Vue.use(VueRouter)
     component: SimulateUncertainty
   },
   {
-    path: '/resources',
+    path: '/about',
     name: 'Resources',
     component: Resources
   },

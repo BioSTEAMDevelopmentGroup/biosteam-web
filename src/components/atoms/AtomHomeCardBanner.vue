@@ -16,7 +16,7 @@
         <div class="flex items-center justify-evenly text-cfontgrey text-lg mt-8" style="width: 100%">
           <a href="https://biosteam.readthedocs.io/en/latest/index.html" target="_blank" class="w-1/5 bg-cgreenblue text-cdark shadow-md hover:shadow-lg rounded-full text-lg py-2 px-4" style="text-align: center">Read the Docs</a>
           <a href="http://github.com/bioSTEAMDevelopmentGroup/biosteam" target="_blank" class="w-1/5 bg-cgreenblue text-cdark shadow-md hover:shadow-lg rounded-full text-lg py-2 px-4" style="text-align: center">Git Source Code</a>
-          <atom-button :link="'/resources'" target="_blank" class="w-1/5 bg-cgreenblue text-cdark shadow-md hover:shadow-lg">About BioSTEAM</atom-button>
+          <atom-button :link="'/about'" target="_blank" class="w-1/5 bg-cgreenblue text-cdark shadow-md hover:shadow-lg">About BioSTEAM</atom-button>
           <atom-button :link="'/publications'" target="_blank" class="w-1/5 bg-cgreenblue text-cdark shadow-md hover:shadow-lg">Publications</atom-button>
 <!--          <a href="https://biosteam.readthedocs.io/en/latest/index.html" target="_blank" class="w-1/5 bg-cgreenblue text-cdark shadow-md hover:shadow-lg rounded-full text-lg py-2 px-4" style="text-align: center">Read Publications</a>-->
         </div>
