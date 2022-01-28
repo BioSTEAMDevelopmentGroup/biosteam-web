@@ -39,15 +39,18 @@ export default {
                 type:"box",
                 name: "",
                 marker: {color: '#1D7F3D'},
+                title: null,
             },
             layout: {
                 hovermode: "closest",
                 hoverlabel: { bgcolor: "#FFF" },
+
                 yaxis: {
                     zeroline: true,
                     gridcolor: '#d1d5db',
                     zerolinecolor: '#d1d5db',
                     zerolinewidth: 2,
+                    hoverformat: '.3f',
                 },
                 margin: {
                     l: 55,
@@ -80,7 +83,7 @@ export default {
             // }
             if (this.boxplot !== null) {
               data.y = this.boxplot[this.selected]
-              data.name = this.selected
+              data.title = this.selected
               return [data]
             }
             data.y = [0]
