@@ -5,7 +5,7 @@
                 <span class="bg-clip-text text-transparent bg-gradient-to-r from-cdarkgreenblue to-cblue">
                     Fast, robust, and
                     <br> open-source
-                     <br> biorefinery simulations
+                     <br> Biorefinery Simulations
                 </span>
             </div>
             <p class="text-cfontgrey text-xl pb-5 ">Powered by BioSTEAM: An open-source biorefinery modeling tool.</p>

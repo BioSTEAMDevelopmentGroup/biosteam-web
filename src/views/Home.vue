@@ -33,11 +33,13 @@
       <div class="absolute z-20 top-0 left-3/5 w-20 h-10" :style="{'background-image': `url(${require('@/assets/home/info-pulldown.svg')})`}"></div>
       <molecule-home-info class="relative z-10 h-1/2 w-full pt-12 px-8" :link="'/simulate/simulate-single'" direction="left" img="home/screenshot1.png">
           <template #title>Single-point simulation</template>
-          <template #description>Given user-input (or default) values for each parameter in a single scenario describing feedstock composition, biorefinery design and operation, and financial assumptions, a Techno-Economic Analysis (TEA) and a Life Cycle Impact Assessment (LCIA) estimate respectively the economic and environmental sustainability for that scenario.</template>
+<!--          <template #description>Given user-input (or default) values for each parameter in a single scenario describing feedstock composition, biorefinery design and operation, and financial assumptions, a Techno-Economic Analysis (TEA) and a Life Cycle Impact Assessment (LCIA) estimate respectively the economic and environmental sustainability for that scenario.</template>-->
+          <template #description>Simulate a biorefinery using custom assumptions on finance, design, operation, and performance. Critical economic and environmental sustainability indicators are evaluated through Techno-Economic Analysis (TEA) and a Life Cycle Impact Assessment (LCIA), respectively.</template>
       </molecule-home-info>
       <molecule-home-info class="relative z-10 h-1/2 w-full p-10" :link="'/simulate/simulate-uncertainty'" direction="right" img="home/screenshot2.png">
           <template #title>Simulation with uncertainty</template>
-          <template #description>Given user-input (or default) distributions of parameters describing feedstock composition, biorefinery design and operation, and financial assumptions, across the breadth of scenarios so generated, Techno-Economic Analyses (TEAs) and Life Cycle Impact Assessments (LCIAs) estimate respectively the economic and environmental sustainability with results represented as 95% confidence intervals.</template>  
+<!--          <template #description>Given user-input (or default) distributions of parameters describing feedstock composition, biorefinery design and operation, and financial assumptions, across the breadth of scenarios so generated, Techno-Economic Analyses (TEAs) and Life Cycle Impact Assessments (LCIAs) estimate respectively the economic and environmental sustainability with results represented as 95% confidence intervals.</template>  -->
+          <template #description>Evaluate a biorefinery across a landscape of custom assumptions on finance, design, operation, and performance. TEA and LCA sustainability indicators are presented in the form of the median and 5th, 25th, 75th, and 95th percentiles.</template>
       </molecule-home-info>
     </div>
 
