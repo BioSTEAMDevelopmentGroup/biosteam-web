@@ -3,8 +3,7 @@
         <div class="flex flex-col justify-center items-center w-4/5">
             <div class="text-6xl font-extrabold pb-3 w-6/7">
                 <span class="bg-clip-text text-transparent bg-gradient-to-r from-cdarkgreenblue to-cblue">
-                    Fast, robust, and
-                    <br> open-source
+                    Fast and Robust
                      <br> Biorefinery Simulations
                 </span>
             </div>
