@@ -1,6 +1,6 @@
 <template>
   <div class=" flex justify-center items-center bg-clightblue">
-    <div>
+    <div class="pt-10">
       <div class="flex items-center justify-evenly text-cfontgrey text-lg">
         <!--        <div>-->
         <!--            <p>Email - jsguest@illinois.edu</p>-->
@@ -19,9 +19,9 @@
             <img src="../../assets/footer/guest_logo.png" alt="Guest Research Group Logo">
           </a>
         </div>
-        <div class="w-1/4 pt-11">
-          <a href="https://cabbi.bio/" target="_blank">
-            <img src="../../assets/footer/cabbi_logo.png" alt="CABBI Logo">
+        <div class="flex w-1/4 pt-6 justify-center">
+          <a href="https://cabbi.bio/" target="_blank" class="justify-center">
+            <img style="height: 6rem;" src="../../assets/footer/cabbi_logo.png" alt="CABBI Logo">
           </a>
         </div>
         <div class="w-1/4">
