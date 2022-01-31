@@ -22,15 +22,17 @@
 <!--  </div>-->
   <div class="bg-gray-100 bg-opacity-80 shadow-lg rounded-md ">
     <div class="relative z-10  bg-gray-400 flex flex-col shadow-md" >
-      <h1 class="text-white text-4xl  p-5" style="padding-bottom: 1em"><slot name="title">Card Title</slot></h1>
+      <h1 class="text-white text-4xl p-5" style="padding-bottom: 1em"><slot name="title">Card Title</slot></h1>
 <!--      <div class="w-full flex justify-end absolute inset-x-0 py-2 px-6">-->
 <!--        <img class="shadow-xl rounded-full bg-gray-100 border-4 border-gray-400 h-20 w-20 p-1" :src="require('@/assets/resources/' + logo + '')" alt="card logo">-->
 <!--      </div>-->
     </div>
     <div class="flex flex-col justify-center  py-5 px-7">
-      <div class="flex py-8">
-        <img class="shadow-xl bg-gray-100 border-1 border-gray-400 h-auto w-80" :src="require('@/assets/resources/' + logo + '')" alt="card logo"><slot name = "logo"></slot>
-        <div class="justify-end flex flex-col px-5">
+      <div class="flex py-8 w-100">
+        <div class="w-1/3">
+          <img class="shadow-xl bg-gray-100 border-1 border-gray-400" :src="require('@/assets/resources/' + logo + '')" alt="card logo"><slot name = "logo"></slot>
+        </div>
+        <div class="justify-end flex flex-col px-5 w-2/3">
           <p class="pb-5"><slot name="description">Lorem, ipsum dolor in deleniti laudantium asperiores porro sequi.</slot></p>
           <div class=" flex">
             <img class="shadow-xl full bg-gray-100 h-20 w-40 p-1" :src="require('@/assets/resources/' + journal + '')" alt="card journal"><slot name= "journal"></slot>
