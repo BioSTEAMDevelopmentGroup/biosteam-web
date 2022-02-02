@@ -11,10 +11,10 @@
                 <h1 class="text-cfontgrey text-2xl text-center">Biorefinery Diagram</h1>
             </div>
 <!--            <div v-if="biorefinery == 'Oilcane'" class="">-->
-<!--                <img :src="require('@/assets/simulation/oilcane_flowsheet.png')">-->
+<!--                <img :src="require('@/assets/simulation/oilcane_diagram.png')">-->
 <!--            </div>-->
 <!--            <div v-if="biorefinery == 'Cornstover'" class="">-->
-<!--                <img :src="require('@/assets/simulation/cornstover_flowsheet.png')">-->
+<!--                <img :src="require('@/assets/simulation/cornstover_diagram.png')">-->
 <!--            </div>-->
           <div v-if="diagram == 'Select a biorefinery'" class="">
             <h2 class="text-2xl text-cfontgrey">Select a biorefinery</h2>
