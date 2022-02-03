@@ -75,7 +75,7 @@
                 "values": {
                     "lower": 85.5,
                     "mode": 95.0,
-                    "upper": 104.50000000000001,
+                    "upper": 98.0,
                     "baseline": 95.0
                 },
                 "info": "extent of reaction, glucose -> 2 ethanol + 2 CO2, in enzyme hydrolysis"
