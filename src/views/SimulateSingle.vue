@@ -20,7 +20,7 @@
         </div>
 
 <!--        <atom-form-error :errors="['parameter errors here']"></atom-form-error>-->
-        <atom-button :type="'parentDef'" @click="runSimulation()" class="w-full bg-cdarkgreenblue bg-opacity-70 hover:bg-opacity-100 text-white text-lg">Run simulation</atom-button>
+        <atom-button :type="'parentDef'" @click="runSimulation()" class="w-full bg-cdarkgreenblue bg-opacity-70 hover:bg-opacity-100 text-white text-lg">Run Simulation</atom-button>
       </template>
 
       <!-- Simulation nav -->

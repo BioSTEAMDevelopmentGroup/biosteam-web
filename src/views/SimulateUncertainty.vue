@@ -20,7 +20,7 @@
         </div>
 
         <atom-set-samples v-model.number="sampleNumber" :sampleNumber="sampleNumber"></atom-set-samples>
-        <atom-button :type="'parentDef'" @click="runSimulation()" class="w-full bg-corange bg-opacity-70 hover:bg-opacity-100 text-white text-lg">Run simulation</atom-button>
+        <atom-button :type="'parentDef'" @click="runSimulation()" class="w-full bg-corange bg-opacity-70 hover:bg-opacity-100 text-white text-lg">Run Simulation</atom-button>
 <!--        <atom-button @click="runSimulation()" class="w-full bg-corange bg-opacity-70 hover:bg-opacity-100 text-white text-lg" :disabled="selectedBiorefinery == 'Select a biorefinery'">Run simulation</atom-button>-->
       </template>
 
