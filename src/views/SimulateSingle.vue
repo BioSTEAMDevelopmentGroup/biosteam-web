@@ -41,7 +41,9 @@
           <atom-loading-screen simulation="single-point"></atom-loading-screen>
         </div>
 <!--        <atom-display-job-number v-if="jobId" :jobId="jobId" simulation="single-point"></atom-display-job-number>-->
-        <atom-biorefinery-diagram :biorefinery="selectedBiorefinery" simulation="single-point"></atom-biorefinery-diagram>
+        <atom-biorefinery-diagram v-if="selectedBiorefinery == 'Select a biorefinery'" :diagram="'Select a biorefinery'" simulation="uncertainty"></atom-biorefinery-diagram>
+        <atom-biorefinery-diagram v-else :diagram="parameters[selectedBiorefinery].diagram" simulation="single-point"></atom-biorefinery-diagram>
+<!--        <atom-biorefinery-diagram :biorefinery="selectedBiorefinery" simulation="single-point"></atom-biorefinery-diagram>-->
         <atom-simulate-single-table :metrics="parameters[selectedBiorefinery].metrics" :results="results"></atom-simulate-single-table>
       </template>
     </atom-simulate-layout>
