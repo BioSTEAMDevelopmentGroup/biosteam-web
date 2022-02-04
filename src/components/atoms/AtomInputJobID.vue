@@ -9,7 +9,7 @@
       </div>
       <p class="pb-2"></p>
       <div class="overflow-auto">
-      <atom-button :type="'parentDef'" @click="submitId()" class="text-white text-lg bg-green-700 float-right">Submit JobID</atom-button>
+      <atom-button :type="'parentDef'" @click="submitId()" class="text-white text-lg bg-green-700 float-right">Submit Job ID</atom-button>
       </div>
     </div>
   </div>
