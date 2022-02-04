@@ -9,7 +9,7 @@
             </div>
         </div>
         <div class="h-10 flex justify-center items-center px-4">
-            <input @input="refreshCheck()" v-model.number="parameter.values.baseline" type="number" placeholder="Parameter value" class="w-full rounded-sm text-center">
+            <input v-model.number="parameter.values.baseline" type="number" placeholder="Parameter value" class="w-full rounded-sm text-center">
         </div>
     </div>
 </template>

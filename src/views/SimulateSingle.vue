@@ -179,9 +179,9 @@ export default {
 
       if(this.selectedBiorefinery != 'Select a biorefinery') {
         for(let i=0; i<this.parameters[this.selectedBiorefinery].parameters.length; i++) {
-          if(this.parameters[this.selectedBiorefinery].parameters[i].checked == true) {
+          // if(this.parameters[this.selectedBiorefinery].parameters[i].checked == true) {
             list.push(this.parameters[this.selectedBiorefinery].parameters[i])
-          }
+          // }
         }
       }
       return list;
