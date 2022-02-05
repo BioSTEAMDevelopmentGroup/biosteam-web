@@ -121,7 +121,7 @@
             },
             {
                 "name": "Enzyme price",
-                "units": "$USD/ton",
+                "units": "USD/ton",
                 "checked": false,
                 "distribution": "Uniform",
                 "values": {
