@@ -1,7 +1,7 @@
 <template>
     <div class="divide-gray-400 divide-y">
         <div v-for="block in docsList" :key="block.name">
-            <molecule-docs-list :list="block"></molecule-docs-list>
+            <molecule-docs-list :list="block" ></molecule-docs-list>
         </div>
     </div>
 </template>

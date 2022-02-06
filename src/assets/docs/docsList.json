@@ -1,45 +1,122 @@
 {
-   "docs": [
-        {
-            "name": "Types of simulation", 
-            "subcategories": [
-                "Single point", 
-                "With uncertainty"
-            ]
+  "current_img": "",
+  "docs": [
+    {
+      "name": "Single point simulation",
+      "subcategories": {
+        "Selecting Simulation Type": {
+          "img": "doc_slides_v03-1.jpg",
+          "num": 0
         },
-
-        {
-            "name": "Biorefinery options", 
-            "subcategories": [
-                "Selecting a biorefinery", 
-                "Biorefinery resources"
-            ]
+        "Selecting a Biorefinery": {
+          "img": "doc_slides_v03-2.jpg",
+          "num": 1
         },
-
-        {
-            "name": "Single point simulation", 
-            "subcategories": [
-                "Selecting a biorefinery", 
-                "Default values", 
-                "Parameters limits",
-                "Evaluated metrics",
-                "Downloading results",
-                "Additional resources"
-            ]
+        "Changing Parameters": {
+          "img": "doc_slides_v03-3.jpg",
+          "num": 2
         },
-
-        {
-            "name": "Simulation with uncertaity", 
-            "subcategories": [
-                "Selecting a biorefinery", 
-                "Distribution types", 
-                "Sample limits",
-                "Parameters limits",
-                "Evaluated metrics",
-                "Downloading results",
-                "Retrieving old job results",
-                "Additional resources"
-            ]
+        "Running Simulations": {
+          "img": "doc_slides_v03-4.jpg",
+          "num": 3
+        },
+        "Loading Screen": {
+          "img": "doc_slides_v03-5.jpg",
+          "num": 4
+        },
+        "Tracking Numbers": {
+          "img": "doc_slides_v03-6.jpg",
+          "num": 5
+        },
+        "Fetching Results": {
+          "img": "doc_slides_v03-7.jpg",
+          "num": 6
+        },
+        "Loading Previous Runs": {
+          "img": "doc_slides_v03-8.jpg",
+          "num": 7
+        },
+        "Downloading Results": {
+          "img": "doc_slides_v03-9.jpg",
+          "num": 8
         }
-    ]
+      }
+    },
+    {
+      "name": "Simulation with uncertainty",
+      "subcategories": {
+        "Slecting a Simulation Type": {
+          "img": "doc_slides_v03-10.jpg",
+          "num": 9
+        },
+        "Selecting a Biorefinery": {
+          "img": "doc_slides_v03-11.jpg",
+          "num": 10
+        },
+        "Adding Parameters": {
+          "img": "doc_slides_v03-12.jpg",
+          "num": 12
+        },
+        "Changing Parameters": {
+          "img": "doc_slides_v03-13.jpg",
+          "num": 13
+        },
+        "Monte Carlo Simulations": {
+          "img": "doc_slides_v03-14.jpg",
+          "num": 14
+        },
+        "Running Simulations": {
+          "img": "doc_slides_v03-15.jpg",
+          "num": 15
+        },
+        "Loading Screen": {
+          "img": "doc_slides_v03-16.jpg",
+          "num": 16
+        },
+        "Tracking Number": {
+          "img": "doc_slides_v03-17.jpg",
+          "num": 17
+        },
+        "Fetching Results": {
+          "img": "doc_slides_v03-18.jpg",
+          "num": 18
+        },
+        "Loading Previous Results": {
+          "img": "doc_slides_v03-19.jpg",
+          "num": 19
+        },
+        "Results Box Plot": {
+          "img": "doc_slides_v03-20.jpg",
+          "num": 20
+        },
+        "Spearman Results": {
+          "img": "doc_slides_v03-21.jpg",
+          "num": 21
+        }
+      }
+    }
+  ],
+  "slides": [
+    "doc_slides_v03-1.jpg",
+    "doc_slides_v03-2.jpg",
+    "doc_slides_v03-3.jpg",
+    "doc_slides_v03-4.jpg",
+    "doc_slides_v03-5.jpg",
+    "doc_slides_v03-6.jpg",
+    "doc_slides_v03-7.jpg",
+    "doc_slides_v03-8.jpg",
+    "doc_slides_v03-9.jpg",
+    "doc_slides_v03-10.jpg",
+    "doc_slides_v03-11.jpg",
+    "doc_slides_v03-12.jpg",
+    "doc_slides_v03-13.jpg",
+    "doc_slides_v03-14.jpg",
+    "doc_slides_v03-15.jpg",
+    "doc_slides_v03-16.jpg",
+    "doc_slides_v03-17.jpg",
+    "doc_slides_v03-18.jpg",
+    "doc_slides_v03-19.jpg",
+    "doc_slides_v03-20.jpg",
+    "doc_slides_v03-21.jpg"
+  ]
 }
