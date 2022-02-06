@@ -40,7 +40,7 @@
               <!-- Main content -->
               <div class="w-full h-full overflow-y-scroll flex flex-col justify-start items-center px-4 pb-14">
                   <slot name="mainContent">
-                    <h1 class="pt-60 text-cfontgrey text-center text-xl">Select a biorefinery</h1>
+                    <h1 class="pt-60 text-cfontgrey text-center text-3xl">Start simulating now or refer to the <router-link :to="'/docs'"><u>Docs</u></router-link> on how.</h1>
                   </slot>
               </div>
           </div>
