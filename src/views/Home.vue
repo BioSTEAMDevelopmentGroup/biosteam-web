@@ -34,7 +34,7 @@
       <molecule-home-info class="relative z-10 h-1/2 w-full pt-12 px-8" :link="'/simulate/simulate-single'" direction="left" img="home/screenshot1.png">
           <template #title>Single-point simulation</template>
 <!--          <template #description>Given user-input (or default) values for each parameter in a single scenario describing feedstock composition, biorefinery design and operation, and financial assumptions, a Techno-Economic Analysis (TEA) and a Life Cycle Impact Assessment (LCIA) estimate respectively the economic and environmental sustainability for that scenario.</template>-->
-          <template #description>Simulate a biorefinery using custom assumptions on finance, design, operation, and performance. Critical economic and environmental sustainability indicators are evaluated through Techno-Economic Analysis (TEA) and a Life Cycle Impact Assessment (LCIA), respectively.</template>
+          <template #description>Simulate a biorefinery using custom assumptions on finance, design, operation, and performance. Critical economic and environmental sustainability indicators are evaluated through techno-economic analysis (TEA) and life cycle assessment (LCA), respectively.</template>
       </molecule-home-info>
       <molecule-home-info class="relative z-10 h-1/2 w-full p-10" :link="'/simulate/simulate-uncertainty'" direction="right" img="home/screenshot2.png">
           <template #title>Simulation with uncertainty</template>
