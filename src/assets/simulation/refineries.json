@@ -400,14 +400,14 @@
             "Ethanol production [Gal/ton]",
             "Electricity production [kWhr/ton]",
             "Natural gas consumption [cf/ton]",
-            "Ethanol GWP, economic allocation [kg*CO2*eq / USD]",
+            "Ethanol GWP, economic allocation [kg*CO2*eq / gal]",
             "Biodiesel GWP, economic allocation [kg*CO2*eq / gal]",
-            "Crude glycerol GWP, economic allocation [kg*CO2*eq / gal]",
-            "Electricity GWP, economic allocation [kg*CO2*eq / kg]",
-            "Ethanol GWP, displacement allocation [kg*CO2*eq / MWhr]",
-            "Ethanol GWP, energy allocation [kg*CO2*eq / GGE]",
+            "Crude glycerol GWP, economic allocation [kg*CO2*eq / kg]",
+            "Electricity GWP, economic allocation [kg*CO2*eq / MWhr]",
+            "Ethanol GWP, displacement allocation [kg*CO2*eq / gal]",
+            "Ethanol GWP, energy allocation [kg*CO2*eq / gal]",
             "Biodiesel GWP, energy allocation [kg*CO2*eq / gal]",
-            "Crude glycerol GWP, energy allocation [kg*CO2*eq / gal]"
+            "Crude glycerol GWP, energy allocation [kg*CO2*eq / kg]"
         ]
     }
 }
